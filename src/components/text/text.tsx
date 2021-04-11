@@ -2,6 +2,7 @@
 import React from 'react';
 import { Text as ThemeUiText } from 'theme-ui';
 import { colors } from '../theme/theme.colors';
+import * as styles from './text.styles';
 
 export type TextVariant =
   | 'hero'
@@ -17,15 +18,18 @@ export type TextVariant =
 
 export interface TextProps {
   /** The type of DOM element to render
-   * @example 'p'
+   * @default 'div'
    */
   as?: React.ElementType<any>;
   /** The text variant
    * @default 'body'
    */
   variant?: TextVariant;
-  /** @default 'text' */
+  /** The color of the text
+   * @default 'text'
+   */
   color?: keyof typeof colors;
+  /** The text to render */
   children: React.ReactNode;
 }
 
@@ -36,7 +40,7 @@ export const Text: React.FC<TextProps> = ({
   children,
 }) => {
   return (
-    <ThemeUiText as={as} sx={{ variant: `text.${variant}`, color: color }}>
+    <ThemeUiText as={as} sx={styles.textCss({ variant, color })}>
       {children}
     </ThemeUiText>
   );

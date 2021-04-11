@@ -1,5 +1,5 @@
 import { ThemeUIStyleObject } from 'theme-ui';
-import { colors } from '../../theme/theme.colors';
+import { colors } from '../theme/theme.colors';
 import { TextVariant } from './text';
 
 export interface textCssProps {
@@ -7,10 +7,10 @@ export interface textCssProps {
   color: keyof typeof colors;
 }
 
-export const textCss = (props: textCssProps): ThemeUIStyleObject => {
+export const textCss = ({ variant, color }: textCssProps): ThemeUIStyleObject => {
   const css: any = {
-    variant: `text.${props.variant}`,
-    color: props.color,
+    variant: `text.${variant}`,
+    color: color,
   };
 
   return css;
