@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 import React from 'react';
 import { Text as ThemeUiText } from 'theme-ui';
-import { colors } from '../../theme/theme.colors';
+import { colors } from '../theme/theme.colors';
 
 export type TextVariant =
   | 'hero'
