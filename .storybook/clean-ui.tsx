@@ -3,13 +3,13 @@ import React, { useEffect } from 'react';
 import { create } from '@storybook/theming';
 import { useDarkMode } from 'storybook-dark-mode';
 import { useColorMode } from 'theme-ui';
-import { ThemeProvider } from '../src/theme/theme.provider';
+import { ThemeProvider } from '../src/components/theme/theme.provider';
 
 export const cleanUiStorybookTheme = create({ base: 'light' });
 
 const ThemeChanger = () => {
   const isDarkMode = useDarkMode();
-  const [mode, setColorMode] = useColorMode();
+  const [, setColorMode] = useColorMode();
 
   useEffect(() => {
     setColorMode(isDarkMode ? 'dark' : 'light');

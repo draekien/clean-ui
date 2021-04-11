@@ -9,9 +9,14 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "eslint \"**/*.tsx\" \"**/*.ts\" && tsc --noEmit false",
+    "build": "yarn lint && yarn test && tsc --noEmit false",
+    "dev": "yarn storybook",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "test": "jest --coverage",
+    "test-update": "jest --u",
+    "test-watch": "jest --coverage --watch --u",
+    "lint": "eslint \"*.js\" \"**/*.tsx\" \"**/*.ts\""
   },
   "peerDependencies": {
     "react": "^17.0.2",
@@ -29,6 +34,10 @@
     "@storybook/addon-essentials": "^6.2.7",
     "@storybook/addon-links": "^6.2.7",
     "@storybook/react": "^6.2.7",
+    "@testing-library/jest-dom": "5.11.10",
+    "@testing-library/react": "11.2.6",
+    "@testing-library/user-event": "13.1.2",
+    "@types/jest": "26.0.22",
     "@types/node": "14.14.37",
     "@types/react": "17.0.3",
     "@types/react-dom": "17.0.3",
@@ -43,10 +52,10 @@
     "prettier": "2.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-testing-library": "8.0.1",
     "storybook-dark-mode": "1.0.7",
     "theme-ui": "0.6.2",
     "ts-jest": "26.5.4",
+    "ts-node": "9.1.1",
     "typescript": "^4.2.4"
   },
   "dependencies": {}
