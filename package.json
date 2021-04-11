@@ -1,0 +1,53 @@
+{
+  "name": "clean-ui",
+  "version": "0.0.0-semantic-released",
+  "license": "MIT",
+  "private": false,
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "eslint \"**/*.tsx\" \"**/*.ts\" && tsc --noEmit false",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "theme-ui": "^0.6.0-alpha.8"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.14",
+    "@babel/core": "^7.13.15",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-react": "^7.13.13",
+    "@babel/preset-typescript": "7.13.0",
+    "@storybook/addon-a11y": "6.2.7",
+    "@storybook/addon-actions": "^6.2.7",
+    "@storybook/addon-essentials": "^6.2.7",
+    "@storybook/addon-links": "^6.2.7",
+    "@storybook/react": "^6.2.7",
+    "@types/node": "14.14.37",
+    "@types/react": "17.0.3",
+    "@types/react-dom": "17.0.3",
+    "@typescript-eslint/eslint-plugin": "4.21.0",
+    "@typescript-eslint/parser": "4.21.0",
+    "babel-loader": "^8.2.2",
+    "eslint": "7.24.0",
+    "eslint-config-prettier": "8.1.0",
+    "eslint-plugin-react": "7.23.2",
+    "jest": "26.6.3",
+    "parcel-bundler": "^1.12.5",
+    "prettier": "2.2.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-testing-library": "8.0.1",
+    "storybook-dark-mode": "1.0.7",
+    "theme-ui": "0.6.2",
+    "ts-jest": "26.5.4",
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {}
+}
