@@ -1,17 +1,37 @@
 import { ThemeUIStyleObject } from 'theme-ui';
+import { HorizontalAlignment } from '../../types/alignments';
 import { colors } from '../theme/theme.colors';
-import { TextVariant } from './text';
+import { textVariants } from '../theme/theme.variants';
 
 export interface textCssProps {
-  variant: TextVariant;
+  variant: keyof typeof textVariants;
   color: keyof typeof colors;
+  textAlign: HorizontalAlignment;
+  fullWidth: boolean;
+  truncate: boolean;
 }
 
-export const textCss = ({ variant, color }: textCssProps): ThemeUIStyleObject => {
+export const textCss = ({
+  variant,
+  color,
+  textAlign,
+  truncate,
+  fullWidth,
+}: textCssProps): ThemeUIStyleObject => {
   const css: any = {
     variant: `text.${variant}`,
     color: color,
+    display: fullWidth ? 'block' : 'inline-block',
+    textAlign: textAlign,
   };
+
+  if (truncate) {
+    css.overflow = 'hidden';
+    css.textOverflow = 'ellipsis';
+    css.whiteSpace = 'nowrap';
+    css.display = 'inline-block';
+    css.maxWidth = '100%';
+  }
 
   return css;
 };

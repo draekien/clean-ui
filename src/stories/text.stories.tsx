@@ -37,3 +37,23 @@ export const Variants = () => (
     </div>
   </div>
 );
+
+export const TextAlignments = () => (
+  <div style={{ width: '20rem' }}>
+    <Text textAlign="left" fullWidth>
+      Left aligned
+    </Text>
+    <Text textAlign="center" fullWidth>
+      Center aligned
+    </Text>
+    <Text textAlign="right" fullWidth>
+      Right aligned
+    </Text>
+  </div>
+);
+
+export const Truncated = () => (
+  <div style={{ width: '5rem' }}>
+    <Text truncate>I'm some really long text that needs to be truncated</Text>
+  </div>
+);
