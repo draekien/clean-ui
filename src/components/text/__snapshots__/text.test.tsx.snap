@@ -3,7 +3,7 @@
 exports[`Text Component Should match snapshot 1`] = `
 <div>
   <div
-    class="css-1wo51a-Text"
+    class="css-1gkmhjl-Text"
   >
     Hero
   </div>

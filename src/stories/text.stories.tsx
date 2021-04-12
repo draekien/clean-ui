@@ -1,6 +1,7 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { Text, TextProps } from '..';
+import { Tooltip } from '../components/tooltip/tooltip';
 
 export default {
   title: 'Components/Text',
@@ -16,7 +17,9 @@ Default.args = {
 
 export const Variants = () => (
   <div>
-    <Text>Here is a preview of all the text variants available in this library:</Text>
+    <Text variant="subtitle">
+      Here is a preview of all the text variants available in this library:
+    </Text>
     <div
       style={{
         display: 'grid',
@@ -53,7 +56,17 @@ export const TextAlignments = () => (
 );
 
 export const Truncated = () => (
-  <div style={{ width: '5rem' }}>
-    <Text truncate>I'm some really long text that needs to be truncated</Text>
+  <div style={{ width: '20rem' }}>
+    <Text variant="subtitle">
+      The text below has the truncate flag set to `true`. It has also been wrapped inside
+      a 'Tooltip' component.
+    </Text>
+    <div style={{ width: '5rem', marginTop: '1rem' }}>
+      <Tooltip
+        text="I'm some really long text that needs to be truncated"
+        direction="bottom">
+        <Text truncate>I'm some really long text that needs to be truncated</Text>
+      </Tooltip>
+    </div>
   </div>
 );
