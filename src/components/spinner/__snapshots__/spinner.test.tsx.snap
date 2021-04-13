@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spinner Component bars variant should match snapshot 1`] = `
+<div>
+  <div
+    class="css-5bicxv-Bars"
+  >
+    <div
+      class="css-1a9qa0f"
+    />
+    <div
+      class="css-1a9qa0f"
+    />
+    <div
+      class="css-1a9qa0f"
+    />
+  </div>
+</div>
+`;
+
+exports[`Spinner Component donut variant should match snapshot 1`] = `
+<div>
+  <div
+    class="css-1luozaz-Donut"
+  />
+</div>
+`;
+
+exports[`Spinner Component dots variant should match snapshot 1`] = `
+<div>
+  <div
+    class="css-10j4viu-Dots"
+  >
+    <div
+      class="css-1crq1ew"
+    />
+    <div
+      class="css-1crq1ew"
+    />
+    <div
+      class="css-1crq1ew"
+    />
+  </div>
+</div>
+`;
+
+exports[`Spinner Component spiral variant should match snapshot 1`] = `
+<div>
+  <div
+    class="css-enyyst-Spiral"
+  />
+</div>
+`;
