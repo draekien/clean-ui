@@ -25,9 +25,3 @@ Positioned.args = {
   text: "Try me out by changing the 'direction' control",
   direction: 'top',
 };
-
-export const WithOnFocusCallback = Template.bind({});
-WithOnFocusCallback.args = {
-  text: 'Some text',
-  onFocus: () => console.log('focused'),
-};
