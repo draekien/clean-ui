@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text } from './text';
-import { themedRender } from '../../config/testHelpers';
+import { themedRender } from '../../helpers/testHelpers';
 import { HorizontalAlignment } from '../../types/alignments';
 
 describe('Text Component', () => {
@@ -18,7 +18,7 @@ describe('Text Component', () => {
   });
 
   it('Should render as inline-block when fullwidth prop is false', () => {
-    const { container } = themedRender(<Text>Text</Text>);
+    const { container } = themedRender(<Text data-testid="text">Text</Text>);
 
     const styles = window.getComputedStyle(container.firstChild as Element);
     expect(styles.display).toBe('inline-block');

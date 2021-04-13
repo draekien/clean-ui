@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Component Should match snapshot 1`] = `
+<div>
+  <button
+    class="css-1661ork-Button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+</div>
+`;

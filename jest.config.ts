@@ -10,5 +10,7 @@ export default {
   coverageReporters: ['json', 'json-summary', 'text', 'lcov', 'lcovonly', 'clover'],
   preset: 'ts-jest',
   testPathIgnorePatterns: ['\\\\node_modules\\\\', '\\\\dist\\\\'],
+  // testEnvironment: 'jest-environment-jsdom-fourteen',
   setupFilesAfterEnv: ['<rootDir>/src/config/setupTests.ts'],
+  timers: 'fake',
 };

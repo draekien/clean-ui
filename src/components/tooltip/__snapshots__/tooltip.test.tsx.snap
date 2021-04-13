@@ -5,7 +5,10 @@ exports[`Tooltip Component Should match snapshot 1`] = `
   <div
     class="css-108m3ho-Tooltip"
   >
-    Tooltip
+    <div
+      id="test"
+      style="width: 100px; height: 100px;"
+    />
   </div>
 </div>
 `;
