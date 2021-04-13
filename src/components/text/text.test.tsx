@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text } from './text';
 import { themedRender } from '../../helpers/testHelpers';
-import { HorizontalAlignment } from '../../types/alignments';
+import { HorizontalAlignment } from '../../types/layouts';
 
 describe('Text Component', () => {
   it('Should match snapshot', () => {
