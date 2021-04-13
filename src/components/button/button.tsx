@@ -97,6 +97,7 @@ export const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
         feature,
         showContentWhileLoading,
         iconPosition,
+        hasText: !!children,
       })}
       disabled={isDisabledOrLoading}
       {...rest}>

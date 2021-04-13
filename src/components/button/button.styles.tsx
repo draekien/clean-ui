@@ -12,6 +12,7 @@ export interface ButtonCssProps {
   feature: boolean;
   showContentWhileLoading: boolean;
   iconPosition?: 'left' | 'right';
+  hasText?: boolean;
 }
 
 const getColors = (variant: ButtonVariant) => {
@@ -108,18 +109,31 @@ export const buttonCss = (props: ButtonCssProps): ThemeUIStyleObject => {
     };
   }
 
-  if (props.size === 'small') {
-    css.px = 'md';
-    css.height = '1.75rem';
-  } else if (props.size === 'large') {
-    css.height = '2.25rem';
-    css.px = 'xxl';
+  if (props.hasText) {
+    if (props.size === 'small') {
+      css.px = 'md';
+      css.height = '1.75rem';
+    } else if (props.size === 'large') {
+      css.height = '2.25rem';
+      css.px = 'xxl';
+    } else {
+      css.height = '1.75rem';
+      css.px = 'xl';
+    }
   } else {
-    css.height = '1.75rem';
-    css.px = 'xl';
+    if (props.size === 'small') {
+      css.height = '1.5rem';
+      css.width = '1.5rem';
+    } else if (props.size === 'large') {
+      css.height = '2.5rem';
+      css.width = '2.5rem';
+    } else {
+      css.height = '2rem';
+      css.width = '2rem';
+    }
   }
 
-  if (!props.loading || props.showContentWhileLoading) {
+  if ((!props.loading || props.showContentWhileLoading) && props.hasText) {
     if (props.iconPosition === 'left') {
       switch (props.size) {
         case 'medium':
