@@ -47,7 +47,7 @@ exports[`Spinner Component dots variant should match snapshot 1`] = `
 exports[`Spinner Component spiral variant should match snapshot 1`] = `
 <div>
   <div
-    class="css-enyyst-Spiral"
+    class="css-nf6s34-Spiral"
   />
 </div>
 `;

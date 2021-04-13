@@ -10,9 +10,10 @@ const rotation = keyframes`0% {
 }`;
 
 export const donutSpinnerCss = ({ size }: SpinnerVariantProps): ThemeUIStyleObject => {
+  const sizeInRem = mapSizeToRem(size);
   const css: ThemeUIStyleObject = {
-    width: mapSizeToRem(size),
-    height: mapSizeToRem(size),
+    width: sizeInRem,
+    height: sizeInRem,
     border: '0.25rem solid',
     borderColor: 'muted',
     borderBottomColor: 'primary',
@@ -28,20 +29,24 @@ const spiral = keyframes`50% { transform: scale(1) translate(-50%, -50%)}`;
 
 export const spiralSpinnerCss = ({ size }: SpinnerVariantProps): ThemeUIStyleObject => {
   const sizeInRem = mapSizeToRem(size);
+  const halfOfSizeInRem = () => {
+    if (size === 'large') return '1.5rem';
+    if (size === 'medium') return '1rem';
+    return '0.5rem';
+  };
 
   const css: ThemeUIStyleObject = {
     width: sizeInRem,
     height: sizeInRem,
     display: 'inline-flex',
-    margin: '1rem auto',
     position: 'relative',
     color: 'muted',
     animation: `${rotation} 1s linear infinite`,
     '::before, ::after': {
       content: '""',
       position: 'absolute',
-      width: '50%',
-      height: '50%',
+      width: halfOfSizeInRem,
+      height: halfOfSizeInRem,
       top: '50%',
       left: '50%',
       transform: 'scale(0.5) translate(0,0)',

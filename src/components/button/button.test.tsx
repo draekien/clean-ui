@@ -82,8 +82,6 @@ describe('Button Component', () => {
     const styles = window.getComputedStyle(container.querySelector('button') as Element);
     expect(styles.paddingLeft).toBe(layouts.space.md);
     expect(styles.paddingRight).toBe(layouts.space.md);
-    expect(styles.paddingTop).toBe(layouts.space.xxs);
-    expect(styles.paddingBottom).toBe(layouts.space.xxs);
   });
 
   it('Should render with correct styles with size is medium', () => {
@@ -92,8 +90,6 @@ describe('Button Component', () => {
     const styles = window.getComputedStyle(container.querySelector('button') as Element);
     expect(styles.paddingLeft).toBe(layouts.space.xl);
     expect(styles.paddingRight).toBe(layouts.space.xl);
-    expect(styles.paddingTop).toBe(layouts.space.xxs);
-    expect(styles.paddingBottom).toBe(layouts.space.xxs);
   });
 
   it('Should render with correct styles with size is large', () => {
@@ -102,8 +98,6 @@ describe('Button Component', () => {
     const styles = window.getComputedStyle(container.querySelector('button') as Element);
     expect(styles.paddingLeft).toBe(layouts.space.xxl);
     expect(styles.paddingRight).toBe(layouts.space.xxl);
-    expect(styles.paddingTop).toBe(layouts.space.xs);
-    expect(styles.paddingBottom).toBe(layouts.space.xs);
   });
 
   it('Should render with correct styles when active prop is true', () => {

@@ -39,3 +39,10 @@ export const Featured = () => (
     <Button feature>Feature</Button>
   </div>
 );
+
+export const WithIcon = Template.bind({});
+WithIcon.args = {
+  children: 'Button',
+  icon: 'accessibility',
+  iconPosition: 'left',
+};

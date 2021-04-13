@@ -10,6 +10,8 @@ export interface ButtonCssProps {
   fullWidth: boolean;
   active: boolean;
   feature: boolean;
+  showContentWhileLoading: boolean;
+  iconPosition?: 'left' | 'right';
 }
 
 const getColors = (variant: ButtonVariant) => {
@@ -59,7 +61,6 @@ const getColors = (variant: ButtonVariant) => {
 
 export const buttonCss = (props: ButtonCssProps): ThemeUIStyleObject => {
   const css: any = {
-    py: 'xxs',
     border: '1px solid',
     borderRadius: 'sm',
     boxShadow: 'md',
@@ -109,11 +110,35 @@ export const buttonCss = (props: ButtonCssProps): ThemeUIStyleObject => {
 
   if (props.size === 'small') {
     css.px = 'md';
+    css.height = '1.75rem';
   } else if (props.size === 'large') {
-    css.py = 'xs';
+    css.height = '2.25rem';
     css.px = 'xxl';
   } else {
+    css.height = '1.75rem';
     css.px = 'xl';
+  }
+
+  if (!props.loading || props.showContentWhileLoading) {
+    if (props.iconPosition === 'left') {
+      switch (props.size) {
+        case 'medium':
+          css.pl = 'sm';
+          break;
+        default:
+          css.pl = 'md';
+          break;
+      }
+    } else if (props.iconPosition === 'right') {
+      switch (props.size) {
+        case 'medium':
+          css.pr = 'sm';
+          break;
+        default:
+          css.pr = 'md';
+          break;
+      }
+    }
   }
 
   if (!props.disabled) {
@@ -184,6 +209,30 @@ export const buttonCss = (props: ButtonCssProps): ThemeUIStyleObject => {
       css.borderColor = 'b-200';
       css.color = 'b-300';
     }
+  }
+
+  return css;
+};
+
+export const iconWrapperCss = (
+  position: 'left' | 'right',
+  hasText: boolean
+): ThemeUIStyleObject => {
+  const css: any = {
+    display: 'inline-flex',
+    textDecoration: 'none',
+  };
+
+  if (hasText) {
+    if (position === 'left') {
+      css.marginRight = 'md';
+    } else {
+      css.marginLeft = 'md';
+    }
+  } else {
+    css['i'] = {
+      fontSize: '1.5rem',
+    };
   }
 
   return css;
