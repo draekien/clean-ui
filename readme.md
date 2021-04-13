@@ -12,6 +12,11 @@ The aim of this library is to create a catalogue of
 plug and play components that are clean and functional
 so that they can be used in a wide variety of situations.
 
+## Storybook
+
+A storybook of this component library is published on Chromatic. You can view it
+[here](https://<branch>--60751defa4d2780021f0bf50.chromatic.com)
+
 ## Getting Started
 
 Install the package using either `npm` or `yarn`
