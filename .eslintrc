@@ -13,7 +13,7 @@
       "jsx": true
     }
   },
-  "ignorePatterns": ["lib/**"],
+  "ignorePatterns": ["dist/**"],
   "plugins": ["@typescript-eslint", "react"],
   "rules": {
     "constructor-super": "error",

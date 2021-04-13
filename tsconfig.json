@@ -18,5 +18,6 @@
     "noEmit": true,
     "isolatedModules": true
   },
-  "include": ["./src/*"]
+  "include": ["./src/*"],
+  "exclude": ["./src/config/*", "./src/**/*.test.tsx", "./src/stories/*"]
 }
