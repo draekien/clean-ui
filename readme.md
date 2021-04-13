@@ -17,13 +17,13 @@ so that they can be used in a wide variety of situations.
 Install the package using either `npm` or `yarn`
 
 ```sh
-npm install clean-ui
+npm install @draekien/clean-ui
 ```
 
 or
 
 ```sh
-yarn add clean-ui
+yarn add @draekien/clean-ui
 ```
 
 To provide the theme in context, wrap your application with the `ThemeProvider` component.
