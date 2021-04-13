@@ -3,7 +3,7 @@ import React from 'react';
 import { Text as ThemeUiText } from 'theme-ui';
 import { colors } from '../theme/theme.colors';
 import { textVariants } from '../theme/theme.variants';
-import { HorizontalAlignment } from '../../types/alignments';
+import { HorizontalAlignment } from '../../types/layouts';
 import * as styles from './text.styles';
 
 export interface TextProps {

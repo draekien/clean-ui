@@ -1,5 +1,5 @@
 import { ThemeUIStyleObject } from 'theme-ui';
-import { HorizontalAlignment } from '../../types/alignments';
+import { HorizontalAlignment } from '../../types/layouts';
 import { colors } from '../theme/theme.colors';
 import { textVariants } from '../theme/theme.variants';
 
