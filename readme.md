@@ -4,6 +4,8 @@
 
 <h1 align="center">Clean UI</h1>
 
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+
 Clean UI is a custom React JS component library built using
 [theme-ui](https://github.com/system-ui/theme-ui).
 The aim of this library is to create a catalogue of

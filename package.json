@@ -6,17 +6,25 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/draekien/clean-ui.git"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "yarn lint && yarn test && tsc --noEmit false",
     "dev": "yarn storybook",
     "storybook": "start-storybook -p 6006",
+    "build": "yarn lint && yarn test && tsc --noEmit false",
     "build-storybook": "build-storybook",
     "test": "jest --coverage",
     "test-update": "jest --u",
     "test-watch": "jest --coverage --watch --u",
-    "lint": "eslint \"**/*.tsx\" \"**/*.ts\""
+    "lint": "eslint \"**/*.tsx\" \"**/*.ts\"",
+    "release": "semantic-release --no-ci"
   },
   "peerDependencies": {
     "react": "^17.0.2",
@@ -46,6 +54,7 @@
     "@typescript-eslint/parser": "4.21.0",
     "babel-jest": "26.6.3",
     "babel-loader": "^8.2.2",
+    "chromatic": "5.6.2",
     "eslint": "7.24.0",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-react": "7.23.2",
@@ -55,6 +64,7 @@
     "prettier": "2.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "semantic-release": "17.4.2",
     "storybook-dark-mode": "1.0.7",
     "theme-ui": "0.6.2",
     "ts-jest": "26.5.4",
