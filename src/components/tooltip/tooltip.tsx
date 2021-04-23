@@ -65,10 +65,15 @@ export const Tooltip: React.FC<TooltipProps> = ({
   };
 
   const handleOnMouseDown = () => {
-    clearTimeout(timer);
-    setVisible(false);
+    if (visible) {
+      clearTimeout(timer);
+      setVisible(false);
 
-    !fixedDirection && setTooltipPosition(null);
+      !fixedDirection && setTooltipPosition(null);
+      return;
+    }
+
+    setVisible(true);
   };
 
   return (
