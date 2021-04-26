@@ -16,14 +16,14 @@ const Template: Story<InputProps> = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   label: 'First Name',
-  id: 'firstName',
+  inputId: 'firstName',
   helpText: 'Please enter your first name',
 };
 
 export const WithIcon = Template.bind({});
 WithIcon.args = {
   label: 'Email',
-  id: 'email',
+  inputId: 'email',
   helpText: 'john@example.com',
   icon: 'mail',
   type: 'email',
