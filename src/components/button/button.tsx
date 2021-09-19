@@ -1,29 +1,53 @@
 /** @jsxImportSource theme-ui */
 import React from 'react';
 import * as styles from './button.styles';
-import { Spinner } from '../spinner/spinner';
+import { Spinner, SpinnerVariant } from '../spinner/spinner';
 import { Icon } from '../icon/icon';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'gradient';
 export type ButtonSize = 'small' | 'medium' | 'large';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  /** the button variant
+  /** the type of button to render
    * @default 'primary'
    */
   variant?: ButtonVariant;
-  /** the button size
+  /** the size of the rendered button
    * @default 'medium'
    */
   size?: ButtonSize;
+  /** the name of the material icon to render */
   icon?: string;
+  /** the position of the icon in the button */
   iconPosition?: 'left' | 'right';
+  /** should the button render as disabled?
+   * @default false
+   */
   disabled?: boolean;
+  /** should the button take up the full width of the parent container?
+   * @default false
+   */
   fullWidth?: boolean;
+  /** should the button render as loading?
+   * @default false
+   */
   loading?: boolean;
+  /** should the button render content while in the loading state?
+   * @default false
+   */
   showContentWhileLoading?: boolean;
+  /** should the button render in the active state?
+   * @default false
+   */
   active?: boolean;
+  /** should the button render in the featured state?
+   * @default false
+   */
   feature?: boolean;
+  /** the spinner variant to use when loading
+   * @default 'spiral'
+   */
+  spinnerVariant?: SpinnerVariant;
   children?: React.ReactNode;
   onClick?: (e: React.SyntheticEvent<HTMLButtonElement, MouseEvent>) => any;
 }
@@ -41,6 +65,7 @@ export const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
     icon,
     iconPosition,
     children,
+    spinnerVariant = 'spiral',
     ...rest
   } = props;
 
@@ -64,7 +89,7 @@ export const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
 
     return (
       <span sx={styles.iconWrapperCss(renderPosition, !!showContentWhileLoading)}>
-        <Spinner variant="spiral" size="small" />
+        <Spinner variant={spinnerVariant} size="small" />
       </span>
     );
   };
