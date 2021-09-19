@@ -239,9 +239,9 @@ export const iconWrapperCss = (
 
   if (hasText) {
     if (position === 'left') {
-      css.marginRight = 'md';
+      css.marginRight = 'xs';
     } else {
-      css.marginLeft = 'md';
+      css.marginLeft = 'xs';
     }
   } else {
     css['i'] = {

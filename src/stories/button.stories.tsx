@@ -32,7 +32,7 @@ export const Featured = () => (
     <div style={{ marginBottom: '1rem' }}>
       <Text as="p" fullWidth>
         The feature button overrides the size prop to 'large' and the variant prop to
-        'gradidnt'. The text is also transformed to 'uppercase' and the letter spacing is
+        'gradient'. The text is also transformed to 'uppercase' and the letter spacing is
         modified. All other props work as per usual.
       </Text>
     </div>

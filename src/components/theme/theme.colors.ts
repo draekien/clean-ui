@@ -4,6 +4,7 @@ export const colors = {
   primary: '#EF802F',
   secondary: '#DB5192',
   muted: '#D8D8D8',
+  transparent: '#0000',
 
   'p-000': '#FCE6D5',
   'p-100': '#F9CCAC',

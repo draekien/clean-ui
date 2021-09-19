@@ -57,8 +57,8 @@ export const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
   const renderSpacedSpinner = (renderPosition: 'left' | 'right') => {
     if (
       !loading ||
-      (renderPosition !== iconPosition && iconPosition !== undefined) ||
-      (iconPosition === undefined && renderPosition === 'left')
+      (renderPosition !== iconPosition && iconPosition) ||
+      (!iconPosition && renderPosition === 'left')
     )
       return null;
 

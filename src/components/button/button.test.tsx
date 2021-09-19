@@ -36,7 +36,7 @@ describe('Button Component', () => {
 
     const styles = window.getComputedStyle(container.querySelector('button') as Element);
     expect(styles.display).toBe('inline-flex');
-    expect(styles.backgroundColor).toBe('transparent');
+    expect(styles.backgroundColor).toBe('rgba(0, 0, 0, 0)');
     expect(styles.color).toBe(hexToRgb(colors['p-400']));
   });
 
