@@ -15,7 +15,7 @@ exports[`Input Component Should match snapshot 1`] = `
       class="css-y29pjo-Input"
     >
       <input
-        class="css-kpy4sa-Input"
+        class="css-u3vh94-Input"
         id="test"
         value=""
       />

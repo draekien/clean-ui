@@ -31,6 +31,7 @@ export const inputCss = (
   py: 'xs',
   px: 'sm',
   pl: icon ? 'xxl' : 'sm',
+  pr: 'lg',
   width: '100%',
   variant: 'text.body',
   color: 'b-500',
