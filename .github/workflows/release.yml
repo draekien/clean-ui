@@ -40,7 +40,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          buildScriptName: 'build-storybook'
+          buildScriptName: 'build:storybook'
           autoAcceptChanges: true
           exitZeroOnChanges: true
           exitOnceUploaded: true

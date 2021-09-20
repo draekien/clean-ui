@@ -20,10 +20,10 @@
     "dev": "yarn storybook",
     "storybook": "start-storybook -p 6006",
     "build": "yarn lint && yarn test && tsc --noEmit false",
-    "build-storybook": "build-storybook",
+    "build:storybook": "build-storybook",
     "test": "jest --coverage",
-    "test-update": "jest --u",
-    "test-watch": "jest --coverage --watch --u",
+    "test:update": "jest --u",
+    "test:watch": "jest --coverage --watch --u",
     "lint": "eslint \"**/*.tsx\" \"**/*.ts\"",
     "release": "semantic-release --no-ci"
   },
