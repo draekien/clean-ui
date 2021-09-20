@@ -5,12 +5,16 @@ exports[`Input Component Should match snapshot 1`] = `
   <div
     class="css-1ikh15u-Input"
   >
-    <label
-      class="css-1t4h8g8-Input"
-      for="test"
+    <div
+      class="css-10vyt3z-Input"
     >
-      test
-    </label>
+      <label
+        class="css-1t4h8g8-Input"
+        for="test"
+      >
+        test
+      </label>
+    </div>
     <div
       class="css-19x8k4x-Input"
     >

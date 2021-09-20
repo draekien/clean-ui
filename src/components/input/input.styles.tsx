@@ -8,6 +8,12 @@ export const inputContainerCss = (fullWidth: boolean): ThemeUIStyleObject => ({
   width: fullWidth ? '100%' : 'auto',
 });
 
+export const labelContainerCss: ThemeUIStyleObject = {
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'baseline',
+};
+
 export const labelCss: ThemeUIStyleObject = {
   variant: 'text.eyebrow',
   color: 'text-muted',

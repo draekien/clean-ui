@@ -1,6 +1,7 @@
 /** @jsxImportSource theme-ui */
 import { useColorMode } from '@theme-ui/color-modes';
 import React, { InputHTMLAttributes } from 'react';
+import { Text } from '../..';
 import { StatusVariant } from '../../types/variants';
 import { Icon } from '../icon/icon';
 import { useVariantColor } from './input.hooks';
@@ -32,6 +33,7 @@ export const Input: React.FC<InputProps> = ({
   value,
   fullWidth = false,
   onChange,
+  required,
   ...rest
 }) => {
   const [colorMode] = useColorMode();
@@ -48,9 +50,16 @@ export const Input: React.FC<InputProps> = ({
 
   return (
     <div sx={styles.inputContainerCss(fullWidth)}>
-      <label sx={styles.labelCss} htmlFor={inputId}>
-        {label}
-      </label>
+      <div sx={styles.labelContainerCss}>
+        <label sx={styles.labelCss} htmlFor={inputId}>
+          {label}
+        </label>
+        {required && (
+          <Text as="span" color="warning-400" variant="small">
+            required
+          </Text>
+        )}
+      </div>
       <div sx={styles.inputWrapperCss}>
         <input
           sx={styles.inputCss(

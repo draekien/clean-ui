@@ -27,4 +27,5 @@ WithIcon.args = {
   helpText: 'john@example.com',
   icon: 'mail',
   type: 'email',
+  required: true,
 };
