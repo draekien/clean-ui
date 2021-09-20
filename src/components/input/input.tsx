@@ -1,4 +1,5 @@
 /** @jsxImportSource theme-ui */
+import { useColorMode } from '@theme-ui/color-modes';
 import React, { InputHTMLAttributes } from 'react';
 import { StatusVariant } from '../../types/variants';
 import { Icon } from '../icon/icon';
@@ -33,9 +34,13 @@ export const Input: React.FC<InputProps> = ({
   onChange,
   ...rest
 }) => {
-  const { variantColor, variantHoverColor, setVariantColor } = useVariantColor(variant);
-
-  const resetVariantColor = () => setVariantColor('b-300');
+  const [colorMode] = useColorMode();
+  const {
+    variantColor,
+    variantHoverColor,
+    variantFocusColor,
+    resetVariantColor,
+  } = useVariantColor(colorMode === 'dark', variant);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange && onChange(e);
@@ -48,7 +53,13 @@ export const Input: React.FC<InputProps> = ({
       </label>
       <div sx={styles.inputWrapperCss}>
         <input
-          sx={styles.inputCss(!!icon, variantColor, variantHoverColor)}
+          sx={styles.inputCss(
+            !!icon,
+            variantColor,
+            variantHoverColor,
+            variantFocusColor,
+            colorMode === 'dark'
+          )}
           onFocus={resetVariantColor}
           id={inputId}
           value={value}
@@ -57,7 +68,7 @@ export const Input: React.FC<InputProps> = ({
         />
         {icon && <Icon name={icon} />}
       </div>
-      {helpText && <small sx={styles.helpTextCss(variantColor)}>{helpText}</small>}
+      {helpText && <small sx={styles.helpTextCss(variantHoverColor)}>{helpText}</small>}
     </div>
   );
 };

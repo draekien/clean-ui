@@ -6,16 +6,16 @@ exports[`Input Component Should match snapshot 1`] = `
     class="css-1ikh15u-Input"
   >
     <label
-      class="css-4kf3qn-Input"
+      class="css-1t4h8g8-Input"
       for="test"
     >
       test
     </label>
     <div
-      class="css-y29pjo-Input"
+      class="css-19x8k4x-Input"
     >
       <input
-        class="css-u3vh94-Input"
+        class="css-1wao7ws-Input"
         id="test"
         value=""
       />

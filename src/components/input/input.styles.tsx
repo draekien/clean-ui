@@ -1,4 +1,6 @@
+import { alpha } from '@theme-ui/color';
 import { ThemeUIStyleObject } from '@theme-ui/css';
+import { Theme } from 'theme-ui';
 
 export const inputContainerCss = (fullWidth: boolean): ThemeUIStyleObject => ({
   display: 'flex',
@@ -8,7 +10,7 @@ export const inputContainerCss = (fullWidth: boolean): ThemeUIStyleObject => ({
 
 export const labelCss: ThemeUIStyleObject = {
   variant: 'text.eyebrow',
-  color: 'b-300',
+  color: 'text-muted',
 };
 
 export const inputWrapperCss: ThemeUIStyleObject = {
@@ -19,14 +21,16 @@ export const inputWrapperCss: ThemeUIStyleObject = {
     left: 0,
     p: 'xs',
     border: '1px solid transparent',
-    color: 'b-200',
+    color: 'b-400',
   },
 };
 
 export const inputCss = (
   icon: boolean,
   variantColor: string,
-  variantHoverColor: string
+  variantHoverColor: string,
+  variantFocusColor: string,
+  isDarkMode: boolean
 ): ThemeUIStyleObject => ({
   py: 'xs',
   px: 'sm',
@@ -34,17 +38,18 @@ export const inputCss = (
   pr: 'lg',
   width: '100%',
   variant: 'text.body',
-  color: 'b-500',
+  color: 'text',
+  backgroundColor: (t: Theme) => `${alpha('muted', isDarkMode ? 0.7 : 0.3)(t)}`,
   borderRadius: 'sm',
   outline: 'none',
-  border: '1px solid',
+  border: '2px solid',
   borderColor: variantColor,
   transition: 'all 300ms',
   ':hover': {
     borderColor: variantHoverColor,
   },
   ':focus': {
-    borderColor: 'b-500',
+    borderColor: variantFocusColor,
   },
 });
 
