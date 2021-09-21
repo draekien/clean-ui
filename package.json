@@ -18,11 +18,13 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "dev": "yarn storybook",
+    "docs:badges": "jest-coverage-badges --output ./docs",
     "storybook": "start-storybook -p 6006",
     "build": "yarn lint && yarn test && tsc --noEmit false",
     "build:storybook": "build-storybook",
     "test": "jest --coverage",
-    "test:update": "jest --u",
+    "test:badges": "yarn test && yarn run docs:badges",
+    "test:update": "jest --coverage --u",
     "test:watch": "jest --coverage --watch --u",
     "lint": "eslint \"**/*.tsx\" \"**/*.ts\"",
     "release": "semantic-release --no-ci"
@@ -61,6 +63,7 @@
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-react": "7.23.2",
     "jest": "26.6.3",
+    "jest-coverage-badges": "1.1.2",
     "jest-environment-jsdom-fourteen": "1.0.1",
     "parcel-bundler": "^1.12.5",
     "prettier": "2.2.1",
