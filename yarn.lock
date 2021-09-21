@@ -5422,6 +5422,11 @@ ci-info@^2.0.0:
   resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-2.0.0.tgz#67a9e964be31a51e15e5010d58e6f12834002f46"
   integrity sha512-5tK7EtrZ0N+OLFMthtqOj4fI2Jeb88C4CAZPu25LDVUgXJ0A3Js4PMGqrn0JU1W0Mh1/Z8wZzYPxqUrXeBboCQ==
 
+ci-info@^3.1.1:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-3.2.0.tgz#2876cb948a498797b5236f0095bc057d0dca38b6"
+  integrity sha512-dVqRX7fLUm8J6FgHJ418XuIgDLZDkYcDFTeL6TA2gt5WlIZUQrrH6EZrNClwT/H0FateUsZkGIOPRrLbP+PR9A==
+
 cidr-regex@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/cidr-regex/-/cidr-regex-3.1.1.tgz#ba1972c57c66f61875f18fd7dd487469770b571d"
@@ -8604,6 +8609,11 @@ humanize-ms@^1.2.1:
   dependencies:
     ms "^2.0.0"
 
+husky@^7.0.0:
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/husky/-/husky-7.0.2.tgz#21900da0f30199acca43a46c043c4ad84ae88dff"
+  integrity sha512-8yKEWNX4z2YsofXAMT7KvA1g8p+GxtB1ffV8XtpAEGuXNAbCV5wdNKH+qTpw8SM9fh4aMPDR+yQuKfgnreyZlg==
+
 iconv-lite@0.4.24:
   version "0.4.24"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.24.tgz#2022b4b25fbddc21d2f524974a474aafe733908b"
@@ -8911,6 +8921,13 @@ is-callable@^1.1.3, is-callable@^1.1.4, is-callable@^1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/is-callable/-/is-callable-1.2.4.tgz#47301d58dd0259407865547853df6d61fe471945"
   integrity sha512-nsuwtxZfMX67Oryl9LCQ+upnC0Z0BgpwntpS89m1H/TLF0zNfzfLMV/9Wa/6MZsj0acpEjAO0KF1xT6ZdLl95w==
+
+is-ci@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/is-ci/-/is-ci-3.0.0.tgz#c7e7be3c9d8eef7d0fa144390bd1e4b88dc4c994"
+  integrity sha512-kDXyttuLeslKAHYL/K28F2YkM3x5jvFPEw3yXbRptXydjD9rpLEz+C5K5iutY9ZiUu6AP41JdvRQwF4Iqs4ZCQ==
+  dependencies:
+    ci-info "^3.1.1"
 
 is-ci@^2.0.0:
   version "2.0.0"
