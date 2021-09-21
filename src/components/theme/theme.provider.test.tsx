@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import React from 'react';
-import { ThemeProvider } from './theme.provider';
+import { CleanUi } from './theme.provider';
 
 describe('Theme Provider', () => {
   it('Should merge themes', () => {
@@ -10,9 +10,9 @@ describe('Theme Provider', () => {
       constructor: 'something worse',
     };
     const { container } = render(
-      <ThemeProvider theme={theme}>
+      <CleanUi theme={theme}>
         <div />
-      </ThemeProvider>
+      </CleanUi>
     );
 
     expect(container).toMatchSnapshot();
