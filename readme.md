@@ -35,7 +35,7 @@ To provide the theme in context, wrap your application with the `ThemeProvider` 
 
 ```js
 // basic usage
-import { ThemeProvider } from 'clean-ui';
+import { CleanUi } from 'clean-ui';
 
-export default (props) => <ThemeProvider>{props.children}</ThemeProvider>;
+export default (props) => <CleanUi>{props.children}</CleanUi>;
 ```

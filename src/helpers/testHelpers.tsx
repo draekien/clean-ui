@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { ThemeProvider } from '../components/theme/theme.provider';
+import { CleanUi } from '../components/theme/theme.provider';
 
 export const themedRender = (element: React.ReactNode) => {
-  return render(<ThemeProvider>{element}</ThemeProvider>);
+  return render(<CleanUi>{element}</CleanUi>);
 };
 
 export const hexToRgb = (hex: string) => {

@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { ThemeProvider as ThemeUiProvider } from 'theme-ui';
 import { CleanUiTheme, Theme } from './theme';
 
-export interface ThemeProviderProps {
+export interface CleanUiProps {
   theme?: Partial<Theme>;
   children: React.ReactNode;
 }
@@ -48,7 +48,7 @@ const addThemeFonts = () => {
   });
 };
 
-export const ThemeProvider = ({ theme, children }: ThemeProviderProps) => {
+export const CleanUi = ({ theme, children }: CleanUiProps) => {
   const newTheme = JSON.parse(JSON.stringify(CleanUiTheme));
 
   if (theme) mergeThemes(newTheme, theme);

@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { create } from '@storybook/theming';
 import { useDarkMode } from 'storybook-dark-mode';
 import { useColorMode } from 'theme-ui';
-import { ThemeProvider } from '../src/components/theme/theme.provider';
+import { CleanUi } from '../src/components/theme/theme.provider';
 
 export const cleanUiStorybookTheme = create({ base: 'light' });
 
@@ -20,9 +20,9 @@ const ThemeChanger = () => {
 
 export const themeDecorator = (storyFn: any) => {
   return (
-    <ThemeProvider>
+    <CleanUi>
       <ThemeChanger />
       {storyFn()}
-    </ThemeProvider>
+    </CleanUi>
   );
 };
