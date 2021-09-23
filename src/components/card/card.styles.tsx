@@ -1,7 +1,7 @@
 import { Theme, ThemeUIStyleObject } from '@theme-ui/css';
 import { alpha } from '@theme-ui/color';
 import { Size } from '../../types/layouts';
-import { abbreviateSize } from '../../utils/size-converter.util';
+import { abbreviate } from '../../utils/size-converter.util';
 import { colors } from '../theme/theme.colors';
 
 export interface CardContainerCssProps {
@@ -35,7 +35,7 @@ export const cardContainerCss = ({
   variant,
   feature,
 }: CardContainerCssProps): ThemeUIStyleObject => {
-  const size = abbreviateSize(variant || 'medium');
+  const size = abbreviate(variant || 'medium');
   const css: ThemeUIStyleObject = {
     display: fullWidth ? 'flex' : 'inline-flex',
     flexFlow: 'column',
@@ -61,7 +61,7 @@ export const cardContainerCss = ({
 };
 
 export const cardHeaderCss = (variant: Size): ThemeUIStyleObject => {
-  const size = abbreviateSize(variant);
+  const size = abbreviate(variant);
   const css: ThemeUIStyleObject = {
     pb: size,
   };
@@ -70,7 +70,7 @@ export const cardHeaderCss = (variant: Size): ThemeUIStyleObject => {
 };
 
 export const cardFooterCss = (variant: Size): ThemeUIStyleObject => {
-  const size = abbreviateSize(variant);
+  const size = abbreviate(variant);
   const css: ThemeUIStyleObject = {
     pt: size,
   };

@@ -1,6 +1,6 @@
 import { Size } from '../types/layouts';
 
-export const abbreviateSize = (size: Size) => {
+export const abbreviate = (size: Size) => {
   switch (size) {
     case 'small':
       return 'sm';

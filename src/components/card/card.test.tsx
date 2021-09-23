@@ -1,6 +1,6 @@
 import React from 'react';
 import { hexToRgb, themedRender } from '../../helpers/testHelpers';
-import { abbreviateSize } from '../../utils/size-converter.util';
+import { abbreviate } from '../../utils/size-converter.util';
 import { layouts } from '../theme/theme.layouts';
 import { Size } from '../../types/layouts';
 import { Card } from './card';
@@ -46,8 +46,8 @@ describe('Card Component', () => {
       const { container } = themedRender(<Card variant={size}>Card</Card>);
 
       const styles = window.getComputedStyle(container.querySelector('div') as Element);
-      expect(styles.padding).toBe(layouts.space[abbreviateSize(size)]);
-      expect(styles.borderRadius).toBe(layouts.radii[abbreviateSize(size)]);
+      expect(styles.padding).toBe(layouts.space[abbreviate(size)]);
+      expect(styles.borderRadius).toBe(layouts.radii[abbreviate(size)]);
     });
   });
 
