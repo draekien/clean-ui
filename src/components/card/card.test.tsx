@@ -71,5 +71,17 @@ describe('Card Component', () => {
     const styles = window.getComputedStyle(container.querySelector('div') as Element);
     expect(styles.boxShadow).toBe('none');
     expect(styles.border).toBe('1px solid');
+    expect(styles.borderColor).toBe('#b1b1b1');
+  });
+
+  it('Should render with the correct border color', () => {
+    const { container } = themedRender(
+      <Card borderColor="primary" noShadow>
+        Card
+      </Card>
+    );
+
+    const styles = window.getComputedStyle(container.querySelector('div') as Element);
+    expect(styles.borderColor).toBe('#ef802f');
   });
 });

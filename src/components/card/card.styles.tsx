@@ -17,6 +17,10 @@ export interface CardContainerCssProps {
    *  @default 'background-lighter'
    */
   backgroundColor?: keyof typeof colors;
+  /** the border color of the card
+   *  @default 'border'
+   */
+  borderColor?: keyof typeof colors;
   /** the layout variants of the card. This determins the amount of
    *  padding, box shadow, and border radius on the card
    *  @default 'medium'
@@ -34,6 +38,7 @@ export const cardContainerCss = ({
   fullWidth,
   width,
   backgroundColor,
+  borderColor,
   variant,
   feature,
   noShadow,
@@ -62,7 +67,7 @@ export const cardContainerCss = ({
 
   if (noShadow) {
     css.border = '1px solid';
-    css.borderColor = 'border';
+    css.borderColor = borderColor;
   }
 
   return css;
