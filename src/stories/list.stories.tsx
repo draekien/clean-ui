@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { List, ListProps } from '../components/list/list';
+import { Card } from '../components/card/card';
 
 export default {
   title: 'Components/List',
@@ -33,7 +34,9 @@ ComponentRows.args = {
     label: <div>Critical Role Cast Members</div>,
     rows: rows.map((row, index) => (
       <div key={index} style={{ paddingBottom: '0.5em' }}>
-        {row}
+        <Card variant="small" noShadow>
+          {row}
+        </Card>
       </div>
     )),
   },
