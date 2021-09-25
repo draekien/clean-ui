@@ -48,6 +48,11 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
    * @default 'spiral'
    */
   spinnerVariant?: SpinnerVariant;
+  /** should the button be rendered as a circle?
+   *  this only works when there is no button text.
+   *  @default 'false'
+   */
+  circle?: boolean;
   children?: React.ReactNode;
   onClick?: (e: React.SyntheticEvent<HTMLButtonElement, MouseEvent>) => any;
 }
@@ -66,6 +71,7 @@ export const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
     iconPosition,
     children,
     spinnerVariant = 'spiral',
+    circle = false,
     ...rest
   } = props;
 
@@ -123,6 +129,7 @@ export const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
         showContentWhileLoading,
         iconPosition,
         hasText: !!children,
+        circle,
       })}
       disabled={isDisabledOrLoading}
       {...rest}>

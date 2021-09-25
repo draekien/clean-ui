@@ -13,6 +13,7 @@ export interface ButtonCssProps {
   showContentWhileLoading: boolean;
   iconPosition?: 'left' | 'right';
   hasText?: boolean;
+  circle?: boolean;
 }
 
 const getColors = (variant: ButtonVariant) => {
@@ -61,7 +62,7 @@ const getColors = (variant: ButtonVariant) => {
 };
 
 export const buttonCss = (props: ButtonCssProps): ThemeUIStyleObject => {
-  const css: any = {
+  const css: ThemeUIStyleObject = {
     border: '1px solid',
     borderRadius: 'sm',
     boxShadow: 'md',
@@ -72,7 +73,7 @@ export const buttonCss = (props: ButtonCssProps): ThemeUIStyleObject => {
     transition: 'all 300ms',
     display: 'inline-flex',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     textDecoration: 'none',
   };
 
@@ -130,6 +131,10 @@ export const buttonCss = (props: ButtonCssProps): ThemeUIStyleObject => {
     } else {
       css.height = '2rem';
       css.width = '2rem';
+    }
+
+    if (props.circle) {
+      css.borderRadius = 'max';
     }
   }
 
@@ -217,7 +222,7 @@ export const buttonCss = (props: ButtonCssProps): ThemeUIStyleObject => {
     if (props.active && props.variant !== 'gradient') {
       css.backgroundColor = colors.activeBackground;
       css.borderColor = colors.activeBackground;
-    } else if (props.active) {
+    } else if (props.active && props.variant === 'gradient') {
       css.backgroundPosition = 'center';
     }
   } else {
