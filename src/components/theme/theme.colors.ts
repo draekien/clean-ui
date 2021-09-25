@@ -7,6 +7,7 @@ export const colors = {
   secondary: '#DB5192',
   muted: '#D8D8D8',
   transparent: '#0000',
+  border: '#B1B1B1',
 
   'p-000': '#FCE6D5',
   'p-100': '#F9CCAC',
@@ -74,6 +75,7 @@ export const colors = {
       primary: '#EF802F',
       secondary: '#DB5192',
       muted: '#3B3B3B',
+      border: '#626262',
     },
   },
 };

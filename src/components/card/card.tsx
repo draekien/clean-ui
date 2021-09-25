@@ -20,6 +20,7 @@ export const Card: React.FC<CardProps> = ({
   backgroundColor = 'background-lighter',
   variant = 'medium',
   feature = false,
+  noShadow = false,
   header,
   footer,
   children,
@@ -28,7 +29,14 @@ export const Card: React.FC<CardProps> = ({
   return (
     <div
       {...rest}
-      sx={cardContainerCss({ width, fullWidth, backgroundColor, variant, feature })}>
+      sx={cardContainerCss({
+        width,
+        fullWidth,
+        backgroundColor,
+        variant,
+        feature,
+        noShadow,
+      })}>
       {header && <div sx={cardHeaderCss(variant)}>{header}</div>}
       {children && <div>{children}</div>}
       {footer && <div sx={cardFooterCss(variant)}>{footer}</div>}

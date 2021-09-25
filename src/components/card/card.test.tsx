@@ -64,4 +64,12 @@ describe('Card Component', () => {
     const styles = window.getComputedStyle(container.querySelector('div') as Element);
     expect(styles.backgroundColor).toBe(hexToRgb(colors.primary));
   });
+
+  it('Should render with border when noShadow is true', () => {
+    const { container } = themedRender(<Card noShadow>Card</Card>);
+
+    const styles = window.getComputedStyle(container.querySelector('div') as Element);
+    expect(styles.boxShadow).toBe('none');
+    expect(styles.border).toBe('1px solid');
+  });
 });

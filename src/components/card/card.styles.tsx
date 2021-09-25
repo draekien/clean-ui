@@ -26,6 +26,8 @@ export interface CardContainerCssProps {
    *  @default false
    */
   feature?: boolean;
+  /** should the card render without a dropshadow? */
+  noShadow?: boolean;
 }
 
 export const cardContainerCss = ({
@@ -34,13 +36,14 @@ export const cardContainerCss = ({
   backgroundColor,
   variant,
   feature,
+  noShadow,
 }: CardContainerCssProps): ThemeUIStyleObject => {
   const size = abbreviate(variant || 'medium');
   const css: ThemeUIStyleObject = {
     display: fullWidth ? 'flex' : 'inline-flex',
     flexFlow: 'column',
     width: fullWidth ? '100%' : width,
-    boxShadow: size,
+    boxShadow: noShadow ? 'none' : size,
     padding: size,
     borderRadius: size,
   };
@@ -55,6 +58,11 @@ export const cardContainerCss = ({
     css.backgroundSize = '200% auto';
   } else {
     css.backgroundColor = backgroundColor;
+  }
+
+  if (noShadow) {
+    css.border = '1px solid';
+    css.borderColor = 'border';
   }
 
   return css;
