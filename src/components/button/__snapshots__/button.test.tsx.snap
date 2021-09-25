@@ -3,7 +3,7 @@
 exports[`Button Component Should match snapshot 1`] = `
 <div>
   <button
-    class="css-1po5ow2-Button"
+    class="css-uyz0zq-Button"
   >
     <span>
       Button

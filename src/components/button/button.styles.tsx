@@ -72,7 +72,7 @@ export const buttonCss = (props: ButtonCssProps): ThemeUIStyleObject => {
     transition: 'all 300ms',
     display: 'inline-flex',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     textDecoration: 'none',
   };
 
@@ -136,19 +136,31 @@ export const buttonCss = (props: ButtonCssProps): ThemeUIStyleObject => {
   if ((!props.loading || props.showContentWhileLoading) && props.hasText) {
     if (props.iconPosition === 'left') {
       switch (props.size) {
+        case 'small':
+          css.pl = 'xs';
+          css.pr = 'sm';
+          break;
         case 'medium':
           css.pl = 'sm';
+          css.pr = 'md';
           break;
         default:
           css.pl = 'md';
+          css.pr = 'lg';
           break;
       }
     } else if (props.iconPosition === 'right') {
       switch (props.size) {
+        case 'small':
+          css.pl = 'sm';
+          css.pr = 'xs';
+          break;
         case 'medium':
+          css.pl = 'md';
           css.pr = 'sm';
           break;
         default:
+          css.pl = 'lg';
           css.pr = 'md';
           break;
       }
@@ -219,8 +231,8 @@ export const buttonCss = (props: ButtonCssProps): ThemeUIStyleObject => {
         )(t)} 51%, ${alpha('p-000', 1)(t)} 100%)`;
       css.color = 'b-000';
     } else {
-      css.backgroundColor = 'b-200';
-      css.borderColor = 'b-200';
+      css.backgroundColor = 'muted';
+      css.borderColor = 'muted';
       css.color = 'b-300';
     }
   }
