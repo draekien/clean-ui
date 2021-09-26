@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toast component Should match snapshot 1`] = `
+<div>
+  <div
+    class="css-21jisu"
+    style="height: 0px;"
+  >
+    <i
+      class="material-icons css-35gkst-Icon"
+    >
+      check_circle
+    </i>
+    <div
+      class="css-txoam9"
+    >
+      toast
+    </div>
+    <div
+      class="css-664lrf"
+    >
+      message
+    </div>
+    <i
+      class="material-icons css-1op4n3b-Icon"
+    >
+      close
+    </i>
+  </div>
+</div>
+`;

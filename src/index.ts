@@ -8,4 +8,5 @@ export * from './components/input/input';
 export * from './components/list/list';
 export * from './components/spinner/spinner';
 export * from './components/text/text';
+export * from './components/toast/toast';
 export * from './components/tooltip/tooltip';
