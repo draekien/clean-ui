@@ -3,6 +3,10 @@
 exports[`Toast component Should match snapshot 1`] = `
 <div>
   <div
+    class="css-jee6rd"
+    id="clean_ui_toast_container"
+  />
+  <div
     class="css-21jisu"
     style="height: 0px;"
   >
