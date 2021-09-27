@@ -1,7 +1,7 @@
 name: Verify Pull Request
 on:
   pull_request:
-    branches: [ master ]
+    branches: [master]
 jobs:
   test:
     name: Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
@@ -23,4 +23,3 @@ jobs:
         run: |
           yarn
           yarn build
-          yarn test
