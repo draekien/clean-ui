@@ -1,6 +1,7 @@
 import { ThemeUIStyleObject } from 'theme-ui';
 import { keyframes } from '@emotion/react';
 import { mapSizeToRem, SpinnerVariantProps } from './spinner.variants';
+import { Size } from '../../types/layouts';
 
 const rotation = keyframes`0% {
   transform: rotate(0deg);
@@ -26,14 +27,14 @@ export const donutSpinnerCss = ({ size }: SpinnerVariantProps): ThemeUIStyleObje
 };
 
 const spiral = keyframes`50% { transform: scale(1) translate(-50%, -50%)}`;
+export const halfOfSizeInRem = (size: Size) => {
+  if (size === 'large') return '1.5rem';
+  if (size === 'medium') return '1rem';
+  return '0.5rem';
+};
 
 export const spiralSpinnerCss = ({ size }: SpinnerVariantProps): ThemeUIStyleObject => {
   const sizeInRem = mapSizeToRem(size);
-  const halfOfSizeInRem = () => {
-    if (size === 'large') return '1.5rem';
-    if (size === 'medium') return '1rem';
-    return '0.5rem';
-  };
 
   const css: ThemeUIStyleObject = {
     width: sizeInRem,
@@ -42,11 +43,11 @@ export const spiralSpinnerCss = ({ size }: SpinnerVariantProps): ThemeUIStyleObj
     position: 'relative',
     color: 'muted',
     animation: `${rotation} 1s linear infinite`,
-    '::before, ::after': {
+    '::after': {
       content: '""',
       position: 'absolute',
-      width: halfOfSizeInRem,
-      height: halfOfSizeInRem,
+      width: halfOfSizeInRem(size),
+      height: halfOfSizeInRem(size),
       top: '50%',
       left: '50%',
       transform: 'scale(0.5) translate(0,0)',
@@ -55,6 +56,14 @@ export const spiralSpinnerCss = ({ size }: SpinnerVariantProps): ThemeUIStyleObj
       animation: `${spiral} 1s infinite ease-in-out`,
     },
     '::before': {
+      content: '""',
+      position: 'absolute',
+      width: halfOfSizeInRem(size),
+      height: halfOfSizeInRem(size),
+      top: '50%',
+      left: '50%',
+      borderRadius: 'max',
+      animation: `${spiral} 1s infinite ease-in-out`,
       backgroundColor: 'primary',
       transform: `scale(0.5) translate(-${sizeInRem}, -${sizeInRem})`,
     },
@@ -90,29 +99,34 @@ const loadingBars = keyframes`
   transform: scale(1);
 }`;
 
+export const setBarSize = (css: ThemeUIStyleObject, size: Size): ThemeUIStyleObject => {
+  const copy: ThemeUIStyleObject = { ...css };
+
+  if (size === 'small') {
+    copy.height = '0.75rem';
+    copy.width = '0.125rem';
+    copy.ml = '0.125rem';
+  } else if (size === 'medium') {
+    copy.height = '1.25rem';
+    copy.width = '0.25rem';
+    copy.ml = '0.25rem';
+  } else {
+    copy.height = '1.75rem';
+    copy.width = '0.375rem';
+    copy.ml = '0.375rem';
+  }
+  return copy;
+};
+
 export const barsSpinnerCss = ({ size }: SpinnerVariantProps): ThemeUIStyleObject => {
-  const css: any = {
+  const css: ThemeUIStyleObject = {
     animation: `${loadingBars} 1s ease-in-out infinite`,
     backgroundColor: 'primary',
     borderRadius: 'sm',
     display: 'inline-flex',
   };
 
-  if (size === 'small') {
-    css.height = '0.75rem';
-    css.width = '0.125rem';
-    css.ml = '0.125rem';
-  } else if (size === 'medium') {
-    css.height = '1.25rem';
-    css.width = '0.25rem';
-    css.ml = '0.25rem';
-  } else {
-    css.height = '1.75rem';
-    css.width = '0.375rem';
-    css.ml = '0.375rem';
-  }
-
-  return css;
+  return setBarSize(css, size);
 };
 
 const loadingDots = keyframes`
@@ -128,6 +142,25 @@ const loadingDots = keyframes`
   transform: translateY(0);
 }`;
 
+export const setDotSize = (css: ThemeUIStyleObject, size: Size): ThemeUIStyleObject => {
+  const copy: ThemeUIStyleObject = { ...css };
+  if (size === 'small') {
+    copy.height = '0.25rem';
+    copy.width = '0.25rem';
+    copy.ml = '0.125rem';
+  } else if (size === 'medium') {
+    copy.height = '0.5rem';
+    copy.width = '0.5rem';
+    copy.ml = '0.25rem';
+  } else {
+    copy.height = '0.75rem';
+    copy.width = '0.75rem';
+    copy.ml = '0.375rem';
+  }
+
+  return copy;
+};
+
 export const dotsSpinnerCss = ({ size }: SpinnerVariantProps): ThemeUIStyleObject => {
   const css: any = {
     animation: `${loadingDots} 1s ease-in-out infinite`,
@@ -139,19 +172,5 @@ export const dotsSpinnerCss = ({ size }: SpinnerVariantProps): ThemeUIStyleObjec
     ':nth-of-type(3)': { backgroundColor: 'p-200' },
   };
 
-  if (size === 'small') {
-    css.height = '0.25rem';
-    css.width = '0.25rem';
-    css.ml = '0.125rem';
-  } else if (size === 'medium') {
-    css.height = '0.5rem';
-    css.width = '0.5rem';
-    css.ml = '0.25rem';
-  } else {
-    css.height = '0.75rem';
-    css.width = '0.75rem';
-    css.ml = '0.375rem';
-  }
-
-  return css;
+  return setDotSize(css, size);
 };

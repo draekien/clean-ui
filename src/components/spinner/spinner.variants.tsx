@@ -13,17 +13,19 @@ export const mapSizeToRem = (size: Size) => {
   return '3rem';
 };
 
+const spinnerId = 'clean_ui_spinner';
+
 const Donut: React.FC<SpinnerVariantProps> = ({ size }) => {
-  return <div sx={styles.donutSpinnerCss({ size })} />;
+  return <div id={spinnerId} sx={styles.donutSpinnerCss({ size })} />;
 };
 
 const Spiral: React.FC<SpinnerVariantProps> = ({ size }) => {
-  return <div sx={styles.spiralSpinnerCss({ size })} />;
+  return <div id={spinnerId} sx={styles.spiralSpinnerCss({ size })} />;
 };
 
 const Bars: React.FC<SpinnerVariantProps> = ({ size }) => {
   return (
-    <div sx={styles.barsAndDotsContainerCss}>
+    <div id={spinnerId} sx={styles.barsAndDotsContainerCss}>
       {[1, 2, 3].map((val) => (
         <div key={val} sx={styles.barsSpinnerCss({ size })} />
       ))}
@@ -33,7 +35,7 @@ const Bars: React.FC<SpinnerVariantProps> = ({ size }) => {
 
 const Dots: React.FC<SpinnerVariantProps> = ({ size }) => {
   return (
-    <div sx={styles.barsAndDotsContainerCss}>
+    <div id={spinnerId} sx={styles.barsAndDotsContainerCss}>
       {[1, 2, 3].map((val) => (
         <div key={val} sx={styles.dotsSpinnerCss({ size })} />
       ))}
