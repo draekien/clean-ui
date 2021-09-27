@@ -1,9 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Spinner Component Should render with overlay when fullPage is true 1`] = `
+<div>
+  <div
+    class="css-1lqdb5g-Spinner"
+  >
+    <div
+      class="css-1luozaz-Donut"
+      id="clean_ui_spinner"
+    />
+  </div>
+</div>
+`;
+
 exports[`Spinner Component bars variant should match snapshot 1`] = `
 <div>
   <div
     class="css-5bicxv-Bars"
+    id="clean_ui_spinner"
   >
     <div
       class="css-1a9qa0f"
@@ -22,6 +36,7 @@ exports[`Spinner Component donut variant should match snapshot 1`] = `
 <div>
   <div
     class="css-1luozaz-Donut"
+    id="clean_ui_spinner"
   />
 </div>
 `;
@@ -30,6 +45,7 @@ exports[`Spinner Component dots variant should match snapshot 1`] = `
 <div>
   <div
     class="css-10j4viu-Dots"
+    id="clean_ui_spinner"
   >
     <div
       class="css-1crq1ew"
@@ -47,7 +63,8 @@ exports[`Spinner Component dots variant should match snapshot 1`] = `
 exports[`Spinner Component spiral variant should match snapshot 1`] = `
 <div>
   <div
-    class="css-nf6s34-Spiral"
+    class="css-7jepop-Spiral"
+    id="clean_ui_spinner"
   />
 </div>
 `;
