@@ -13,3 +13,9 @@ export const Filled = Template.bind({});
 Filled.args = {
   name: 'accessibility',
 };
+
+export const WithTooltip = Template.bind({});
+WithTooltip.args = {
+  name: 'done',
+  tooltip: "Hey look it's a checkmark",
+};

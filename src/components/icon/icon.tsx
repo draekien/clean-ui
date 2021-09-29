@@ -2,6 +2,7 @@
 import React from 'react';
 import { Size } from '../../types/layouts';
 import { colors } from '../theme/theme.colors';
+import { Tooltip } from '../tooltip/tooltip';
 import * as styles from './icon.styles';
 
 export type IconVariant = 'filled' | 'outlined' | 'round' | 'two-tone' | 'sharp';
@@ -19,6 +20,8 @@ export interface IconProps extends React.HTMLAttributes<HTMLElement> {
   size?: Size;
   /** the color of the icon */
   color?: keyof typeof colors;
+  /** the tooltip text to display on the icon */
+  tooltip?: string;
 }
 
 const getIconClassName = (variant?: IconVariant): string => {
@@ -34,9 +37,17 @@ const getIconClassName = (variant?: IconVariant): string => {
 };
 
 export const Icon: React.FC<IconProps> = (props: IconProps) => {
-  const { name, color, size = 'medium', variant = 'filled', className, ...rest } = props;
+  const {
+    name,
+    color,
+    size = 'medium',
+    variant = 'filled',
+    className,
+    tooltip,
+    ...rest
+  } = props;
 
-  return (
+  const icon = (
     <i
       sx={styles.iconCss({ size, color })}
       className={`${getIconClassName(variant)} ${className || ''}`}
@@ -44,4 +55,10 @@ export const Icon: React.FC<IconProps> = (props: IconProps) => {
       {name}
     </i>
   );
+
+  if (tooltip) {
+    return <Tooltip text={tooltip}>{icon}</Tooltip>;
+  }
+
+  return icon;
 };
