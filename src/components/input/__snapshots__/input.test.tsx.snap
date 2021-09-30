@@ -3,6 +3,20 @@
 exports[`Input Component Should match snapshot 1`] = `
 <div>
   <div
+    class="css-19x8k4x-Input"
+  >
+    <input
+      class="css-1wao7ws-Input"
+      id="test"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`Input Wrapper Component Should match snapshot 1`] = `
+<div>
+  <div
     class="css-109th3q-InputWrapper"
   >
     <div

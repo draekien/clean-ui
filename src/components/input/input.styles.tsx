@@ -2,7 +2,7 @@ import { alpha } from '@theme-ui/color';
 import { ThemeUIStyleObject } from '@theme-ui/css';
 import { Theme } from 'theme-ui';
 
-export const inputContainerCss = (fullWidth: boolean): ThemeUIStyleObject => ({
+export const inputWrapperCss = (fullWidth: boolean): ThemeUIStyleObject => ({
   display: 'flex',
   flexFlow: 'column',
   width: fullWidth ? '100%' : 'auto',
@@ -19,7 +19,7 @@ export const labelCss: ThemeUIStyleObject = {
   color: 'text-muted',
 };
 
-export const inputWrapperCss: ThemeUIStyleObject = {
+export const inputContainerCss: ThemeUIStyleObject = {
   position: 'relative',
   mt: 'xs',
   '> i': {
