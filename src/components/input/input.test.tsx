@@ -20,6 +20,12 @@ describe('Input Component', () => {
       expect(styles.borderColor).toBe(colors[`${variant}-300`]);
     });
   });
+
+  it('Should render with an input mask', () => {
+    const { container } = themedRender(<Input inputId="test" mask="99/99/9999" />);
+
+    expect(container).toMatchSnapshot();
+  });
 });
 
 describe('Input Wrapper Component', () => {
