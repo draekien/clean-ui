@@ -1,79 +1,56 @@
 /** @jsxImportSource theme-ui */
 import { useColorMode } from '@theme-ui/color-modes';
 import React, { InputHTMLAttributes } from 'react';
+import { useStatusColors } from '../../hooks/useStatusColors';
 import { StatusVariant } from '../../types/variants';
 import { Icon } from '../icon/icon';
-import { useVariantColor } from './input.hooks';
-import { InputWrapper } from './input.wrapper';
 
 import * as styles from './input.styles';
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   /** the id of the input element */
   inputId: string;
-  /** label text to display above the input */
-  label: string;
   /** a material icon name for displaying an icon inside the input */
   icon?: string;
-  /** help text to display under the input */
-  helpText?: string;
   /** the input variant to render, 'info' is not supported */
   variant?: StatusVariant;
-  /** should the input take up the full width of the parent container? */
-  fullWidth?: boolean;
   /** on change event handler */
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => any;
 }
 
 export const Input: React.FC<InputProps> = ({
-  label,
   inputId,
   icon,
-  helpText,
   variant,
   value,
-  fullWidth = false,
   onChange,
   required,
   ...rest
 }) => {
   const [colorMode] = useColorMode();
-  const {
-    variantColor,
-    variantHoverColor,
-    variantFocusColor,
-    resetVariantColor,
-  } = useVariantColor(colorMode === 'dark', variant);
+  const { color, hoverColor, focusColor, resetColors } = useStatusColors(
+    colorMode === 'dark',
+    variant
+  );
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange && onChange(e);
   };
 
   return (
-    <InputWrapper
-      inputId={inputId}
-      label={label}
-      helpText={helpText}
-      variant={variant}
-      required={required}
-      fullWidth={fullWidth}>
-      <div sx={styles.inputWrapperCss}>
-        <input
-          sx={styles.inputCss(
-            !!icon,
-            variantColor,
-            variantHoverColor,
-            variantFocusColor,
-            colorMode === 'dark'
-          )}
-          onFocus={resetVariantColor}
-          id={inputId}
-          value={value}
-          onChange={handleChange}
-          {...rest}
-        />
-        {icon && <Icon name={icon} />}
-      </div>
-    </InputWrapper>
+    <div sx={styles.inputContainerCss}>
+      <input
+        sx={styles.inputCss(!!icon, color, hoverColor, focusColor, colorMode === 'dark')}
+        onFocus={resetColors}
+        id={inputId}
+        value={value}
+        onChange={handleChange}
+        required={required}
+        {...rest}
+      />
+      {icon && <Icon name={icon} />}
+    </div>
   );
 };
+
+export * from './input.wrapper';

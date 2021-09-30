@@ -7,25 +7,24 @@ export default {
   component: Input,
 } as Meta;
 
-const Template: Story<InputProps> = (args) => (
-  <div style={{ width: '40rem', display: 'flex', justifyContent: 'center' }}>
-    <Input {...args} />
-  </div>
-);
+const Template: Story<InputProps> = (args) => <Input {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  label: 'First Name',
-  inputId: 'firstName',
-  helpText: 'Please enter your first name',
+  inputId: 'default',
+  placeholder: "I'm a basic input",
 };
 
 export const WithIcon = Template.bind({});
 WithIcon.args = {
-  label: 'Email',
-  inputId: 'email',
-  helpText: 'john@example.com',
+  inputId: 'withIcon',
   icon: 'mail',
-  type: 'email',
-  required: true,
+  placeholder: 'I now have an icon',
+};
+
+export const Variants = Template.bind({});
+Variants.args = {
+  inputId: 'variants',
+  variant: 'success',
+  placeholder: 'My color changes',
 };

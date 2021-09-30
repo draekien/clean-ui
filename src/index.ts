@@ -10,3 +10,5 @@ export * from './components/spinner/spinner';
 export * from './components/text/text';
 export * from './components/toast/toast';
 export * from './components/tooltip/tooltip';
+
+export * from './patterns/inputs/input.text.pattern';
