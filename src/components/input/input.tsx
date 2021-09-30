@@ -1,10 +1,11 @@
 /** @jsxImportSource theme-ui */
 import { useColorMode } from '@theme-ui/color-modes';
 import React, { InputHTMLAttributes } from 'react';
-import { Text } from '../..';
 import { StatusVariant } from '../../types/variants';
 import { Icon } from '../icon/icon';
 import { useVariantColor } from './input.hooks';
+import { InputWrapper } from './input.wrapper';
+
 import * as styles from './input.styles';
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -49,17 +50,13 @@ export const Input: React.FC<InputProps> = ({
   };
 
   return (
-    <div sx={styles.inputContainerCss(fullWidth)}>
-      <div sx={styles.labelContainerCss}>
-        <label sx={styles.labelCss} htmlFor={inputId}>
-          {label}
-        </label>
-        {required && (
-          <Text as="span" color="warning-400" variant="small">
-            required
-          </Text>
-        )}
-      </div>
+    <InputWrapper
+      inputId={inputId}
+      label={label}
+      helpText={helpText}
+      variant={variant}
+      required={required}
+      fullWidth={fullWidth}>
       <div sx={styles.inputWrapperCss}>
         <input
           sx={styles.inputCss(
@@ -77,7 +74,6 @@ export const Input: React.FC<InputProps> = ({
         />
         {icon && <Icon name={icon} />}
       </div>
-      {helpText && <small sx={styles.helpTextCss(variantHoverColor)}>{helpText}</small>}
-    </div>
+    </InputWrapper>
   );
 };
