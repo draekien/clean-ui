@@ -33,31 +33,45 @@ export const inputContainerCss: ThemeUIStyleObject = {
 
 export const inputCss = (
   icon: boolean,
-  variantColor: string,
-  variantHoverColor: string,
-  variantFocusColor: string,
-  isDarkMode: boolean
-): ThemeUIStyleObject => ({
-  py: 'xs',
-  px: 'sm',
-  pl: icon ? 'xxl' : 'sm',
-  pr: 'lg',
-  width: '100%',
-  variant: 'text.body',
-  color: 'text',
-  backgroundColor: (t: Theme) => `${alpha('muted', isDarkMode ? 0.7 : 0.3)(t)}`,
-  borderRadius: 'sm',
-  outline: 'none',
-  border: '2px solid',
-  borderColor: variantColor,
-  transition: 'all 300ms',
-  ':hover': {
-    borderColor: variantHoverColor,
-  },
-  ':focus': {
-    borderColor: variantFocusColor,
-  },
-});
+  color: string,
+  hoverColor: string,
+  focusColor: string,
+  isDarkMode: boolean,
+  disabled: boolean
+): ThemeUIStyleObject => {
+  const css: ThemeUIStyleObject = {
+    py: 'xs',
+    px: 'sm',
+    pl: icon ? 'xxl' : 'sm',
+    pr: 'lg',
+    width: '100%',
+    variant: 'text.body',
+    color: 'text',
+    backgroundColor: (t: Theme) => `${alpha('muted', isDarkMode ? 0.7 : 0.2)(t)}`,
+    borderRadius: 'sm',
+    outline: 'none',
+    border: '2px solid',
+    borderColor: color,
+    transition: 'all 300ms',
+  };
+
+  if (disabled) {
+    css.cursor = 'not-allowed';
+    css.borderColor = isDarkMode ? 'b-600' : 'b-200';
+    css.color = 'b-400';
+  }
+
+  if (!disabled) {
+    css[':hover'] = {
+      borderColor: hoverColor,
+    };
+    css[':focus'] = {
+      borderColor: focusColor,
+    };
+  }
+
+  return css;
+};
 
 export const helpTextCss = (variantColor: string): ThemeUIStyleObject => ({
   variant: 'text.small',
