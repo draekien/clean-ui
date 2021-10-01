@@ -1,7 +1,8 @@
 /** @jsxImportSource theme-ui */
 import React from 'react';
 import { Text } from '../text/text';
-import { labelContainerCss, labelCss } from './input.styles';
+import { labelContainerCss } from './input.styles';
+import { Label } from '../label/label';
 
 export interface InputLabelProps extends React.HTMLAttributes<HTMLDivElement> {
   inputId: string;
@@ -12,9 +13,7 @@ export interface InputLabelProps extends React.HTMLAttributes<HTMLDivElement> {
 export const InputLabel: React.FC<InputLabelProps> = ({ inputId, label, required }) => {
   return (
     <div sx={labelContainerCss}>
-      <label sx={labelCss} htmlFor={inputId}>
-        {label}
-      </label>
+      <Label htmlFor={inputId}>{label}</Label>
       {required && (
         <Text as="span" color="warning-400" variant="small">
           required

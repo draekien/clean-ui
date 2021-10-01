@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Label component should match snapshot 1`] = `
+<div>
+  <label
+    class="css-1pst1pz-Label"
+    for="myId"
+  >
+    My label
+  </label>
+</div>
+`;
