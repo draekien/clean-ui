@@ -18,7 +18,7 @@ Default.args = {
   inputId: 'wrapper',
   label: 'I am an input wrapper',
   helpText: 'Use me to add the label and help text to your custom inputs',
-  children: <input placeholder="I'm a standard html input" />,
+  children: <input placeholder="I'm an unstyled html input" />,
 };
 
 export const Required = Template.bind({});

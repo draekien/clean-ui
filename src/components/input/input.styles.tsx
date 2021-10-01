@@ -14,11 +14,6 @@ export const labelContainerCss: ThemeUIStyleObject = {
   alignItems: 'baseline',
 };
 
-export const labelCss: ThemeUIStyleObject = {
-  variant: 'text.eyebrow',
-  color: 'text-muted',
-};
-
 export const inputContainerCss: ThemeUIStyleObject = {
   position: 'relative',
   mt: 'xs',
