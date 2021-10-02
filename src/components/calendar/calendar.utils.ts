@@ -64,3 +64,16 @@ export const sortDates = (dates: Date[]) =>
   dates.sort((a, b) => a.getTime() - b.getTime());
 
 export const getLastDate = (dates: Date[]) => sortDates([...dates])[dates.length - 1];
+
+export const getDateStrings = (dates?: Date[]) =>
+  dates
+    ? dates.map((d) => [d.getDate(), d.getMonth(), d.getFullYear()].join()).join()
+    : '';
+
+export const addOrRemoveSelectedDate = (date: Date, dates: Date[]) => {
+  const newDates = [...dates];
+  const index = newDates.findIndex((newDate) => +newDate === +date);
+  if (index > -1) newDates.splice(index, 1);
+  else newDates.push(date);
+  return sortDates(newDates);
+};

@@ -1,25 +1,23 @@
 /** @jsxImportSource theme-ui */
 import { Flex } from '@theme-ui/components';
-import React, { useReducer } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from '../button/button';
 import { Tooltip } from '../tooltip/tooltip';
-import {
-  activeDatesReducer,
-  initActiveDates,
-  mapVariantToSelectionAction,
-  useMonth,
-  useWeeks,
-} from './calendar.hooks';
+import { useMonth, useWeeks } from './calendar.hooks';
 
 import * as styles from './calendar.styles';
 import {
   addMonth,
+  addOrRemoveSelectedDate,
+  getDateStrings,
   getLastDate,
   getMonth,
   isDateDisabled,
   isDateInHoverRange,
   isDateInSelectedRange,
   isDateSelected,
+  resetHoursInDateArray,
+  sortDates,
   subtractMonth,
 } from './calendar.utils';
 
@@ -78,7 +76,7 @@ export interface CalendarProps {
    */
   selectLimit?: number;
   /** the first day of the week
-   *  @default 'Monday'
+   *  @default 'Sunday'
    */
   startOfWeek?: StartOfWeek;
   onDateChange?: (values: Date[], value: Date) => void;
@@ -92,44 +90,74 @@ export const Calendar: React.FC<CalendarProps> = ({
   initialMonth,
   variant = 'Single',
   selectLimit = 10,
-  startOfWeek = 'Monday',
+  startOfWeek = 'Sunday',
   onDateChange,
   onMonthChange,
 }) => {
   const daysOfTheWeek = useWeeks(startOfWeek);
-  const [{ selected, hovered, focused, month }, dispatch] = useReducer(
-    activeDatesReducer,
-    {
-      selected: value,
-      month: initialMonth || (value.length && getLastDate(value)) || new Date(),
-      focused: 'start_date',
-      hovered: undefined,
-    },
-    initActiveDates
-  );
+
   const daysOfTheMonth = useMonth(
-    month || initialMonth || (value.length && getLastDate(value)) || new Date(),
+    initialMonth || (value.length && getLastDate(value)) || new Date(),
     startOfWeek
   );
+
+  const [selected, setSelected] = useState<Date[]>(
+    (value.length && resetHoursInDateArray(sortDates(value))) || []
+  );
+  const [hovered, setHovered] = useState<Date | undefined>(undefined);
+  const [focused, setFocused] = useState<FocusedDate>('start_date');
+  const [month, setMonth] = useState<Date>(
+    initialMonth || (value.length && getLastDate(value)) || new Date()
+  );
+
+  useEffect(() => {
+    setSelected((value.length && resetHoursInDateArray(sortDates(value))) || []);
+
+    setMonth(initialMonth || (value.length && getLastDate(value)) || new Date());
+
+    if (variant === 'Range' && value.length) {
+      setFocused(value.length === 1 ? 'end_date' : 'start_date');
+    }
+  }, [getDateStrings(value)]);
 
   const handleOnMonthChanged = (newMonth: Date) => {
     onMonthChange && onMonthChange(newMonth);
   };
 
   const handleDateSelected = (newDate: Date) => {
-    dispatch({ type: mapVariantToSelectionAction(variant), value: newDate });
+    let dates: Date[];
+
+    switch (variant) {
+      case 'Single':
+        dates = value[0] === newDate ? [] : [newDate];
+        break;
+      case 'Multiple':
+        dates = addOrRemoveSelectedDate(newDate, selected);
+        break;
+      case 'Range':
+        if (focused === 'start_date') {
+          dates = [newDate];
+          setFocused('end_date');
+        } else {
+          dates = sortDates([...selected, newDate]);
+          setFocused('start_date');
+        }
+        break;
+    }
+
+    setSelected(dates);
     onDateChange && onDateChange(selected, newDate);
   };
 
   const handleOnPrevMonth = () => {
     const previousMonth = subtractMonth(month);
-    dispatch({ type: 'CHANGE_MONTH', value: previousMonth });
+    setMonth(previousMonth);
     handleOnMonthChanged(previousMonth);
   };
 
   const handleOnNextMonth = () => {
     const nextMonth = addMonth(month);
-    dispatch({ type: 'CHANGE_MONTH', value: nextMonth });
+    setMonth(nextMonth);
     handleOnMonthChanged(nextMonth);
   };
 
@@ -148,14 +176,14 @@ export const Calendar: React.FC<CalendarProps> = ({
       !isDisabled && handleDateSelected(date);
 
       if (isAnotherMonth && !isDisabled) {
-        dispatch({ type: 'CHANGE_MONTH', value: date });
+        setMonth(date);
         handleOnMonthChanged(date);
       }
     };
 
     const handleDayHovered = () => {
       if (!isDisabled && (!hovered || date.toISOString() !== hovered.toISOString())) {
-        dispatch({ type: 'HOVER', value: date });
+        setHovered(date);
       }
     };
 
