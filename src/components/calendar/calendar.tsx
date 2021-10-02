@@ -14,6 +14,7 @@ import {
 import * as styles from './calendar.styles';
 import {
   addMonth,
+  getLastDate,
   getMonth,
   isDateDisabled,
   isDateInHoverRange,
@@ -100,13 +101,16 @@ export const Calendar: React.FC<CalendarProps> = ({
     activeDatesReducer,
     {
       selected: value,
-      month: initialMonth,
+      month: initialMonth || (value.length && getLastDate(value)) || new Date(),
       focused: 'start_date',
       hovered: undefined,
     },
     initActiveDates
   );
-  const daysOfTheMonth = useMonth(month || initialMonth, startOfWeek);
+  const daysOfTheMonth = useMonth(
+    month || initialMonth || (value.length && getLastDate(value)) || new Date(),
+    startOfWeek
+  );
 
   const handleOnMonthChanged = (newMonth: Date) => {
     onMonthChange && onMonthChange(newMonth);

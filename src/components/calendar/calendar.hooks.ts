@@ -1,10 +1,5 @@
 import { CalendarSelectMode, Day, FocusedDate, StartOfWeek } from './calendar';
-import {
-  getLastDate,
-  resetHours,
-  resetHoursInDateArray,
-  sortDates,
-} from './calendar.utils';
+import { resetHours, resetHoursInDateArray, sortDates } from './calendar.utils';
 
 interface ActiveDates {
   selected: Date[];
@@ -20,7 +15,7 @@ export const initActiveDates = ({
   month,
 }: ActiveDates): ActiveDates => ({
   selected: (selected.length && resetHoursInDateArray(sortDates(selected))) || [],
-  month: month || (selected.length && getLastDate(selected)) || new Date(),
+  month,
   hovered,
   focused,
 });
