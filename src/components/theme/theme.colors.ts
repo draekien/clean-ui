@@ -1,6 +1,7 @@
 export const colors = {
   text: '#292929',
   'text-muted': '#626262',
+  'text-inverted': '#F7F7F7',
   background: '#F7F7F7',
   'background-lighter': '#FFFFFF',
   primary: '#EF802F',
@@ -70,6 +71,7 @@ export const colors = {
     dark: {
       text: '#F7F7F7',
       'text-muted': '#D8D8D8',
+      'text-inverted': '#292929',
       background: '#292929',
       'background-lighter': '#3B3B3B',
       primary: '#EF802F',

@@ -4,7 +4,7 @@ import * as styles from './button.styles';
 import { Spinner, SpinnerVariant } from '../spinner/spinner';
 import { Icon } from '../icon/icon';
 
-export type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'gradient';
+export type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'gradient' | 'text';
 export type ButtonSize = 'small' | 'medium' | 'large';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {

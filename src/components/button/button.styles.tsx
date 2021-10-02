@@ -27,6 +27,12 @@ const getColors = (variant: ButtonVariant) => {
       activeBackground: 's-200',
       activeBorder: 's-200',
     };
+  } else if (variant === 'text') {
+    return {
+      color: 'p-400',
+      hoverColor: 'p-300',
+      activeColor: 'p-200',
+    };
   } else if (variant === 'outline') {
     return {
       backgroundColor: 'transparent',
@@ -202,6 +208,17 @@ export const buttonCss = (props: ButtonCssProps): ThemeUIStyleObject => {
       css[':active'] = {
         backgroundPosition: 'center',
       };
+    } else if (props.variant === 'text') {
+      css.background = 'none';
+      css.border = 'none';
+      css.boxShadow = 'none';
+      css.color = colors.color;
+      css[':hover, :focus'] = {
+        color: colors.hoverColor,
+      };
+      css[':active'] = {
+        color: colors.activeColor,
+      };
     } else {
       css.backgroundColor = colors.backgroundColor;
       css.borderColor = colors.borderColor;
@@ -219,7 +236,7 @@ export const buttonCss = (props: ButtonCssProps): ThemeUIStyleObject => {
       };
     }
 
-    if (props.active && props.variant !== 'gradient') {
+    if (props.active && props.variant !== 'gradient' && props.variant !== 'text') {
       css.backgroundColor = colors.activeBackground;
       css.borderColor = colors.activeBackground;
     } else if (props.active && props.variant === 'gradient') {
