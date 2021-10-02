@@ -3,10 +3,10 @@
 exports[`Input Component Should match snapshot 1`] = `
 <div>
   <div
-    class="css-19x8k4x-Input"
+    class="css-xcsx4z"
   >
     <input
-      class="css-1ets5ve-Input"
+      class="css-msl6v2"
       id="test"
       value=""
     />
@@ -17,10 +17,10 @@ exports[`Input Component Should match snapshot 1`] = `
 exports[`Input Component Should render with an input mask 1`] = `
 <div>
   <div
-    class="css-19x8k4x-Input"
+    class="css-xcsx4z"
   >
     <input
-      class="css-1ets5ve-Input"
+      class="css-msl6v2"
       id="test"
       value=""
     />
@@ -44,10 +44,10 @@ exports[`Input Wrapper Component Should match snapshot 1`] = `
       </label>
     </div>
     <div
-      class="css-19x8k4x-Input"
+      class="css-xcsx4z"
     >
       <input
-        class="css-1ets5ve-Input"
+        class="css-msl6v2"
         id="test"
         value=""
       />

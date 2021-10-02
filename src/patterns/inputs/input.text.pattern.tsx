@@ -1,5 +1,5 @@
 /** @jsxImportSource theme-ui */
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { InputWrapper } from '../../components/input/input.wrapper';
 import { Input, InputProps } from '../../components/input/input';
 
@@ -10,38 +10,49 @@ export interface TextInputProps extends InputProps {
   helpText?: string;
   /** should the input take up the full width of the parent container? */
   fullWidth?: boolean;
+  value?: string;
 }
 
-export const TextInput: React.FC<TextInputProps> = ({
-  label,
-  inputId,
-  icon,
-  helpText,
-  variant,
-  value,
-  fullWidth = false,
-  onChange,
-  required,
-  ...rest
-}) => {
-  return (
-    <InputWrapper
-      inputId={inputId}
-      label={label}
-      helpText={helpText}
-      variant={variant}
-      required={required}
-      fullWidth={fullWidth}>
-      <Input
+export const TextInput: React.ForwardRefExoticComponent<
+  TextInputProps & React.RefAttributes<HTMLInputElement>
+> = forwardRef(
+  (
+    {
+      label,
+      inputId,
+      icon,
+      helpText,
+      variant,
+      value,
+      fullWidth = false,
+      onChange,
+      required,
+      mask,
+      ...rest
+    },
+    ref
+  ) => {
+    return (
+      <InputWrapper
         inputId={inputId}
-        icon={icon}
+        label={label}
+        helpText={helpText}
         variant={variant}
-        value={value}
-        onChange={onChange}
         required={required}
-        type="text"
-        {...rest}
-      />
-    </InputWrapper>
-  );
-};
+        fullWidth={fullWidth}>
+        <Input
+          inputId={inputId}
+          icon={icon}
+          variant={variant}
+          value={value}
+          onChange={onChange}
+          required={required}
+          type="text"
+          mask={mask}
+          ref={ref}
+          {...rest}
+        />
+      </InputWrapper>
+    );
+  }
+);
