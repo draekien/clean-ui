@@ -22,10 +22,8 @@ describe('Datepicker pattern', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('should match snapshot when all props are populated', () => {
+  it('should call handle change', () => {
     const handleChange = jest.fn();
-    const handleFocus = jest.fn();
-    const handleBlur = jest.fn();
     const { container } = themedRender(
       <DatePickerInput
         inputId="picker"
@@ -35,8 +33,6 @@ describe('Datepicker pattern', () => {
         initialMonth={new Date(2020, 1, 1)}
         calendarPosition="center"
         onChange={handleChange}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
         value="01/02/2020"
       />
     );
@@ -46,10 +42,6 @@ describe('Datepicker pattern', () => {
       target: { value: '02/02/2020' },
     });
 
-    fireEvent.focus(input, { bubbles: true });
-    fireEvent.blur(input);
-
-    expect(container).toMatchSnapshot();
     expect(handleChange).toHaveBeenCalledTimes(1);
   });
 
@@ -68,7 +60,6 @@ describe('Datepicker pattern', () => {
 
     const calendarLabel = await findByText(container, 'February 2020');
     expect(calendarLabel).toBeTruthy();
-    expect(container).toMatchSnapshot();
   });
 
   ['left' as const, 'right' as const, 'center' as const].forEach(
