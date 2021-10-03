@@ -75,7 +75,7 @@ describe('Calendar component', () => {
       <Calendar initialMonth={new Date(2021, 2, 1)} onMonthChange={handleMonthChanged} />
     );
 
-    const unfocusedDay = await findByTestId(container, `${new Date(2021, 2, 0)}-0`);
+    const unfocusedDay = await findByTestId(container, '0-0');
     fireEvent.click(unfocusedDay);
     expect(handleMonthChanged).toBeCalledTimes(1);
   });
