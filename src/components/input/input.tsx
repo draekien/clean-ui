@@ -20,6 +20,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
    */
   mask?: string;
   maskPlaceholder?: string;
+  addon?: React.ReactNode;
 }
 
 export const Input: React.ForwardRefExoticComponent<
@@ -39,6 +40,7 @@ export const Input: React.ForwardRefExoticComponent<
       onBlur,
       onFocus,
       onPaste,
+      addon,
       disabled = false,
       readOnly = false,
       ...rest
@@ -77,7 +79,7 @@ export const Input: React.ForwardRefExoticComponent<
             readOnly={readOnly}>
             <input
               sx={styles.inputCss(
-                !!icon,
+                !!icon || !!addon,
                 color,
                 hoverColor,
                 focusColor,
@@ -90,7 +92,8 @@ export const Input: React.ForwardRefExoticComponent<
               {...rest}
             />
           </InputMask>
-          {icon && <Icon name={icon} />}
+          {icon && !addon && <Icon name={icon} />}
+          {addon && <div sx={styles.inputAddonContainerCss}>{addon}</div>}
         </div>
       );
     }
@@ -99,7 +102,7 @@ export const Input: React.ForwardRefExoticComponent<
       <div sx={styles.inputContainerCss}>
         <input
           sx={styles.inputCss(
-            !!icon,
+            !!icon || !!addon,
             color,
             hoverColor,
             focusColor,
@@ -117,7 +120,8 @@ export const Input: React.ForwardRefExoticComponent<
           readOnly={readOnly}
           {...rest}
         />
-        {icon && <Icon name={icon} />}
+        {icon && !addon && <Icon name={icon} />}
+        {addon && <div sx={styles.inputAddonContainerCss}>{addon}</div>}
       </div>
     );
   }

@@ -146,7 +146,7 @@ export const Calendar: React.FC<CalendarProps> = ({
     }
 
     setSelected(dates);
-    onDateChange && onDateChange(selected, newDate);
+    onDateChange && onDateChange(dates, newDate);
   };
 
   const handleOnPrevMonth = () => {

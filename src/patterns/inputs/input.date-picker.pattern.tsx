@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 import React, { useState, useEffect, createRef } from 'react';
-import { Calendar, Card, StartOfWeek, TextInput } from '../..';
+import { Button, Calendar, Card, StartOfWeek, TextInput } from '../..';
 import { Transition } from 'react-transition-group';
 import OutsideClickHandler from 'react-outside-click-handler';
 import { TextInputProps } from './input.text.pattern';
@@ -24,10 +24,7 @@ const calendarTransitions: any = {
 const getMaskedDateString = (date?: Date) => {
   if (!date || typeof date.getTime !== 'function') return '';
 
-  const month = ('0' + (date.getMonth() + 1)).slice(-2);
-  const day = ('0' + date.getDate()).slice(-2);
-
-  return `${day}/${month}/${date.getFullYear()}`;
+  return date.toLocaleDateString();
 };
 
 const isValidDateInstance = (date?: Date) => {
@@ -37,6 +34,10 @@ const isValidDateInstance = (date?: Date) => {
 const getCleanString = (value: string) => {
   if (!value || typeof value !== 'string') return '';
   return value.replace(/\s|-/g, '').replace(/^\/|\/$|\/\//g, '');
+};
+
+const getDaysInMonth = (month: number, year: number) => {
+  return new Date(year, month, 0).getDate();
 };
 
 const getDateFromString = (value?: string) => {
@@ -49,7 +50,16 @@ const getDateFromString = (value?: string) => {
   if (dateValues[2].length < 4) return null;
   try {
     const numberValues = dateValues.map((v) => parseInt(v)); // [0] day, [1] month, [2] year
-    return new Date(numberValues[2], numberValues[1] - 1, numberValues[0]);
+    let day = numberValues[0];
+    let month = numberValues[1];
+    const year = numberValues[2];
+    if (month > 12) month = 12;
+
+    const daysInMonth = getDaysInMonth(month, year);
+
+    if (day > daysInMonth) day = daysInMonth;
+
+    return new Date(year, month - 1, day);
   } catch (error) {
     return null;
   }
@@ -60,9 +70,13 @@ const fireInputChange = (element: HTMLInputElement, value: string) => {
   const prototype = Object.getPrototypeOf(element);
   const prototypeValueSetter = Object.getOwnPropertyDescriptor(prototype, 'value')?.set;
 
-  if (valueSetter && prototypeValueSetter && valueSetter !== prototypeValueSetter)
+  if (valueSetter && prototypeValueSetter && valueSetter !== prototypeValueSetter) {
     prototypeValueSetter.call(element, value);
-  else if (valueSetter) valueSetter.call(element, value);
+    console.log('prototypesetter', value);
+  } else if (valueSetter) {
+    valueSetter.call(element, value);
+    console.log('valuesetter', value);
+  }
 
   element.dispatchEvent(new Event('input', { bubbles: true }));
 };
@@ -80,8 +94,12 @@ export interface DatePickerInputProps extends Omit<TextInputProps, 'onChange'> {
 }
 
 export const DatePickerInput: React.FC<DatePickerInputProps> = ({
+  label,
+  inputId,
+  helpText,
   onChange,
   onFocus,
+  onBlur,
   value = '',
   initialMonth,
   startOfWeek = 'Sunday',
@@ -91,12 +109,14 @@ export const DatePickerInput: React.FC<DatePickerInputProps> = ({
 }) => {
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [inputValue, setInputValue] = useState(
-    selectedDate ? getMaskedDateString(selectedDate) : value
+    selectedDate
+      ? getMaskedDateString(selectedDate)
+      : getDateFromString(value)?.toLocaleDateString() || value
   );
   const [chosenDate, setChosenDate] = useState<Date | null>(getDateFromString(value));
 
   useEffect(() => {
-    setInputValue(value);
+    setInputValue(getDateFromString(value)?.toLocaleDateString() || value);
     setChosenDate(getDateFromString(value));
   }, [value]);
 
@@ -107,27 +127,39 @@ export const DatePickerInput: React.FC<DatePickerInputProps> = ({
     }
   }, [selectedDate]);
 
-  const textInputRef = createRef<HTMLInputElement>();
+  let textInputRef = createRef<HTMLInputElement>();
 
   const handleFocused = (e: React.FocusEvent<HTMLInputElement>) => {
-    setIsCalendarOpen(true);
+    setIsCalendarOpen(false);
     onFocus && onFocus(e);
+  };
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    setIsCalendarOpen(false);
+    onBlur && onBlur(e);
   };
 
   const handleOutsideClicked = () => {
     setIsCalendarOpen(false);
   };
 
-  const handleCalendarDateChange = (selectedDates: Date[], newDate: Date) => {
+  const handleCalendarClicked = () => {
+    setIsCalendarOpen(!isCalendarOpen);
+  };
+
+  const handleCalendarDateChange = (_selectedDates: Date[], newDate: Date) => {
     const date = newDate;
     const maskedDate = getMaskedDateString(date);
+    const validDate = getDateFromString(maskedDate)?.toLocaleDateString();
 
-    console.log('updating input', maskedDate, date);
-    setInputValue(maskedDate);
+    setInputValue(getDateFromString(validDate)?.toLocaleDateString() || maskedDate);
     setChosenDate(date);
+    setIsCalendarOpen(false);
 
+    textInputRef = createRef<HTMLInputElement>();
     if (textInputRef.current) {
       fireInputChange(textInputRef.current, maskedDate);
+      textInputRef.current.focus();
     }
   };
 
@@ -135,10 +167,12 @@ export const DatePickerInput: React.FC<DatePickerInputProps> = ({
     const value = (e.target as HTMLInputElement).value;
     const dateValue = getDateFromString(value);
 
-    setChosenDate(dateValue);
-    setInputValue(value);
+    const validDate = getDateFromString(value)?.toLocaleDateString();
 
-    onChange && onChange(e, getCleanString(value), dateValue || undefined);
+    setChosenDate(dateValue);
+    setInputValue(validDate || value);
+
+    onChange && onChange(e, validDate || getCleanString(value), dateValue || undefined);
   };
 
   return (
@@ -148,20 +182,32 @@ export const DatePickerInput: React.FC<DatePickerInputProps> = ({
           position: 'relative',
         }}>
         <TextInput
+          {...rest}
+          label={label}
+          inputId={inputId}
+          helpText={helpText}
           ref={textInputRef}
           mask="99/99/9999"
           maskPlaceholder="-"
-          icon="calendar_today"
+          addon={
+            <Button
+              icon="calendar_today"
+              iconSize="medium"
+              variant="text"
+              size="large"
+              iconPosition="left"
+              onClick={handleCalendarClicked}
+            />
+          }
           value={inputValue}
           onFocus={handleFocused}
+          onBlur={handleBlur}
           onChange={handleInputDateChange}
-          {...rest}
         />
-        <Transition appear in={isCalendarOpen} timeout={100}>
+        <Transition appear in={isCalendarOpen} timeout={0} unmountOnExit>
           {(state) => (
             <div
               sx={{
-                opacity: 0,
                 position: 'absolute',
                 transition: 'all 100ms',
                 zIndex: 'dropdown',
