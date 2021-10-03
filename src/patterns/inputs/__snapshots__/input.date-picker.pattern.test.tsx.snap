@@ -161,6 +161,7 @@ exports[`Datepicker pattern should open calendar when button is clicked 1`] = `
       </div>
       <div
         class="css-1c8vey"
+        data-testid="calendar-container"
       >
         <div
           class="css-r09zb2-Card"

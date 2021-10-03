@@ -91,10 +91,8 @@ const fireInputChange = (element: HTMLInputElement, value: string) => {
 
   if (valueSetter && prototypeValueSetter && valueSetter !== prototypeValueSetter) {
     prototypeValueSetter.call(element, value);
-    console.log('prototypesetter', value);
   } else if (valueSetter) {
     valueSetter.call(element, value);
-    console.log('valuesetter', value);
   }
 
   element.dispatchEvent(new Event('input', { bubbles: true }));
@@ -232,7 +230,8 @@ export const DatePickerInput: React.FC<DatePickerInputProps> = ({
                 zIndex: 'dropdown',
                 ...getHorizontalPosition(calendarPosition),
                 ...calendarTransitions[state],
-              }}>
+              }}
+              data-testid="calendar-container">
               <Card>
                 <div
                   sx={{
