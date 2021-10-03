@@ -6,7 +6,7 @@
 export default {
   clearMocks: true,
   coverageDirectory: 'coverage',
-  collectCoverageFrom: ['src/components/**/*.{js,jsx,ts,tsx}'],
+  collectCoverageFrom: ['src/{components,patterns}/**/*.{js,jsx,ts,tsx}'],
   coverageReporters: ['json', 'json-summary', 'text', 'lcov', 'lcovonly', 'clover'],
   preset: 'ts-jest',
   testPathIgnorePatterns: ['\\\\node_modules\\\\', '\\\\dist\\\\'],
