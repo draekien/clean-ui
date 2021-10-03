@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { Button, ButtonProps } from '../components/button/button';
-import { Text } from '../components/text/text';
+import { Text as TextComponent } from '../components/text/text';
 
 export default {
   title: 'Components/Button',
@@ -15,13 +15,43 @@ Default.args = {
   children: 'Button',
 };
 
+export const Secondary = Template.bind({});
+Secondary.args = {
+  variant: 'secondary',
+  children: 'Button',
+};
+
+export const Outline = Template.bind({});
+Outline.args = {
+  variant: 'outline',
+  children: 'Button',
+};
+
+export const Gradient = Template.bind({});
+Gradient.args = {
+  variant: 'gradient',
+  children: 'Button',
+};
+
+export const Text = Template.bind({});
+Text.args = {
+  variant: 'text',
+  children: 'Button',
+};
+
+export const Link = Template.bind({});
+Link.args = {
+  variant: 'link',
+  children: 'Link',
+};
+
 export const FullWidth = () => (
   <div style={{ width: '20rem' }}>
     <div style={{ marginBottom: '1rem' }}>
-      <Text as="p" fullWidth>
+      <TextComponent as="p" fullWidth>
         The full width prop makes it so that the button will take up the full width of the
         parent container.
-      </Text>
+      </TextComponent>
     </div>
     <Button fullWidth>Button</Button>
   </div>
@@ -30,11 +60,11 @@ export const FullWidth = () => (
 export const Featured = () => (
   <div style={{ width: '20rem' }}>
     <div style={{ marginBottom: '1rem' }}>
-      <Text as="p" fullWidth>
+      <TextComponent as="p" fullWidth>
         The feature button overrides the size prop to 'large' and the variant prop to
         'gradient'. The text is also transformed to 'uppercase' and the letter spacing is
         modified. All other props work as per usual.
-      </Text>
+      </TextComponent>
     </div>
     <Button feature>Feature</Button>
   </div>

@@ -5,7 +5,13 @@ import { Spinner, SpinnerVariant } from '../spinner/spinner';
 import { Icon } from '../icon/icon';
 import { Size } from '../../types/layouts';
 
-export type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'gradient' | 'text';
+export type ButtonVariant =
+  | 'primary'
+  | 'secondary'
+  | 'outline'
+  | 'gradient'
+  | 'text'
+  | 'link';
 export type ButtonSize = 'small' | 'medium' | 'large';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {

@@ -138,6 +138,26 @@ describe('Button Component', () => {
       );
       expect(styles.borderRadius).toBe('999px');
     });
+
+    it('Should render with the correct styles when variant is a link', () => {
+      const { container } = themedRender(<Button variant="link">Link</Button>);
+
+      const styles = window.getComputedStyle(
+        container.querySelector('button') as Element
+      );
+      expect(styles.background).toBe('transparent');
+      expect(styles.color).toBe(hexToRgb(colors.primary));
+    });
+
+    it('Should render with the correct styles when variant is a text', () => {
+      const { container } = themedRender(<Button variant="text">Text</Button>);
+
+      const styles = window.getComputedStyle(
+        container.querySelector('button') as Element
+      );
+      expect(styles.background).toBe('transparent');
+      expect(styles.color).toBe(hexToRgb(colors.primary));
+    });
   });
 
   describe('Button Sizes', () => {
