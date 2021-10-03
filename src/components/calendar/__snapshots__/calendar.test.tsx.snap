@@ -116,246 +116,246 @@ exports[`Calendar component should match snapshot 1`] = `
     >
       <span
         class="css-gakn16-CalendarDay"
-        data-testid="Sun Jan 31 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-0"
-        id="Sun Jan 31 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-0"
+        data-testid="0-0"
+        id="0-0"
       >
         31
       </span>
       <span
         class="css-1and8og-CalendarDay"
-        data-testid="Mon Feb 01 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-1"
-        id="Mon Feb 01 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-1"
+        data-testid="1-1"
+        id="1-1"
       >
         1
       </span>
       <span
         class="css-5ocht1-CalendarDay"
-        data-testid="Tue Feb 02 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-2"
-        id="Tue Feb 02 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-2"
+        data-testid="2-2"
+        id="2-2"
       >
         2
       </span>
       <span
         class="css-5ocht1-CalendarDay"
-        data-testid="Wed Feb 03 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-3"
-        id="Wed Feb 03 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-3"
+        data-testid="3-3"
+        id="3-3"
       >
         3
       </span>
       <span
         class="css-5ocht1-CalendarDay"
-        data-testid="Thu Feb 04 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-4"
-        id="Thu Feb 04 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-4"
+        data-testid="4-4"
+        id="4-4"
       >
         4
       </span>
       <span
         class="css-5ocht1-CalendarDay"
-        data-testid="Fri Feb 05 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-5"
-        id="Fri Feb 05 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-5"
+        data-testid="5-5"
+        id="5-5"
       >
         5
       </span>
       <span
         class="css-5ocht1-CalendarDay"
-        data-testid="Sat Feb 06 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-6"
-        id="Sat Feb 06 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-6"
+        data-testid="6-6"
+        id="6-6"
       >
         6
       </span>
       <span
         class="css-5ocht1-CalendarDay"
-        data-testid="Sun Feb 07 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-7"
-        id="Sun Feb 07 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-7"
+        data-testid="0-7"
+        id="0-7"
       >
         7
       </span>
       <span
         class="css-5ocht1-CalendarDay"
-        data-testid="Mon Feb 08 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-8"
-        id="Mon Feb 08 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-8"
+        data-testid="1-8"
+        id="1-8"
       >
         8
       </span>
       <span
         class="css-5ocht1-CalendarDay"
-        data-testid="Tue Feb 09 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-9"
-        id="Tue Feb 09 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-9"
+        data-testid="2-9"
+        id="2-9"
       >
         9
       </span>
       <span
         class="css-5ocht1-CalendarDay"
-        data-testid="Wed Feb 10 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-10"
-        id="Wed Feb 10 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-10"
+        data-testid="3-10"
+        id="3-10"
       >
         10
       </span>
       <span
         class="css-5ocht1-CalendarDay"
-        data-testid="Thu Feb 11 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-11"
-        id="Thu Feb 11 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-11"
+        data-testid="4-11"
+        id="4-11"
       >
         11
       </span>
       <span
         class="css-5ocht1-CalendarDay"
-        data-testid="Fri Feb 12 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-12"
-        id="Fri Feb 12 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-12"
+        data-testid="5-12"
+        id="5-12"
       >
         12
       </span>
       <span
         class="css-5ocht1-CalendarDay"
-        data-testid="Sat Feb 13 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-13"
-        id="Sat Feb 13 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-13"
+        data-testid="6-13"
+        id="6-13"
       >
         13
       </span>
       <span
         class="css-5ocht1-CalendarDay"
-        data-testid="Sun Feb 14 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-14"
-        id="Sun Feb 14 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-14"
+        data-testid="0-14"
+        id="0-14"
       >
         14
       </span>
       <span
         class="css-5ocht1-CalendarDay"
-        data-testid="Mon Feb 15 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-15"
-        id="Mon Feb 15 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-15"
+        data-testid="1-15"
+        id="1-15"
       >
         15
       </span>
       <span
         class="css-5ocht1-CalendarDay"
-        data-testid="Tue Feb 16 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-16"
-        id="Tue Feb 16 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-16"
+        data-testid="2-16"
+        id="2-16"
       >
         16
       </span>
       <span
         class="css-5ocht1-CalendarDay"
-        data-testid="Wed Feb 17 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-17"
-        id="Wed Feb 17 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-17"
+        data-testid="3-17"
+        id="3-17"
       >
         17
       </span>
       <span
         class="css-5ocht1-CalendarDay"
-        data-testid="Thu Feb 18 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-18"
-        id="Thu Feb 18 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-18"
+        data-testid="4-18"
+        id="4-18"
       >
         18
       </span>
       <span
         class="css-5ocht1-CalendarDay"
-        data-testid="Fri Feb 19 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-19"
-        id="Fri Feb 19 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-19"
+        data-testid="5-19"
+        id="5-19"
       >
         19
       </span>
       <span
         class="css-5ocht1-CalendarDay"
-        data-testid="Sat Feb 20 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-20"
-        id="Sat Feb 20 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-20"
+        data-testid="6-20"
+        id="6-20"
       >
         20
       </span>
       <span
         class="css-5ocht1-CalendarDay"
-        data-testid="Sun Feb 21 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-21"
-        id="Sun Feb 21 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-21"
+        data-testid="0-21"
+        id="0-21"
       >
         21
       </span>
       <span
         class="css-5ocht1-CalendarDay"
-        data-testid="Mon Feb 22 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-22"
-        id="Mon Feb 22 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-22"
+        data-testid="1-22"
+        id="1-22"
       >
         22
       </span>
       <span
         class="css-5ocht1-CalendarDay"
-        data-testid="Tue Feb 23 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-23"
-        id="Tue Feb 23 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-23"
+        data-testid="2-23"
+        id="2-23"
       >
         23
       </span>
       <span
         class="css-5ocht1-CalendarDay"
-        data-testid="Wed Feb 24 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-24"
-        id="Wed Feb 24 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-24"
+        data-testid="3-24"
+        id="3-24"
       >
         24
       </span>
       <span
         class="css-5ocht1-CalendarDay"
-        data-testid="Thu Feb 25 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-25"
-        id="Thu Feb 25 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-25"
+        data-testid="4-25"
+        id="4-25"
       >
         25
       </span>
       <span
         class="css-5ocht1-CalendarDay"
-        data-testid="Fri Feb 26 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-26"
-        id="Fri Feb 26 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-26"
+        data-testid="5-26"
+        id="5-26"
       >
         26
       </span>
       <span
         class="css-5ocht1-CalendarDay"
-        data-testid="Sat Feb 27 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-27"
-        id="Sat Feb 27 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-27"
+        data-testid="6-27"
+        id="6-27"
       >
         27
       </span>
       <span
         class="css-5ocht1-CalendarDay"
-        data-testid="Sun Feb 28 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-28"
-        id="Sun Feb 28 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-28"
+        data-testid="0-28"
+        id="0-28"
       >
         28
       </span>
       <span
         class="css-gakn16-CalendarDay"
-        data-testid="Mon Mar 01 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-29"
-        id="Mon Mar 01 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-29"
+        data-testid="1-29"
+        id="1-29"
       >
         1
       </span>
       <span
         class="css-gakn16-CalendarDay"
-        data-testid="Tue Mar 02 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-30"
-        id="Tue Mar 02 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-30"
+        data-testid="2-30"
+        id="2-30"
       >
         2
       </span>
       <span
         class="css-gakn16-CalendarDay"
-        data-testid="Wed Mar 03 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-31"
-        id="Wed Mar 03 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-31"
+        data-testid="3-31"
+        id="3-31"
       >
         3
       </span>
       <span
         class="css-gakn16-CalendarDay"
-        data-testid="Thu Mar 04 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-32"
-        id="Thu Mar 04 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-32"
+        data-testid="4-32"
+        id="4-32"
       >
         4
       </span>
       <span
         class="css-gakn16-CalendarDay"
-        data-testid="Fri Mar 05 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-33"
-        id="Fri Mar 05 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-33"
+        data-testid="5-33"
+        id="5-33"
       >
         5
       </span>
       <span
         class="css-gakn16-CalendarDay"
-        data-testid="Sat Mar 06 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-34"
-        id="Sat Mar 06 2021 00:00:00 GMT+1100 (Australian Eastern Daylight Time)-34"
+        data-testid="6-34"
+        id="6-34"
       >
         6
       </span>
