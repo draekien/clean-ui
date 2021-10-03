@@ -5,6 +5,7 @@ import { Transition } from 'react-transition-group';
 import OutsideClickHandler from 'react-outside-click-handler';
 import { TextInputProps } from './input.text.pattern';
 import { HorizontalAlignment } from '../../types/layouts';
+import { ThemeUIStyleObject } from '@theme-ui/css';
 
 const calendarTransitions: any = {
   entering: { opacity: 0 },
@@ -19,6 +20,24 @@ const calendarTransitions: any = {
     height: '0 !important',
     overflow: 'hidden',
   },
+};
+
+const getHorizontalPosition = (alignment: HorizontalAlignment) => {
+  const css: ThemeUIStyleObject = {};
+
+  switch (alignment) {
+    case 'left':
+      css.left = 0;
+      break;
+    case 'right':
+      css.right = 0;
+      break;
+    case 'center':
+      css.left = 'calc(50% - 10em)';
+      break;
+  }
+
+  return css;
 };
 
 const getMaskedDateString = (date?: Date) => {
@@ -211,8 +230,7 @@ export const DatePickerInput: React.FC<DatePickerInputProps> = ({
                 position: 'absolute',
                 transition: 'all 100ms',
                 zIndex: 'dropdown',
-                left: calendarPosition === 'left' && 0,
-                right: calendarPosition === 'right' && 0,
+                ...getHorizontalPosition(calendarPosition),
                 ...calendarTransitions[state],
               }}>
               <Card>

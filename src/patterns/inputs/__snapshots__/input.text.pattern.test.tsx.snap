@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text input pattern should match snapshot 1`] = `
+<div>
+  <div
+    class="css-109th3q-InputWrapper"
+  >
+    <div
+      class="css-1qm0f6g-InputLabel"
+    >
+      <label
+        class="css-1pst1pz-Label"
+        for="text"
+      >
+        text
+      </label>
+    </div>
+    <div
+      class="css-xcsx4z"
+    >
+      <input
+        class="css-msl6v2"
+        id="text"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+</div>
+`;
