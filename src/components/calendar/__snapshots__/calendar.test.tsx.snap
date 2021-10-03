@@ -22,7 +22,9 @@ exports[`Calendar component should match snapshot 1`] = `
         </span>
         <span />
       </button>
-      <span>
+      <span
+        class="css-1a9mqxr-Text css-vurnku"
+      >
         February
          
         2021
@@ -110,10 +112,10 @@ exports[`Calendar component should match snapshot 1`] = `
       </div>
     </div>
     <div
-      class="css-lm30wu-Calendar"
+      class="css-1tme9z0-Calendar"
     >
       <span
-        class="css-t7crdb-CalendarDay"
+        class="css-gakn16-CalendarDay"
       >
         31
       </span>
@@ -123,167 +125,167 @@ exports[`Calendar component should match snapshot 1`] = `
         1
       </span>
       <span
-        class="css-n4134l-CalendarDay"
+        class="css-5ocht1-CalendarDay"
       >
         2
       </span>
       <span
-        class="css-n4134l-CalendarDay"
+        class="css-5ocht1-CalendarDay"
       >
         3
       </span>
       <span
-        class="css-n4134l-CalendarDay"
+        class="css-5ocht1-CalendarDay"
       >
         4
       </span>
       <span
-        class="css-n4134l-CalendarDay"
+        class="css-5ocht1-CalendarDay"
       >
         5
       </span>
       <span
-        class="css-n4134l-CalendarDay"
+        class="css-5ocht1-CalendarDay"
       >
         6
       </span>
       <span
-        class="css-n4134l-CalendarDay"
+        class="css-5ocht1-CalendarDay"
       >
         7
       </span>
       <span
-        class="css-n4134l-CalendarDay"
+        class="css-5ocht1-CalendarDay"
       >
         8
       </span>
       <span
-        class="css-n4134l-CalendarDay"
+        class="css-5ocht1-CalendarDay"
       >
         9
       </span>
       <span
-        class="css-n4134l-CalendarDay"
+        class="css-5ocht1-CalendarDay"
       >
         10
       </span>
       <span
-        class="css-n4134l-CalendarDay"
+        class="css-5ocht1-CalendarDay"
       >
         11
       </span>
       <span
-        class="css-n4134l-CalendarDay"
+        class="css-5ocht1-CalendarDay"
       >
         12
       </span>
       <span
-        class="css-n4134l-CalendarDay"
+        class="css-5ocht1-CalendarDay"
       >
         13
       </span>
       <span
-        class="css-n4134l-CalendarDay"
+        class="css-5ocht1-CalendarDay"
       >
         14
       </span>
       <span
-        class="css-n4134l-CalendarDay"
+        class="css-5ocht1-CalendarDay"
       >
         15
       </span>
       <span
-        class="css-n4134l-CalendarDay"
+        class="css-5ocht1-CalendarDay"
       >
         16
       </span>
       <span
-        class="css-n4134l-CalendarDay"
+        class="css-5ocht1-CalendarDay"
       >
         17
       </span>
       <span
-        class="css-n4134l-CalendarDay"
+        class="css-5ocht1-CalendarDay"
       >
         18
       </span>
       <span
-        class="css-n4134l-CalendarDay"
+        class="css-5ocht1-CalendarDay"
       >
         19
       </span>
       <span
-        class="css-n4134l-CalendarDay"
+        class="css-5ocht1-CalendarDay"
       >
         20
       </span>
       <span
-        class="css-n4134l-CalendarDay"
+        class="css-5ocht1-CalendarDay"
       >
         21
       </span>
       <span
-        class="css-n4134l-CalendarDay"
+        class="css-5ocht1-CalendarDay"
       >
         22
       </span>
       <span
-        class="css-n4134l-CalendarDay"
+        class="css-5ocht1-CalendarDay"
       >
         23
       </span>
       <span
-        class="css-n4134l-CalendarDay"
+        class="css-5ocht1-CalendarDay"
       >
         24
       </span>
       <span
-        class="css-n4134l-CalendarDay"
+        class="css-5ocht1-CalendarDay"
       >
         25
       </span>
       <span
-        class="css-n4134l-CalendarDay"
+        class="css-5ocht1-CalendarDay"
       >
         26
       </span>
       <span
-        class="css-n4134l-CalendarDay"
+        class="css-5ocht1-CalendarDay"
       >
         27
       </span>
       <span
-        class="css-n4134l-CalendarDay"
+        class="css-5ocht1-CalendarDay"
       >
         28
       </span>
       <span
-        class="css-t7crdb-CalendarDay"
+        class="css-gakn16-CalendarDay"
       >
         1
       </span>
       <span
-        class="css-t7crdb-CalendarDay"
+        class="css-gakn16-CalendarDay"
       >
         2
       </span>
       <span
-        class="css-t7crdb-CalendarDay"
+        class="css-gakn16-CalendarDay"
       >
         3
       </span>
       <span
-        class="css-t7crdb-CalendarDay"
+        class="css-gakn16-CalendarDay"
       >
         4
       </span>
       <span
-        class="css-t7crdb-CalendarDay"
+        class="css-gakn16-CalendarDay"
       >
         5
       </span>
       <span
-        class="css-t7crdb-CalendarDay"
+        class="css-gakn16-CalendarDay"
       >
         6
       </span>

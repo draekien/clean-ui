@@ -1,16 +1,18 @@
 /** @jsxImportSource theme-ui */
 import { Flex } from '@theme-ui/components';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Button } from '../button/button';
 import { Tooltip } from '../tooltip/tooltip';
-import { useMonth, useWeeks } from './calendar.hooks';
 import { CalendarDay } from './calendar.day';
+import { useCalendar } from './calendar.hooks';
+import { Text } from '../text/text';
 
 import * as styles from './calendar.styles';
 import {
   addMonth,
   addOrRemoveSelectedDate,
-  getDateStrings,
+  getDaysOfTheMonth,
+  getDaysOfTheWeek,
   getLastDate,
   getMonth,
   isDateDisabled,
@@ -21,6 +23,7 @@ import {
   sortDates,
   subtractMonth,
 } from './calendar.utils';
+import { useColorMode } from '@theme-ui/color-modes';
 
 export type StartOfWeek = 'Sunday' | 'Monday';
 export type ShortDay = 'M' | 'T' | 'W' | 'F' | 'S';
@@ -95,31 +98,24 @@ export const Calendar: React.FC<CalendarProps> = ({
   onDateChange,
   onMonthChange,
 }) => {
-  const daysOfTheWeek = useWeeks(startOfWeek);
+  const [colorMode] = useColorMode();
 
-  const daysOfTheMonth = useMonth(
-    initialMonth || (value.length && getLastDate(value)) || new Date(),
-    startOfWeek
-  );
-
-  const [selected, setSelected] = useState<Date[]>(
-    (value.length && resetHoursInDateArray(sortDates(value))) || []
-  );
-  const [hovered, setHovered] = useState<Date | undefined>(undefined);
-  const [focused, setFocused] = useState<FocusedDate>('start_date');
-  const [month, setMonth] = useState<Date>(
-    initialMonth || (value.length && getLastDate(value)) || new Date()
-  );
-
-  useEffect(() => {
-    setSelected((value.length && resetHoursInDateArray(sortDates(value))) || []);
-
-    setMonth(initialMonth || (value.length && getLastDate(value)) || new Date());
-
-    if (variant === 'Range' && value.length) {
-      setFocused(value.length === 1 ? 'end_date' : 'start_date');
-    }
-  }, [getDateStrings(value)]);
+  const {
+    selected,
+    hovered,
+    focused,
+    month,
+    setSelected,
+    setHovered,
+    setFocused,
+    setMonth,
+  } = useCalendar({
+    value: (value.length && resetHoursInDateArray(sortDates(value))) || [],
+    hovered: undefined,
+    focused: 'start_date',
+    month: initialMonth || (value.length && getLastDate(value)) || new Date(),
+    variant,
+  });
 
   const handleOnMonthChanged = (newMonth: Date) => {
     onMonthChange && onMonthChange(newMonth);
@@ -177,6 +173,16 @@ export const Calendar: React.FC<CalendarProps> = ({
     }
   };
 
+  const isSelected = (date: Date) => isDateSelected(date, selected);
+  const isSelectable = (date: Date) =>
+    variant === 'Range' && isDateInSelectedRange(date, selected);
+  const isHoverable = (date: Date) =>
+    focused === 'end_date' && isDateInHoverRange(date, selected, hovered);
+  const isDisabled = (date: Date) =>
+    (variant === 'Multiple' && selected.length >= selectLimit && !isSelected(date)) ||
+    isDateDisabled(date, min, max);
+  const isUnfocused = (date: Date) => date.getMonth() !== month.getMonth();
+
   return (
     <div sx={styles.calendarContainerCss}>
       <Flex sx={styles.calendarHeaderCss}>
@@ -186,9 +192,9 @@ export const Calendar: React.FC<CalendarProps> = ({
           iconPosition="left"
           variant="text"
         />
-        <span>
+        <Text as="span" variant="subtitle">
           {getMonth(month)} {month.getFullYear()}
-        </span>
+        </Text>
         <Button
           onClick={handleOnNextMonth}
           icon="chevron_right"
@@ -197,39 +203,27 @@ export const Calendar: React.FC<CalendarProps> = ({
         />
       </Flex>
       <div sx={styles.calendarDayLabelContainerCss}>
-        {daysOfTheWeek.map((day) => (
+        {getDaysOfTheWeek(startOfWeek).map((day) => (
           <Tooltip key={day.longLabel} text={day.longLabel}>
             <span sx={styles.calendarDayLabelCss}>{day.shortLabel}</span>
           </Tooltip>
         ))}
       </div>
       <div sx={styles.calenderDaysContainerCss}>
-        {daysOfTheMonth.map((day, index) => {
-          const isSelected = isDateSelected(day, selected);
-          const isSelectable =
-            variant === 'Range' && isDateInSelectedRange(day, selected);
-          const isHoverable =
-            focused === 'end_date' && isDateInHoverRange(day, selected, hovered);
-          const canSelectMore = selected.length < selectLimit;
-          const isDisabled =
-            (variant === 'Multiple' && !canSelectMore && !isSelected) ||
-            isDateDisabled(day, min, max);
-          const isUnfocused = day.getMonth() !== month.getMonth();
-
-          return (
-            <CalendarDay
-              key={`${day.toString()}-${index}`}
-              date={day}
-              selected={isSelected}
-              selectable={isSelectable}
-              hoverable={isHoverable}
-              disabled={isDisabled}
-              unfocused={isUnfocused}
-              onClick={handleDayClicked}
-              onMouseEnter={handleDayHovered}
-            />
-          );
-        })}
+        {getDaysOfTheMonth(month, startOfWeek).map((day, index) => (
+          <CalendarDay
+            key={`${day.toString()}-${index}`}
+            date={day}
+            colorMode={colorMode}
+            selected={isSelected(day)}
+            selectable={isSelectable(day)}
+            hoverable={isHoverable(day)}
+            disabled={isDisabled(day)}
+            unfocused={isUnfocused(day)}
+            onClick={handleDayClicked}
+            onMouseEnter={handleDayHovered}
+          />
+        ))}
       </div>
     </div>
   );
