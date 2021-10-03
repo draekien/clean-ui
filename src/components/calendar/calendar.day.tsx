@@ -4,6 +4,7 @@ import { calendarDayCss } from './calendar.styles';
 
 export interface CalendarDayProps {
   date: Date;
+  colorMode: string;
   hoverable: boolean;
   selectable: boolean;
   selected: boolean;
@@ -15,6 +16,7 @@ export interface CalendarDayProps {
 
 export const CalendarDay: React.FC<CalendarDayProps> = ({
   date,
+  colorMode,
   hoverable,
   selectable,
   selected,
@@ -41,6 +43,7 @@ export const CalendarDay: React.FC<CalendarDayProps> = ({
         isWithinHoverRange: hoverable,
         isDisabled: disabled,
         isAnotherMonth: unfocused,
+        isDarkmode: colorMode === 'dark',
       })}>
       {date.getDate()}
     </span>
