@@ -28,7 +28,7 @@ export const inputContainerCss: ThemeUIStyleObject = {
 
 export const inputAddonContainerCss: ThemeUIStyleObject = {
   position: 'absolute',
-  left: 0,
+  right: 0,
   top: 0,
   border: '1px solid transparent',
 };

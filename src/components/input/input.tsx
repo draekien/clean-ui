@@ -79,7 +79,7 @@ export const Input: React.ForwardRefExoticComponent<
             readOnly={readOnly}>
             <input
               sx={styles.inputCss(
-                !!icon || !!addon,
+                !!icon,
                 color,
                 hoverColor,
                 focusColor,
@@ -92,7 +92,7 @@ export const Input: React.ForwardRefExoticComponent<
               {...rest}
             />
           </InputMask>
-          {icon && !addon && <Icon name={icon} />}
+          {icon && <Icon name={icon} />}
           {addon && <div sx={styles.inputAddonContainerCss}>{addon}</div>}
         </div>
       );
@@ -102,7 +102,7 @@ export const Input: React.ForwardRefExoticComponent<
       <div sx={styles.inputContainerCss}>
         <input
           sx={styles.inputCss(
-            !!icon || !!addon,
+            !!icon,
             color,
             hoverColor,
             focusColor,
@@ -120,7 +120,7 @@ export const Input: React.ForwardRefExoticComponent<
           readOnly={readOnly}
           {...rest}
         />
-        {icon && !addon && <Icon name={icon} />}
+        {icon && <Icon name={icon} />}
         {addon && <div sx={styles.inputAddonContainerCss}>{addon}</div>}
       </div>
     );
