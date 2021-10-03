@@ -10,3 +10,8 @@ export default {
 const Template: Story<DatePickerInputProps> = (args) => <DatePickerInput {...args} />;
 
 export const Default = Template.bind({});
+Default.args = {
+  label: 'DatePicker Input',
+  inputId: 'date-picker-input',
+  helpText: 'Enter a date or select one from the calendar',
+};

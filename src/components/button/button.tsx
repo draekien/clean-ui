@@ -3,6 +3,7 @@ import React from 'react';
 import * as styles from './button.styles';
 import { Spinner, SpinnerVariant } from '../spinner/spinner';
 import { Icon } from '../icon/icon';
+import { Size } from '../../types/layouts';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'gradient' | 'text';
 export type ButtonSize = 'small' | 'medium' | 'large';
@@ -18,6 +19,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   size?: ButtonSize;
   /** the name of the material icon to render */
   icon?: string;
+  iconSize?: Size;
   /** the position of the icon in the button */
   iconPosition?: 'left' | 'right';
   /** should the button render as disabled?
@@ -68,6 +70,7 @@ export const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
     feature = false,
     showContentWhileLoading = false,
     icon,
+    iconSize = 'small',
     iconPosition,
     children,
     spinnerVariant = 'spiral',
@@ -80,7 +83,7 @@ export const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
 
     return (
       <span sx={styles.iconWrapperCss(renderPosition, !!children)}>
-        <Icon name={icon} size="small" />
+        <Icon name={icon} size={iconSize} />
       </span>
     );
   };
@@ -95,7 +98,7 @@ export const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
 
     return (
       <span sx={styles.iconWrapperCss(renderPosition, !!showContentWhileLoading)}>
-        <Spinner variant={spinnerVariant} size="small" />
+        <Spinner variant={spinnerVariant} size={iconSize} />
       </span>
     );
   };
