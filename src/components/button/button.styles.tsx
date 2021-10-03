@@ -32,6 +32,16 @@ const getColors = (variant: ButtonVariant) => {
       color: 'p-400',
       hoverColor: 'p-300',
       activeColor: 'p-200',
+      hoverBackground: (t: Theme) => `${alpha('b-200', 0.25)(t)}`,
+      activeBackground: (t: Theme) => `${alpha('b-300', 0.25)(t)}`,
+    };
+  } else if (variant === 'link') {
+    return {
+      color: 'p-400',
+      hoverColor: 'p-300',
+      activeColor: 'p-200',
+      hoverBackground: (t: Theme) => `${alpha('b-200', 0.25)(t)}`,
+      activeBackground: (t: Theme) => `${alpha('b-300', 0.25)(t)}`,
     };
   } else if (variant === 'outline') {
     return {
@@ -98,24 +108,6 @@ export const buttonCss = (props: ButtonCssProps): ThemeUIStyleObject => {
 
   const colors = getColors(props.variant);
 
-  if (props.variant === 'gradient') {
-    css.backgroundSize = '200% auto';
-    css.border = '1px solid transparent';
-    css.position = 'relative';
-    css['&:before'] = {
-      content: '""',
-      position: 'absolute',
-      top: 0,
-      right: 0,
-      bottom: 0,
-      left: 0,
-      zIndex: -1,
-      margin: -1,
-      borderRadius: 'inherit',
-      backgroundImage: colors.backgroundColor,
-    };
-  }
-
   if (props.hasText) {
     if (props.size === 'small') {
       css.px = 'md';
@@ -178,6 +170,50 @@ export const buttonCss = (props: ButtonCssProps): ThemeUIStyleObject => {
     }
   }
 
+  if (props.variant === 'gradient') {
+    css.backgroundSize = '200% auto';
+    css.border = '1px solid transparent';
+    css.position = 'relative';
+    css[':before'] = {
+      content: '""',
+      position: 'absolute',
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0,
+      zIndex: -1,
+      margin: -1,
+      borderRadius: 'inherit',
+      backgroundImage: colors.backgroundColor,
+    };
+  }
+
+  if (props.variant === 'text') {
+    css.background = 'transparent';
+    css.border = 'none';
+    css.boxShadow = 'none';
+    css.px = 'xxs';
+  }
+
+  if (props.variant === 'link') {
+    css.background = 'transparent';
+    css.border = 'none';
+    css.boxShadow = 'none';
+    css.position = 'relative';
+    css.pl = 'xxs';
+    css.pr = 'xxs';
+    css[':before'] = {
+      content: '""',
+      position: 'absolute',
+      backgroundColor: 'primary',
+      height: 2,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      transition: 'all 300ms',
+    };
+  }
+
   if (!props.disabled) {
     if (props.variant === 'outline') {
       css.backgroundColor = colors.backgroundColor;
@@ -209,15 +245,28 @@ export const buttonCss = (props: ButtonCssProps): ThemeUIStyleObject => {
         backgroundPosition: 'center',
       };
     } else if (props.variant === 'text') {
-      css.background = 'none';
-      css.border = 'none';
-      css.boxShadow = 'none';
       css.color = colors.color;
       css[':hover, :focus'] = {
+        backgroundColor: colors.hoverBackground,
         color: colors.hoverColor,
       };
       css[':active'] = {
+        backgroundColor: colors.activeBackground,
         color: colors.activeColor,
+      };
+    } else if (props.variant === 'link') {
+      css.color = colors.color;
+      css[':hover, :focus'] = {
+        backgroundColor: colors.hoverBackground,
+        [':before']: {
+          backgroundColor: colors.hoverColor,
+        },
+      };
+      css[':active'] = {
+        backgroundColor: colors.activeBackground,
+        [':before']: {
+          backgroundColor: colors.activeColor,
+        },
       };
     } else {
       css.backgroundColor = colors.backgroundColor;
@@ -236,7 +285,12 @@ export const buttonCss = (props: ButtonCssProps): ThemeUIStyleObject => {
       };
     }
 
-    if (props.active && props.variant !== 'gradient' && props.variant !== 'text') {
+    if (
+      props.active &&
+      props.variant !== 'gradient' &&
+      props.variant !== 'text' &&
+      props.variant !== 'link'
+    ) {
       css.backgroundColor = colors.activeBackground;
       css.borderColor = colors.activeBackground;
     } else if (props.active && props.variant === 'gradient') {
@@ -252,6 +306,22 @@ export const buttonCss = (props: ButtonCssProps): ThemeUIStyleObject => {
           1
         )(t)} 51%, ${alpha('p-000', 1)(t)} 100%)`;
       css.color = 'b-000';
+    } else if (props.variant === 'text') {
+      css.boxShadow = 'none';
+      css.color = 'b-300';
+    } else if (props.variant === 'link') {
+      css.color = 'b-300';
+      css.boxShadow = 'none';
+      css[':before'] = {
+        content: '""',
+        position: 'absolute',
+        backgroundColor: 'b-300',
+        height: 2,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        transition: 'all 300ms',
+      };
     } else {
       css.backgroundColor = 'muted';
       css.borderColor = 'muted';
