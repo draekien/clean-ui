@@ -213,6 +213,7 @@ export const Calendar: React.FC<CalendarProps> = ({
         {getDaysOfTheMonth(month, startOfWeek).map((day, index) => (
           <CalendarDay
             key={`${day.toString()}-${index}`}
+            id={`${day.toString()}-${index}`}
             date={day}
             colorMode={colorMode}
             selected={isSelected(day)}
