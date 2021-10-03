@@ -3,6 +3,7 @@ import React from 'react';
 import { calendarDayCss } from './calendar.styles';
 
 export interface CalendarDayProps {
+  id: string;
   date: Date;
   colorMode: string;
   hoverable: boolean;
@@ -15,6 +16,7 @@ export interface CalendarDayProps {
 }
 
 export const CalendarDay: React.FC<CalendarDayProps> = ({
+  id,
   date,
   colorMode,
   hoverable,
@@ -35,6 +37,8 @@ export const CalendarDay: React.FC<CalendarDayProps> = ({
 
   return (
     <span
+      id={id}
+      data-testid={id}
       onClick={handleClicked}
       onMouseEnter={handleHovered}
       sx={calendarDayCss({
