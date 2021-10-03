@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { Button } from '../button/button';
 import { Tooltip } from '../tooltip/tooltip';
 import { useMonth, useWeeks } from './calendar.hooks';
+import { CalendarDay } from './calendar.day';
 
 import * as styles from './calendar.styles';
 import {
@@ -161,46 +162,19 @@ export const Calendar: React.FC<CalendarProps> = ({
     handleOnMonthChanged(nextMonth);
   };
 
-  const Day = ({ date }: { date: Date }) => {
-    const isSelected = isDateSelected(date, selected);
-    const isWithinSelectedRange =
-      variant === 'Range' && isDateInSelectedRange(date, selected);
-    const isWithinHoverRange =
-      focused === 'end_date' && isDateInHoverRange(date, selected, hovered);
-    const isDisabled =
-      (variant === 'Multiple' && selected.length >= selectLimit && !isSelected) ||
-      isDateDisabled(date, min, max);
-    const isAnotherMonth = date.getMonth() !== month.getMonth();
+  const handleDayClicked = (date: Date, isUnfocused: boolean) => {
+    handleDateSelected(date);
 
-    const handleDayClicked = () => {
-      !isDisabled && handleDateSelected(date);
+    if (isUnfocused) {
+      setMonth(date);
+      handleOnMonthChanged(date);
+    }
+  };
 
-      if (isAnotherMonth && !isDisabled) {
-        setMonth(date);
-        handleOnMonthChanged(date);
-      }
-    };
-
-    const handleDayHovered = () => {
-      if (!isDisabled && (!hovered || date.toISOString() !== hovered.toISOString())) {
-        setHovered(date);
-      }
-    };
-
-    return (
-      <span
-        onClick={handleDayClicked}
-        onMouseEnter={handleDayHovered}
-        sx={styles.calendarDayCss({
-          isSelected,
-          isWithinSelectedRange,
-          isWithinHoverRange,
-          isDisabled,
-          isAnotherMonth,
-        })}>
-        {date.getDate()}
-      </span>
-    );
+  const handleDayHovered = (date: Date) => {
+    if (!hovered || date.toISOString() !== hovered.toISOString()) {
+      setHovered(date);
+    }
   };
 
   return (
@@ -230,9 +204,32 @@ export const Calendar: React.FC<CalendarProps> = ({
         ))}
       </div>
       <div sx={styles.calenderDaysContainerCss}>
-        {daysOfTheMonth.map((day, index) => (
-          <Day date={day} key={`${day.toString()}-${index}`} />
-        ))}
+        {daysOfTheMonth.map((day, index) => {
+          const isSelected = isDateSelected(day, selected);
+          const isSelectable =
+            variant === 'Range' && isDateInSelectedRange(day, selected);
+          const isHoverable =
+            focused === 'end_date' && isDateInHoverRange(day, selected, hovered);
+          const canSelectMore = selected.length < selectLimit;
+          const isDisabled =
+            (variant === 'Multiple' && !canSelectMore && !isSelected) ||
+            isDateDisabled(day, min, max);
+          const isUnfocused = day.getMonth() !== month.getMonth();
+
+          return (
+            <CalendarDay
+              key={`${day.toString()}-${index}`}
+              date={day}
+              selected={isSelected}
+              selectable={isSelectable}
+              hoverable={isHoverable}
+              disabled={isDisabled}
+              unfocused={isUnfocused}
+              onClick={handleDayClicked}
+              onMouseEnter={handleDayHovered}
+            />
+          );
+        })}
       </div>
     </div>
   );
