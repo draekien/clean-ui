@@ -1,7 +1,8 @@
 import React from 'react';
 import { DatePickerInput } from './input.date-picker.pattern';
 import { themedRender } from '../../helpers/testHelpers';
-import { findByText, fireEvent } from '@testing-library/dom';
+import { findByTestId, findByText, fireEvent } from '@testing-library/dom';
+import { HorizontalAlignment } from '../../types/layouts';
 
 describe('Datepicker pattern', () => {
   beforeEach(() => {
@@ -69,4 +70,37 @@ describe('Datepicker pattern', () => {
     expect(calendarLabel).toBeTruthy();
     expect(container).toMatchSnapshot();
   });
+
+  ['left' as const, 'right' as const, 'center' as const].forEach(
+    (position: HorizontalAlignment) => {
+      it(`should open the calendar in the correct position when aligned ${position}`, async () => {
+        const { container } = themedRender(
+          <DatePickerInput
+            inputId={position}
+            label={position}
+            calendarPosition={position}
+          />
+        );
+
+        const button = container.querySelector('button') as Element;
+
+        fireEvent.click(button);
+
+        const calendar = await findByTestId(container, 'calendar-container');
+        const styles = window.getComputedStyle(calendar);
+
+        if (position === 'left') {
+          expect(styles.left).toBe('0px');
+        }
+
+        if (position === 'right') {
+          expect(styles.right).toBe('0px');
+        }
+
+        if (position === 'center') {
+          expect(styles.left).toBe('calc(50% - 10em)');
+        }
+      });
+    }
+  );
 });
