@@ -122,8 +122,8 @@ export const DatePickerInput: React.FC<DatePickerInputProps> = ({
 
   useEffect(() => {
     setChosenDate(selectedDate || null);
-    if (isValidDateInstance(selectedDate)) {
-      setInputValue(getMaskedDateString(selectedDate));
+    if (selectedDate && isValidDateInstance(selectedDate)) {
+      setInputValue(selectedDate.toLocaleDateString());
     }
   }, [selectedDate]);
 
