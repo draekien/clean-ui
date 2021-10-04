@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown button component should match snapshot 1`] = `
+<div>
+  <div>
+    <div
+      class="css-ie7dun-DropdownButton"
+    >
+      <button
+        class="css-et8ayz-Button"
+      >
+        <div
+          class="css-gfeg48-Text css-vurnku"
+        >
+          select
+        </div>
+        <span
+          class="css-adssye"
+        >
+          <i
+            class="material-icons  css-y0j37o-Icon"
+          >
+            expand_more
+          </i>
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;

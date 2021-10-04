@@ -20,6 +20,7 @@ export const tooltipCss = (position: Position): ThemeUIStyleObject => {
     width: 'max-content',
     maxWidth: '20rem',
     visibility: 'hidden',
+    zIndex: 'toast',
   };
 
   if (position === 'top') {
@@ -64,6 +65,7 @@ export const tooltipArrowCss = (position: Position): ThemeUIStyleObject => {
     height: 0,
     borderColor: 'transparent',
     borderStyle: 'solid',
+    zIndex: 'toast',
   };
 
   if (position === 'top') {
