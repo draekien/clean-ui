@@ -9,7 +9,7 @@ exports[`Calendar component should match snapshot 1`] = `
       class="css-ft1sxc-Calendar css-4cffwv"
     >
       <button
-        class="css-5g3pty-Button"
+        class="css-hp85rj-Button"
       >
         <span
           class="css-1geq0g0"
@@ -20,7 +20,6 @@ exports[`Calendar component should match snapshot 1`] = `
             chevron_left
           </i>
         </span>
-        <span />
       </button>
       <span
         class="css-1a9mqxr-Text css-vurnku"
@@ -30,9 +29,8 @@ exports[`Calendar component should match snapshot 1`] = `
         2021
       </span>
       <button
-        class="css-5g3pty-Button"
+        class="css-hp85rj-Button"
       >
-        <span />
         <span
           class="css-1geq0g0"
         >

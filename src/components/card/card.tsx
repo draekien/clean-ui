@@ -16,6 +16,7 @@ export interface CardProps extends CardContainerCssProps {
 
 export const Card: React.FC<CardProps> = ({
   width = '20em',
+  maxHeight,
   fullWidth = false,
   backgroundColor = 'background-lighter',
   borderColor = 'border',
@@ -32,6 +33,7 @@ export const Card: React.FC<CardProps> = ({
       {...rest}
       sx={cardContainerCss({
         width,
+        maxHeight,
         fullWidth,
         backgroundColor,
         borderColor,

@@ -116,7 +116,7 @@ export const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
       <>
         {renderSpacedSpinner('left')}
         {renderSpacedIcon('left')}
-        <span>{shouldRenderChildren && children}</span>
+        {shouldRenderChildren && children}
         {renderSpacedIcon('right')}
         {renderSpacedSpinner('right')}
       </>
@@ -138,6 +138,7 @@ export const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
         showContentWhileLoading,
         iconPosition,
         hasText: !!children,
+        hasIcon: !!icon,
         circle,
       })}
       disabled={isDisabledOrLoading}

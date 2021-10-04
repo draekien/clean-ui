@@ -13,6 +13,7 @@ export interface CardContainerCssProps {
    *  @default '20em'
    */
   width?: string | number | string[] | number[];
+  maxHeight?: string | number | string[] | number[];
   /** the background color of the card
    *  @default 'background-lighter'
    */
@@ -37,6 +38,7 @@ export interface CardContainerCssProps {
 export const cardContainerCss = ({
   fullWidth,
   width,
+  maxHeight,
   backgroundColor,
   borderColor,
   variant,
@@ -48,6 +50,7 @@ export const cardContainerCss = ({
     display: fullWidth ? 'flex' : 'inline-flex',
     flexFlow: 'column',
     width: fullWidth ? '100%' : width,
+    maxHeight: !maxHeight ? 'initial' : maxHeight,
     boxShadow: noShadow ? 'none' : size,
     padding: size,
     borderRadius: size,
@@ -68,6 +71,10 @@ export const cardContainerCss = ({
   if (noShadow) {
     css.border = '1px solid';
     css.borderColor = borderColor;
+  }
+
+  if (maxHeight) {
+    css.overflowY = 'scroll';
   }
 
   return css;

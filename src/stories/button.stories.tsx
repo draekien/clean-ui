@@ -45,6 +45,19 @@ Link.args = {
   children: 'Link',
 };
 
+export const Icon = Template.bind({});
+Icon.args = {
+  icon: 'chevron_right',
+  iconPosition: 'left',
+};
+
+export const IconCircle = Template.bind({});
+IconCircle.args = {
+  icon: 'chevron_right',
+  iconPosition: 'left',
+  circle: true,
+};
+
 export const FullWidth = () => (
   <div style={{ width: '20rem' }}>
     <div style={{ marginBottom: '1rem' }}>

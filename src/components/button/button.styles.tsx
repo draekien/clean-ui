@@ -12,6 +12,7 @@ export interface ButtonCssProps {
   feature: boolean;
   showContentWhileLoading: boolean;
   iconPosition?: 'left' | 'right';
+  hasIcon?: boolean;
   hasText?: boolean;
   circle?: boolean;
 }
@@ -96,6 +97,11 @@ export const buttonCss = (props: ButtonCssProps): ThemeUIStyleObject => {
   if (props.fullWidth) {
     css.width = '100%';
     css.display = 'flex';
+
+    if (props.variant === 'text' || props.variant === 'link') {
+      css.justifyContent =
+        props.iconPosition && props.hasIcon ? 'space-between' : 'flex-start';
+    }
   }
 
   if (props.feature) {
@@ -111,24 +117,21 @@ export const buttonCss = (props: ButtonCssProps): ThemeUIStyleObject => {
   if (props.hasText) {
     if (props.size === 'small') {
       css.px = 'md';
-      css.height = '1.75rem';
+      css.py = 'xxs';
     } else if (props.size === 'large') {
-      css.height = '2.25rem';
+      css.py = 'xs';
       css.px = 'xxl';
     } else {
-      css.height = '1.75rem';
+      css.py = 'xxs';
       css.px = 'xl';
     }
   } else {
     if (props.size === 'small') {
-      css.height = '1.5rem';
-      css.width = '1.5rem';
+      css.p = 'xxs';
     } else if (props.size === 'large') {
-      css.height = '2.5rem';
-      css.width = '2.5rem';
+      css.p = 'sm';
     } else {
-      css.height = '2rem';
-      css.width = '2rem';
+      css.p = 'xs';
     }
 
     if (props.circle) {
