@@ -14,6 +14,7 @@ export interface DropdownButtonProps {
   width?: string | number | string[] | number[];
   maxHeight?: string | number | string[] | number[];
   fullWidth?: boolean;
+  onChange?: (selected: string) => void;
 }
 
 const dropdownTransitions: any = {
@@ -37,6 +38,7 @@ export const DropdownButton: React.FC<DropdownButtonProps> = ({
   width = '10rem',
   maxHeight,
   fullWidth,
+  onChange,
 }) => {
   const [selected, setSelected] = useState(value);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -44,6 +46,8 @@ export const DropdownButton: React.FC<DropdownButtonProps> = ({
   const handleItemClicked = (value: string) => {
     setSelected(value);
     setIsDropdownOpen(false);
+
+    onChange && onChange(value);
   };
 
   const handleOutsideClicked = () => {

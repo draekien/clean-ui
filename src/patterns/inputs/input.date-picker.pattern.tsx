@@ -211,7 +211,7 @@ export const DatePickerInput: React.FC<DatePickerInputProps> = ({
               icon="calendar_today"
               iconSize="medium"
               variant="text"
-              size="large"
+              size="medium"
               iconPosition="left"
               onClick={handleCalendarClicked}
             />
