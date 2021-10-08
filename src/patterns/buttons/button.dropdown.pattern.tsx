@@ -75,7 +75,7 @@ export const DropdownButton: React.FC<DropdownButtonProps> = ({
           position: 'relative',
         }}>
         <Button
-          icon="expand_more"
+          icon={isDropdownOpen ? 'expand_less' : 'expand_more'}
           iconPosition="right"
           variant="link"
           onClick={toggleOpen}
