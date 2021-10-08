@@ -10,6 +10,7 @@ exports[`Calendar component should match snapshot 1`] = `
     >
       <button
         class="css-hp85rj-Button"
+        icon="chevron_left"
       >
         <span
           class="css-1geq0g0"
@@ -30,6 +31,7 @@ exports[`Calendar component should match snapshot 1`] = `
       </span>
       <button
         class="css-hp85rj-Button"
+        icon="chevron_right"
       >
         <span
           class="css-1geq0g0"

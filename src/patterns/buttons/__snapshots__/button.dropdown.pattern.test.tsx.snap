@@ -8,6 +8,7 @@ exports[`Dropdown button component should match snapshot 1`] = `
     >
       <button
         class="css-et8ayz-Button"
+        icon="expand_more"
       >
         <div
           class="css-gfeg48-Text css-vurnku"
