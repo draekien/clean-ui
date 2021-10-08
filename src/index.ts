@@ -8,6 +8,7 @@ export * from './components/icon/icon';
 export * from './components/input/input';
 export * from './components/list/list';
 export * from './components/spinner/spinner';
+export * from './components/tag/tag';
 export * from './components/text/text';
 export * from './components/toast/toast';
 export * from './components/tooltip/tooltip';
