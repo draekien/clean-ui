@@ -43,6 +43,7 @@ export const DropdownButton: React.FC<DropdownButtonProps> = ({
 
   const handleItemClicked = (value: string) => {
     setSelected(value);
+    setIsDropdownOpen(false);
   };
 
   const handleOutsideClicked = () => {
