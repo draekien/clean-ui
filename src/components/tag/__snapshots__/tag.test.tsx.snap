@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tag component should match snapshot 1`] = `
+<div>
+  <span
+    class="css-x2q8nv-Tag"
+  >
+    <span
+      class="css-15nj5vr-Tag"
+    >
+      <div
+        class="css-1v9wm6q-Text css-vurnku"
+      >
+        tag
+      </div>
+    </span>
+    <button
+      class="css-7iz1i8-Tag"
+    >
+      <i
+        class="material-icons  css-y0j37o-Icon"
+      >
+        close
+      </i>
+    </button>
+  </span>
+</div>
+`;
+
+exports[`Tag component should match snapshot when onClose is undefined 1`] = `
+<div>
+  <span
+    class="css-x2q8nv-Tag"
+  >
+    <span
+      class="css-15nj5vr-Tag"
+    >
+      <div
+        class="css-1v9wm6q-Text css-vurnku"
+      >
+        tag
+      </div>
+    </span>
+  </span>
+</div>
+`;
