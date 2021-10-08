@@ -14,4 +14,5 @@ export * from './components/tooltip/tooltip';
 
 export * from './patterns/buttons/button.dropdown.pattern';
 export * from './patterns/inputs/input.date-picker.pattern';
+export * from './patterns/inputs/input.select.pattern';
 export * from './patterns/inputs/input.text.pattern';

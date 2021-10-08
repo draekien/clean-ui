@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react';
 import { TextInput, TextInputProps } from '../patterns/inputs/input.text.pattern';
 
 export default {
-  title: 'Patterns/Inputs/TextInput',
+  title: 'Patterns/Inputs/Text',
   component: TextInput,
 } as Meta;
 
