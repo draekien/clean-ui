@@ -4,7 +4,7 @@ import React from 'react';
 import { Button } from '../button/button';
 import { Tooltip } from '../tooltip/tooltip';
 import { CalendarDay } from './calendar.day';
-import { useCalendar } from './calendar.hooks';
+import { useCalendar } from './calendar.fx';
 import { Text } from '../text/text';
 
 import * as styles from './calendar.styles';
