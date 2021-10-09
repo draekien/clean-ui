@@ -36,3 +36,16 @@ Default.args = {
     rows: rows,
   },
 };
+
+export const Searcheable = Template.bind({});
+Searcheable.args = {
+  inputId: 'select',
+  label: 'Critical Role Cast Members',
+  helpText: 'Select an item from the list',
+  value: 'Select',
+  fullWidth: false,
+  items: {
+    rows: rows,
+  },
+  enableSearch: true,
+};

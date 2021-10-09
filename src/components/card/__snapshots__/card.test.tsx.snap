@@ -5,8 +5,30 @@ exports[`Card Component Should match snapshot 1`] = `
   <div
     class="css-1xkb9fc-Card"
   >
-    <div>
-      Card
+    <div
+      style="position: relative; overflow: hidden; width: 100%; height: auto; min-height: 0;"
+    >
+      <div
+        style="position: relative; overflow: scroll; margin-right: 0px; margin-bottom: 0px; min-height: 0; max-height: calc( + 0px);"
+      >
+        <div>
+          Card
+        </div>
+      </div>
+      <div
+        style="position: absolute; height: 6px; display: none; right: 2px; bottom: 2px; left: 2px; border-radius: 3px;"
+      >
+        <div
+          style="position: relative; display: block; height: 100%; cursor: pointer; border-radius: inherit; background-color: rgba(0, 0, 0, 0.2);"
+        />
+      </div>
+      <div
+        style="position: absolute; width: 6px; display: none; right: 2px; bottom: 2px; top: 2px; border-radius: 3px;"
+      >
+        <div
+          style="position: relative; display: block; width: 100%; cursor: pointer; border-radius: inherit; background-color: rgba(0, 0, 0, 0.2);"
+        />
+      </div>
     </div>
   </div>
 </div>

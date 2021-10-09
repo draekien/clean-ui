@@ -25,6 +25,22 @@ FullWidth.args = {
   fullWidth: true,
 };
 
+export const MaxHeight = Template.bind({});
+MaxHeight.args = {
+  children: (
+    <div style={{ padding: '1rem' }}>
+      <Text>I can become a fixed height!</Text>
+      <Text>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, voluptatibus rem
+        facilis ipsa optio cumque officia magni eaque excepturi iusto maxime voluptatem
+        provident consequuntur doloribus nulla molestiae tenetur, minima placeat!
+      </Text>
+    </div>
+  ),
+  maxHeight: '10rem',
+  noPadding: true,
+};
+
 export const FullyPopulated = Template.bind({});
 FullyPopulated.args = {
   children: <Text>You can give me a header and a footer.</Text>,

@@ -56,3 +56,23 @@ FullWidth.args = {
   },
   fullWidth: true,
 };
+
+const searchRows = [
+  ...rows,
+  "Vex'halia",
+  "Vax'ildan",
+  'Scanlan Shorthalt',
+  'Grog Strongjaw',
+  'Pike Trickfoot',
+];
+
+export const Searcheable = Template.bind({});
+Searcheable.args = {
+  value: 'Select',
+  items: {
+    label: 'Critical Role Cast Members',
+    rows: searchRows,
+  },
+  maxHeight: '20rem',
+  enableSearch: true,
+};

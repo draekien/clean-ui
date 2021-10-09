@@ -1,5 +1,6 @@
 /** @jsxImportSource theme-ui */
 import React from 'react';
+import { Scrollable } from '../..';
 import {
   cardContainerCss,
   CardContainerCssProps,
@@ -16,13 +17,14 @@ export interface CardProps extends CardContainerCssProps {
 
 export const Card: React.FC<CardProps> = ({
   width = '20em',
-  maxHeight,
+  maxHeight = '',
   fullWidth = false,
   backgroundColor = 'background-lighter',
   borderColor = 'border',
   variant = 'medium',
   feature = false,
   noShadow = false,
+  noPadding = false,
   header,
   footer,
   children,
@@ -40,10 +42,13 @@ export const Card: React.FC<CardProps> = ({
         variant,
         feature,
         noShadow,
+        noPadding,
       })}>
-      {header && <div sx={cardHeaderCss(variant)}>{header}</div>}
-      {children && <div>{children}</div>}
-      {footer && <div sx={cardFooterCss(variant)}>{footer}</div>}
+      <Scrollable maxHeight={maxHeight}>
+        {header && <div sx={cardHeaderCss(variant)}>{header}</div>}
+        {children && <div>{children}</div>}
+        {footer && <div sx={cardFooterCss(variant)}>{footer}</div>}
+      </Scrollable>
     </div>
   );
 };

@@ -288,12 +288,7 @@ export const buttonCss = (props: ButtonCssProps): ThemeUIStyleObject => {
       };
     }
 
-    if (
-      props.active &&
-      props.variant !== 'gradient' &&
-      props.variant !== 'text' &&
-      props.variant !== 'link'
-    ) {
+    if (props.active && props.variant !== 'gradient') {
       css.backgroundColor = colors.activeBackground;
       css.borderColor = colors.activeBackground;
     } else if (props.active && props.variant === 'gradient') {

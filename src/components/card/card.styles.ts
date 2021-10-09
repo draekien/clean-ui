@@ -13,7 +13,7 @@ export interface CardContainerCssProps {
    *  @default '20em'
    */
   width?: string | number | string[] | number[];
-  maxHeight?: string | number | string[] | number[];
+  maxHeight?: string | number;
   /** the background color of the card
    *  @default 'background-lighter'
    */
@@ -33,6 +33,8 @@ export interface CardContainerCssProps {
   feature?: boolean;
   /** should the card render without a dropshadow? */
   noShadow?: boolean;
+  /** should the card render without padding? */
+  noPadding?: boolean;
 }
 
 export const cardContainerCss = ({
@@ -44,6 +46,7 @@ export const cardContainerCss = ({
   variant,
   feature,
   noShadow,
+  noPadding,
 }: CardContainerCssProps): ThemeUIStyleObject => {
   const size = abbreviate(variant || 'medium');
   const css: ThemeUIStyleObject = {
@@ -73,8 +76,8 @@ export const cardContainerCss = ({
     css.borderColor = borderColor;
   }
 
-  if (maxHeight) {
-    css.overflowY = 'scroll';
+  if (noPadding) {
+    css.padding = 0;
   }
 
   return css;

@@ -22,6 +22,7 @@ export const SelectInput: React.FC<SelectInputProps> = ({
   helpText,
   variant,
   required,
+  enableSearch,
 }) => {
   const [selected, setSelected] = useState(value);
 
@@ -45,6 +46,7 @@ export const SelectInput: React.FC<SelectInputProps> = ({
           items={items}
           maxHeight={maxHeight}
           onChange={handleChange}
+          enableSearch={enableSearch}
           fullWidth
         />
         <select value={selected} hidden />
