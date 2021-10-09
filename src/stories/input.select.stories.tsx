@@ -8,7 +8,7 @@ export default {
 } as Meta;
 
 const Template: Story<SelectInputProps> = (args) => (
-  <div style={{ width: '20rem' }}>
+  <div style={{ width: '20rem', height: '20rem' }}>
     <SelectInput {...args} />
   </div>
 );
@@ -30,7 +30,6 @@ Default.args = {
   inputId: 'select',
   label: 'Critical Role Cast Members',
   helpText: 'Select an item from the list',
-  value: 'Select',
   fullWidth: false,
   items: {
     rows: rows,
@@ -42,10 +41,22 @@ Searcheable.args = {
   inputId: 'select',
   label: 'Critical Role Cast Members',
   helpText: 'Select an item from the list',
-  value: 'Select',
   fullWidth: false,
   items: {
     rows: rows,
   },
   enableSearch: true,
+};
+
+export const MultipleItems = Template.bind({});
+MultipleItems.args = {
+  inputId: 'select',
+  label: 'Critical Role Cast Members',
+  helpText: 'Select an item from the list',
+  fullWidth: false,
+  items: {
+    rows: rows,
+  },
+  enableSearch: true,
+  multiple: true,
 };

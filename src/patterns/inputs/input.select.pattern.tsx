@@ -5,6 +5,7 @@ import {
   DropdownButtonProps,
   InputWrapper,
   InputWrapperProps,
+  Tag,
 } from '../..';
 
 export interface SelectInputProps
@@ -23,34 +24,65 @@ export const SelectInput: React.FC<SelectInputProps> = ({
   variant,
   required,
   enableSearch,
+  multiple,
 }) => {
-  const [selected, setSelected] = useState(value);
+  const [selected, setSelected] = useState(
+    value ? (Array.isArray(value) ? value : [value]) : []
+  );
 
   const handleChange = (value: string) => {
-    setSelected(value);
+    if (multiple) {
+      if (selected.includes(value)) {
+        setSelected(selected.filter((s) => s !== value));
+      } else {
+        setSelected([...selected, value]);
+      }
+    } else {
+      setSelected([value]);
+    }
 
     onChange && onChange(value);
   };
 
+  const handleRemoveSelected = (value: string) => {
+    setSelected(selected.filter((s) => s !== value));
+  };
+
   return (
-    <InputWrapper
-      inputId={inputId}
-      label={label}
-      helpText={helpText}
-      variant={variant}
-      required={required}
-      fullWidth={fullWidth}>
-      <div sx={{ marginTop: 'xs' }}>
-        <DropdownButton
-          value={selected}
-          items={items}
-          maxHeight={maxHeight}
-          onChange={handleChange}
-          enableSearch={enableSearch}
-          fullWidth
-        />
-        <select value={selected} hidden />
-      </div>
-    </InputWrapper>
+    <>
+      <InputWrapper
+        inputId={inputId}
+        label={label}
+        helpText={helpText}
+        variant={variant}
+        required={required}
+        fullWidth={fullWidth}>
+        <div sx={{ marginTop: 'xs' }}>
+          <DropdownButton
+            value={selected}
+            items={items}
+            maxHeight={maxHeight}
+            onChange={handleChange}
+            enableSearch={enableSearch}
+            multiple={multiple}
+            fullWidth
+          />
+        </div>
+      </InputWrapper>
+      {multiple && selected.length > 0 && (
+        <div
+          sx={{
+            paddingY: 'xxs',
+            display: 'flex',
+            flexFlow: 'row wrap',
+            gap: 'xxs',
+            width: '100%',
+          }}>
+          {selected.map((item, index) => (
+            <Tag key={index} value={item} onClose={handleRemoveSelected} />
+          ))}
+        </div>
+      )}
+    </>
   );
 };

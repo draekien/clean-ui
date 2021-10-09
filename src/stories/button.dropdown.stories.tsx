@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Meta, Story } from '@storybook/react';
 import {
   DropdownButton,
@@ -10,11 +10,36 @@ export default {
   component: DropdownButton,
 } as Meta;
 
-const Template: Story<DropdownButtonProps> = (args) => (
-  <div style={{ width: '20rem' }}>
-    <DropdownButton {...args} />
-  </div>
-);
+const Template: Story<DropdownButtonProps> = ({ value, multiple, onChange, ...rest }) => {
+  const [selected, setSelected] = useState(
+    value ? (Array.isArray(value) ? value : [value]) : []
+  );
+
+  const handleChange = (value: string) => {
+    if (multiple) {
+      if (selected.includes(value)) {
+        setSelected(selected.filter((s) => s !== value));
+      } else {
+        setSelected([...selected, value]);
+      }
+    } else {
+      setSelected([value]);
+    }
+
+    onChange && onChange(value);
+  };
+
+  return (
+    <div style={{ width: '20rem' }}>
+      <DropdownButton
+        value={selected}
+        onChange={handleChange}
+        multiple={multiple}
+        {...rest}
+      />
+    </div>
+  );
+};
 
 const rows = [
   'Travis Willingham',
@@ -39,7 +64,6 @@ Default.args = {
 
 export const WithMaxHeight = Template.bind({});
 WithMaxHeight.args = {
-  value: 'Select',
   items: {
     label: 'Critical Role Cast Members',
     rows: rows,
@@ -49,7 +73,6 @@ WithMaxHeight.args = {
 
 export const FullWidth = Template.bind({});
 FullWidth.args = {
-  value: 'Select',
   items: {
     label: 'Critical Role Cast Members',
     rows: rows,
@@ -68,11 +91,21 @@ const searchRows = [
 
 export const Searcheable = Template.bind({});
 Searcheable.args = {
-  value: 'Select',
   items: {
     label: 'Critical Role Cast Members',
     rows: searchRows,
   },
   maxHeight: '20rem',
   enableSearch: true,
+};
+
+export const MultipleItems = Template.bind({});
+MultipleItems.args = {
+  items: {
+    label: 'Critical Role Cast Members',
+    rows: searchRows,
+  },
+  maxHeight: '20rem',
+  enableSearch: true,
+  multiple: true,
 };

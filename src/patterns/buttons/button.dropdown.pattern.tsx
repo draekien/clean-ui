@@ -9,12 +9,13 @@ export interface DropdownData {
 }
 
 export interface DropdownButtonProps {
-  value: string;
+  value: string | string[];
   items: DropdownData;
   width?: string | number | string[] | number[];
   maxHeight?: string | number;
   fullWidth?: boolean;
   enableSearch?: boolean;
+  multiple?: boolean;
   onChange?: (selected: string) => void;
 }
 
@@ -40,16 +41,17 @@ export const DropdownButton: React.FC<DropdownButtonProps> = ({
   maxHeight = '',
   fullWidth,
   enableSearch,
+  multiple,
   onChange,
 }) => {
-  const [selected, setSelected] = useState(value);
   const [searchValue, setSearchValue] = useState<string>('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [data, setData] = useState<DropdownData>(items);
 
   const handleItemClicked = (value: string) => {
-    setSelected(value);
-    setIsDropdownOpen(false);
+    if (!multiple) {
+      setIsDropdownOpen(false);
+    }
 
     onChange && onChange(value);
   };
@@ -93,7 +95,7 @@ export const DropdownButton: React.FC<DropdownButtonProps> = ({
         key={index}
         variant="text"
         onClick={() => handleItemClicked(item)}
-        active={selected.toLowerCase() === item.toLowerCase()}
+        active={value.includes(item)}
         fullWidth>
         <Text textAlign="left" fullWidth>
           {item}
@@ -116,6 +118,15 @@ export const DropdownButton: React.FC<DropdownButtonProps> = ({
     </div>
   );
 
+  const getText = () => {
+    if (!value || value.length === 0) return 'Select';
+
+    if (multiple && value.length > 0)
+      return `${value.length} ${value.length === 1 ? 'item' : 'items'}`;
+
+    return `${value}`;
+  };
+
   return (
     <OutsideClickHandler onOutsideClick={handleOutsideClicked}>
       <div
@@ -130,7 +141,7 @@ export const DropdownButton: React.FC<DropdownButtonProps> = ({
           onClick={toggleOpen}
           fullWidth>
           <Text textAlign="left" fullWidth>
-            {selected || value}
+            {getText()}
           </Text>
         </Button>
         <Transition appear in={isDropdownOpen} timeout={0} unmountOnExit>
