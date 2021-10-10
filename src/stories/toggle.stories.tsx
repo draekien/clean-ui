@@ -19,7 +19,7 @@ Default.args = {
 };
 
 export const Icons = Template.bind({});
-Default.args = {
+Icons.args = {
   inputId: 'toggle',
   on: <Icon name="light_mode" />,
   off: <Icon name="dark_mode" />,
