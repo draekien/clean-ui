@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The select input pattern Should match snapshot when mode is multiple 1`] = `
+<div>
+  <div
+    class="css-109th3q-InputWrapper"
+  >
+    <div
+      class="css-1qm0f6g-InputLabel"
+    >
+      <label
+        class="css-1pst1pz-Label"
+        for="test"
+      >
+        test
+      </label>
+    </div>
+    <div
+      class="css-apg3wl-SelectInput"
+    >
+      <div>
+        <div
+          class="css-kix160-DropdownButton"
+        >
+          <button
+            class="css-et8ayz-Button"
+            icon="expand_more"
+          >
+            <div
+              class="css-gfeg48-Text css-vurnku"
+            >
+              1 item
+            </div>
+            <span
+              class="css-adssye"
+            >
+              <i
+                class="material-icons  css-y0j37o-Icon"
+              >
+                expand_more
+              </i>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="css-1539o05-SelectInput"
+  >
+    <span
+      class="css-x2q8nv-Tag"
+    >
+      <span
+        class="css-15nj5vr-Tag"
+      >
+        <div
+          class="css-1v9wm6q-Text css-vurnku"
+        >
+          Travis Willingham
+        </div>
+      </span>
+      <button
+        class="css-7iz1i8-Tag"
+      >
+        <i
+          class="material-icons  css-y0j37o-Icon"
+        >
+          close
+        </i>
+      </button>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`The select input pattern Should match snapshot when mode is single 1`] = `
+<div>
+  <div
+    class="css-109th3q-InputWrapper"
+  >
+    <div
+      class="css-1qm0f6g-InputLabel"
+    >
+      <label
+        class="css-1pst1pz-Label"
+        for="test"
+      >
+        test
+      </label>
+    </div>
+    <div
+      class="css-apg3wl-SelectInput"
+    >
+      <div>
+        <div
+          class="css-kix160-DropdownButton"
+        >
+          <button
+            class="css-et8ayz-Button"
+            icon="expand_more"
+          >
+            <div
+              class="css-gfeg48-Text css-vurnku"
+            >
+              Travis Willingham
+            </div>
+            <span
+              class="css-adssye"
+            >
+              <i
+                class="material-icons  css-y0j37o-Icon"
+              >
+                expand_more
+              </i>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
