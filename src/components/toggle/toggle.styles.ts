@@ -13,12 +13,12 @@ export const toggleCss = ({ checked, disabled }: ToggleCssProps): ThemeUIStyleOb
   border: '0.25em solid',
   borderColor: 'border',
   position: 'relative',
-  backgroundColor: 'border',
+  backgroundColor: disabled ? 'b-300' : 'border',
   boxShadow: 'inset 0 0 1em rgba(61, 61, 61, 0.25)',
   cursor: disabled ? 'not-allowed' : 'pointer',
   ':hover, :focus': {
     ':before': {
-      backgroundColor: disabled ? 'b-100' : 'b-000',
+      backgroundColor: disabled ? 'b-200' : 'b-000',
     },
   },
   ':after': {
@@ -28,7 +28,7 @@ export const toggleCss = ({ checked, disabled }: ToggleCssProps): ThemeUIStyleOb
     left: 0,
     height: '100%',
     width: checked ? '100%' : '0%',
-    transition: 'width 100ms ease-in-out',
+    transition: 'all 100ms ease-in-out',
     backgroundColor: disabled ? 'success-100' : 'success-300',
     boxShadow: 'inset 0 0 1em rgba(61, 61, 61, 0.25)',
     zIndex: 'low',
@@ -36,13 +36,14 @@ export const toggleCss = ({ checked, disabled }: ToggleCssProps): ThemeUIStyleOb
   ':before': {
     content: '""',
     position: 'absolute',
+    boxSizing: 'content-box',
     top: 0,
     left: checked ? '55%' : '0%',
     height: '100%',
     width: '45%',
     borderRadius: 'xs',
-    backgroundColor: 'b-100',
-    transition: 'left 100ms ease-in-out',
+    backgroundColor: disabled ? 'b-200' : 'b-100',
+    transition: 'all 100ms ease-in-out',
     zIndex: 'middle',
   },
 });
