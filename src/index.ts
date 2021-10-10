@@ -12,6 +12,7 @@ export * from './components/spinner/spinner';
 export * from './components/tag/tag';
 export * from './components/text/text';
 export * from './components/toast/toast';
+export * from './components/toggle/toggle';
 export * from './components/tooltip/tooltip';
 
 export * from './patterns/buttons/button.dropdown.pattern';

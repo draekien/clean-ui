@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toggle component should match snapshot 1`] = `
+<div>
+  <div>
+    <input
+      hidden=""
+      id="toggle"
+      name="toggle"
+      type="checkbox"
+    />
+    <label
+      class="css-1pst1pz-Label"
+      for="toggle"
+    >
+      <div
+        class="css-19odyxe"
+      >
+        <span>
+          off
+        </span>
+        <button
+          class="css-1noqrcs"
+        />
+        <span>
+          on
+        </span>
+      </div>
+    </label>
+  </div>
+</div>
+`;
