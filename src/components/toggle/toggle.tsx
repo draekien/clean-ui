@@ -13,7 +13,7 @@ export interface ToggleProps
 
 export const Toggle: React.ForwardRefExoticComponent<
   ToggleProps & React.RefAttributes<HTMLInputElement>
-> = forwardRef(({ ref, on, off, inputId, disabled, onClick, ...rest }) => {
+> = forwardRef(({ on, off, inputId, disabled, onClick, ...rest }, ref) => {
   const [checked, setChecked] = useState(rest.checked);
 
   useEffect(() => {
