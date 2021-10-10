@@ -20,7 +20,7 @@ exports[`Toggle component should match snapshot 1`] = `
           off
         </span>
         <button
-          class="css-1noqrcs"
+          class="css-faixig"
         />
         <span>
           on
