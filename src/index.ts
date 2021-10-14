@@ -7,6 +7,8 @@ export * from './components/card/card';
 export * from './components/icon/icon';
 export * from './components/input/input';
 export * from './components/list/list';
+export * from './components/modal/modal';
+export * from './components/overlay/overlay';
 export * from './components/scrollable/scrollable';
 export * from './components/spinner/spinner';
 export * from './components/tag/tag';

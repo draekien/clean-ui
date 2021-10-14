@@ -3,7 +3,7 @@
 exports[`Spinner Component Should render with overlay when fullPage is true 1`] = `
 <div>
   <div
-    class="css-1lqdb5g-Spinner"
+    class="css-1hdj22u-Overlay"
   >
     <div
       class="css-1luozaz-Donut"

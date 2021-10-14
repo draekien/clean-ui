@@ -1,8 +1,8 @@
 /** @jsxImportSource theme-ui */
 import React from 'react';
 import { Size } from '../../types/layouts';
-import { overlayCss } from './spinner.styles';
 import { SpinnerVariants } from './spinner.variants';
+import { Overlay } from '../overlay/overlay';
 
 export type SpinnerVariant = 'donut' | 'dots' | 'bars' | 'spiral';
 
@@ -44,9 +44,9 @@ export const Spinner: React.FC<SpinnerProps> = ({
   };
 
   return fullPage ? (
-    <div sx={overlayCss}>
+    <Overlay>
       <Spinner />
-    </div>
+    </Overlay>
   ) : (
     <Spinner />
   );
