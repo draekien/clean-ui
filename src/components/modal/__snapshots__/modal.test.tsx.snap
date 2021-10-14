@@ -1,0 +1,403 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal component should match snapshot 1`] = `
+<div>
+  <div
+    class="css-1ra6pze"
+  >
+    <div>
+      <div
+        class="css-glvcy5-Card"
+      >
+        <div
+          style="position: relative; overflow: hidden; width: 100%; height: auto; min-height: 0;"
+        >
+          <div
+            style="position: relative; overflow: scroll; margin-right: 0px; margin-bottom: 0px; min-height: 0; max-height: calc( + 0px);"
+          >
+            <div
+              class="css-u1vxhg-Card"
+            >
+              <div
+                class="css-accpgg-Modal"
+              />
+            </div>
+            <div>
+              test
+            </div>
+          </div>
+          <div
+            style="position: absolute; height: 6px; display: none; right: 2px; bottom: 2px; left: 2px; border-radius: 3px;"
+          >
+            <div
+              style="position: relative; display: block; height: 100%; cursor: pointer; border-radius: inherit; background-color: rgba(0, 0, 0, 0.2);"
+            />
+          </div>
+          <div
+            style="position: absolute; width: 6px; display: none; right: 2px; bottom: 2px; top: 2px; border-radius: 3px;"
+          >
+            <div
+              style="position: relative; display: block; width: 100%; cursor: pointer; border-radius: inherit; background-color: rgba(0, 0, 0, 0.2);"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Modal component should match snapshot when feature is true 1`] = `
+<div>
+  <div
+    class="css-1ra6pze"
+  >
+    <div>
+      <div
+        class="css-1difpm5-Card"
+      >
+        <div
+          style="position: relative; overflow: hidden; width: 100%; height: auto; min-height: 0;"
+        >
+          <div
+            style="position: relative; overflow: scroll; margin-right: 0px; margin-bottom: 0px; min-height: 0; max-height: calc( + 0px);"
+          >
+            <div
+              class="css-u1vxhg-Card"
+            >
+              <div
+                class="css-accpgg-Modal"
+              />
+            </div>
+            <div>
+              test
+            </div>
+          </div>
+          <div
+            style="position: absolute; height: 6px; display: none; right: 2px; bottom: 2px; left: 2px; border-radius: 3px;"
+          >
+            <div
+              style="position: relative; display: block; height: 100%; cursor: pointer; border-radius: inherit; background-color: rgba(0, 0, 0, 0.2);"
+            />
+          </div>
+          <div
+            style="position: absolute; width: 6px; display: none; right: 2px; bottom: 2px; top: 2px; border-radius: 3px;"
+          >
+            <div
+              style="position: relative; display: block; width: 100%; cursor: pointer; border-radius: inherit; background-color: rgba(0, 0, 0, 0.2);"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Modal component should match snapshot when fullPage is true 1`] = `
+<div>
+  <div
+    class="css-1ra6pze"
+  >
+    <div
+      class="css-1hdj22u-Overlay"
+    >
+      <div>
+        <div
+          class="css-glvcy5-Card"
+        >
+          <div
+            style="position: relative; overflow: hidden; width: 100%; height: auto; min-height: 0;"
+          >
+            <div
+              style="position: relative; overflow: scroll; margin-right: 0px; margin-bottom: 0px; min-height: 0; max-height: calc( + 0px);"
+            >
+              <div
+                class="css-u1vxhg-Card"
+              >
+                <div
+                  class="css-accpgg-Modal"
+                />
+              </div>
+              <div>
+                test
+              </div>
+            </div>
+            <div
+              style="position: absolute; height: 6px; display: none; right: 2px; bottom: 2px; left: 2px; border-radius: 3px;"
+            >
+              <div
+                style="position: relative; display: block; height: 100%; cursor: pointer; border-radius: inherit; background-color: rgba(0, 0, 0, 0.2);"
+              />
+            </div>
+            <div
+              style="position: absolute; width: 6px; display: none; right: 2px; bottom: 2px; top: 2px; border-radius: 3px;"
+            >
+              <div
+                style="position: relative; display: block; width: 100%; cursor: pointer; border-radius: inherit; background-color: rgba(0, 0, 0, 0.2);"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Modal component should match snapshot when noPadding is true 1`] = `
+<div>
+  <div
+    class="css-1ra6pze"
+  >
+    <div>
+      <div
+        class="css-blf7or-Card"
+      >
+        <div
+          style="position: relative; overflow: hidden; width: 100%; height: auto; min-height: 0;"
+        >
+          <div
+            style="position: relative; overflow: scroll; margin-right: 0px; margin-bottom: 0px; min-height: 0; max-height: calc( + 0px);"
+          >
+            <div
+              class="css-u1vxhg-Card"
+            >
+              <div
+                class="css-accpgg-Modal"
+              />
+            </div>
+            <div>
+              test
+            </div>
+          </div>
+          <div
+            style="position: absolute; height: 6px; display: none; right: 2px; bottom: 2px; left: 2px; border-radius: 3px;"
+          >
+            <div
+              style="position: relative; display: block; height: 100%; cursor: pointer; border-radius: inherit; background-color: rgba(0, 0, 0, 0.2);"
+            />
+          </div>
+          <div
+            style="position: absolute; width: 6px; display: none; right: 2px; bottom: 2px; top: 2px; border-radius: 3px;"
+          >
+            <div
+              style="position: relative; display: block; width: 100%; cursor: pointer; border-radius: inherit; background-color: rgba(0, 0, 0, 0.2);"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Modal component should match snapshot when showCloseButton is true 1`] = `
+<div>
+  <div
+    class="css-1ra6pze"
+  >
+    <div>
+      <div
+        class="css-glvcy5-Card"
+      >
+        <div
+          style="position: relative; overflow: hidden; width: 100%; height: auto; min-height: 0;"
+        >
+          <div
+            style="position: relative; overflow: scroll; margin-right: 0px; margin-bottom: 0px; min-height: 0; max-height: calc( + 0px);"
+          >
+            <div
+              class="css-u1vxhg-Card"
+            >
+              <div
+                class="css-accpgg-Modal"
+              >
+                <button
+                  class="css-hp85rj-Button"
+                  icon="close"
+                >
+                  <span
+                    class="css-1geq0g0"
+                  >
+                    <i
+                      class="material-icons  css-y0j37o-Icon"
+                    >
+                      close
+                    </i>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div>
+              test
+            </div>
+          </div>
+          <div
+            style="position: absolute; height: 6px; display: none; right: 2px; bottom: 2px; left: 2px; border-radius: 3px;"
+          >
+            <div
+              style="position: relative; display: block; height: 100%; cursor: pointer; border-radius: inherit; background-color: rgba(0, 0, 0, 0.2);"
+            />
+          </div>
+          <div
+            style="position: absolute; width: 6px; display: none; right: 2px; bottom: 2px; top: 2px; border-radius: 3px;"
+          >
+            <div
+              style="position: relative; display: block; width: 100%; cursor: pointer; border-radius: inherit; background-color: rgba(0, 0, 0, 0.2);"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Modal component should match snapshot when visible is true 1`] = `
+<div>
+  <div
+    class="css-1ra6pze"
+  >
+    <div>
+      <div
+        class="css-glvcy5-Card"
+      >
+        <div
+          style="position: relative; overflow: hidden; width: 100%; height: auto; min-height: 0;"
+        >
+          <div
+            style="position: relative; overflow: scroll; margin-right: 0px; margin-bottom: 0px; min-height: 0; max-height: calc( + 0px);"
+          >
+            <div
+              class="css-u1vxhg-Card"
+            >
+              <div
+                class="css-accpgg-Modal"
+              />
+            </div>
+            <div>
+              test
+            </div>
+          </div>
+          <div
+            style="position: absolute; height: 6px; display: none; right: 2px; bottom: 2px; left: 2px; border-radius: 3px;"
+          >
+            <div
+              style="position: relative; display: block; height: 100%; cursor: pointer; border-radius: inherit; background-color: rgba(0, 0, 0, 0.2);"
+            />
+          </div>
+          <div
+            style="position: absolute; width: 6px; display: none; right: 2px; bottom: 2px; top: 2px; border-radius: 3px;"
+          >
+            <div
+              style="position: relative; display: block; width: 100%; cursor: pointer; border-radius: inherit; background-color: rgba(0, 0, 0, 0.2);"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Modal component should match snapshot when width is set 1`] = `
+<div>
+  <div
+    class="css-1ra6pze"
+  >
+    <div>
+      <div
+        class="css-16cxr1x-Card"
+      >
+        <div
+          style="position: relative; overflow: hidden; width: 100%; height: auto; min-height: 0;"
+        >
+          <div
+            style="position: relative; overflow: scroll; margin-right: 0px; margin-bottom: 0px; min-height: 0; max-height: calc( + 0px);"
+          >
+            <div
+              class="css-u1vxhg-Card"
+            >
+              <div
+                class="css-accpgg-Modal"
+              />
+            </div>
+            <div>
+              test
+            </div>
+          </div>
+          <div
+            style="position: absolute; height: 6px; display: none; right: 2px; bottom: 2px; left: 2px; border-radius: 3px;"
+          >
+            <div
+              style="position: relative; display: block; height: 100%; cursor: pointer; border-radius: inherit; background-color: rgba(0, 0, 0, 0.2);"
+            />
+          </div>
+          <div
+            style="position: absolute; width: 6px; display: none; right: 2px; bottom: 2px; top: 2px; border-radius: 3px;"
+          >
+            <div
+              style="position: relative; display: block; width: 100%; cursor: pointer; border-radius: inherit; background-color: rgba(0, 0, 0, 0.2);"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Modal component should match snapshot with header and footer 1`] = `
+<div>
+  <div
+    class="css-1ra6pze"
+  >
+    <div>
+      <div
+        class="css-glvcy5-Card"
+      >
+        <div
+          style="position: relative; overflow: hidden; width: 100%; height: auto; min-height: 0;"
+        >
+          <div
+            style="position: relative; overflow: scroll; margin-right: 0px; margin-bottom: 0px; min-height: 0; max-height: calc( + 0px);"
+          >
+            <div
+              class="css-u1vxhg-Card"
+            >
+              <div
+                class="css-accpgg-Modal"
+              >
+                header
+              </div>
+            </div>
+            <div>
+              test
+            </div>
+            <div
+              class="css-1tdomna-Card"
+            >
+              footer
+            </div>
+          </div>
+          <div
+            style="position: absolute; height: 6px; display: none; right: 2px; bottom: 2px; left: 2px; border-radius: 3px;"
+          >
+            <div
+              style="position: relative; display: block; height: 100%; cursor: pointer; border-radius: inherit; background-color: rgba(0, 0, 0, 0.2);"
+            />
+          </div>
+          <div
+            style="position: absolute; width: 6px; display: none; right: 2px; bottom: 2px; top: 2px; border-radius: 3px;"
+          >
+            <div
+              style="position: relative; display: block; width: 100%; cursor: pointer; border-radius: inherit; background-color: rgba(0, 0, 0, 0.2);"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
