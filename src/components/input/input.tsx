@@ -48,10 +48,7 @@ export const Input: React.ForwardRefExoticComponent<
     ref
   ) => {
     const [colorMode] = useColorMode();
-    const { color, hoverColor, focusColor, resetColors } = useStatusColors(
-      colorMode === 'dark',
-      variant
-    );
+    const { color, hoverColor, focusColor, resetColors } = useStatusColors(variant);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       onChange && onChange(e);

@@ -18,7 +18,7 @@ export interface TextProps {
   /** The color of the text
    * @default 'text'
    */
-  color?: keyof typeof colors;
+  color?: keyof typeof colors | 'inherit' | 'initial';
   /** The text to render */
   children: React.ReactNode;
   /** horizontal alignment of the text

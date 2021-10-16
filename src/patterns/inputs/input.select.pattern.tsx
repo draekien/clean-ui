@@ -25,6 +25,7 @@ export const SelectInput: React.FC<SelectInputProps> = ({
   required,
   enableSearch,
   multiple,
+  disabled,
 }) => {
   const [selected, setSelected] = useState(
     value ? (Array.isArray(value) ? value : [value]) : []
@@ -65,6 +66,8 @@ export const SelectInput: React.FC<SelectInputProps> = ({
             onChange={handleChange}
             enableSearch={enableSearch}
             multiple={multiple}
+            variant={variant}
+            disabled={disabled}
             fullWidth
           />
         </div>

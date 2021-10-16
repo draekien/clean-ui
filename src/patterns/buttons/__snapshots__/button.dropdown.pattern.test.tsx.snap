@@ -4,14 +4,14 @@ exports[`Dropdown button component should match snapshot 1`] = `
 <div>
   <div>
     <div
-      class="css-ie7dun-DropdownButton"
+      class="css-1rxpneb-DropdownButton"
     >
       <button
-        class="css-et8ayz-Button"
+        class="css-115rw74-Button"
         icon="expand_more"
       >
         <div
-          class="css-gfeg48-Text css-vurnku"
+          class="css-1xz4u2o-Text css-vurnku"
         >
           select
         </div>

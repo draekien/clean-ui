@@ -13,10 +13,13 @@ exports[`Datepicker pattern should match snapshot 1`] = `
           class="css-1qm0f6g-InputLabel"
         >
           <label
-            class="css-1pst1pz-Label"
             for="picker"
           >
-            datepicker
+            <div
+              class="css-14i3diu-Text css-vurnku"
+            >
+              datepicker
+            </div>
           </label>
         </div>
         <div
@@ -32,7 +35,7 @@ exports[`Datepicker pattern should match snapshot 1`] = `
             class="css-e7011r"
           >
             <button
-              class="css-hp85rj-Button"
+              class="css-1pznfqy-Button"
               icon="calendar_today"
             >
               <span

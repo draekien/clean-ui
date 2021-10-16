@@ -3,10 +3,13 @@
 exports[`Label component should match snapshot 1`] = `
 <div>
   <label
-    class="css-1pst1pz-Label"
     for="myId"
   >
-    My label
+    <div
+      class="css-14i3diu-Text css-vurnku"
+    >
+      My label
+    </div>
   </label>
 </div>
 `;

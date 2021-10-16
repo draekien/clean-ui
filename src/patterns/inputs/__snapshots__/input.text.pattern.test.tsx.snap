@@ -9,10 +9,13 @@ exports[`Text input pattern should match snapshot 1`] = `
       class="css-1qm0f6g-InputLabel"
     >
       <label
-        class="css-1pst1pz-Label"
         for="text"
       >
-        text
+        <div
+          class="css-14i3diu-Text css-vurnku"
+        >
+          text
+        </div>
       </label>
     </div>
     <div

@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import OutsideClickHandler from 'react-outside-click-handler';
 import { Transition } from 'react-transition-group';
 import { Button, Card, Input, List, Scrollable, Text } from '../..';
+import { useStatusColors } from '../../hooks/useStatusColors';
+import { StatusVariant } from '../../types/variants';
 
 export interface DropdownData {
   rows: string[];
@@ -16,6 +18,8 @@ export interface DropdownButtonProps {
   fullWidth?: boolean;
   enableSearch?: boolean;
   multiple?: boolean;
+  variant?: StatusVariant;
+  disabled?: boolean;
   onChange?: (selected: string) => void;
 }
 
@@ -42,11 +46,14 @@ export const DropdownButton: React.FC<DropdownButtonProps> = ({
   fullWidth,
   enableSearch,
   multiple,
+  variant,
+  disabled,
   onChange,
 }) => {
   const [searchValue, setSearchValue] = useState<string>('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [data, setData] = useState<DropdownData>(items);
+  const { color, hoverColor, focusColor, resetColors } = useStatusColors(variant);
 
   const handleItemClicked = (value: string) => {
     if (!multiple) {
@@ -75,6 +82,7 @@ export const DropdownButton: React.FC<DropdownButtonProps> = ({
 
   const toggleOpen = () => {
     setIsDropdownOpen(!isDropdownOpen);
+    resetColors();
   };
 
   const searchInput = enableSearch && (
@@ -133,14 +141,26 @@ export const DropdownButton: React.FC<DropdownButtonProps> = ({
         sx={{
           width: fullWidth ? '100%' : width,
           position: 'relative',
+          border: '2px solid',
+          borderColor: disabled ? 'muted' : color,
+          borderRadius: 'sm',
+          transition: 'all 300ms',
+          ':hover': {
+            borderColor: !disabled && hoverColor,
+          },
+          ':focus': {
+            borderColor: !disabled && focusColor,
+          },
         }}>
         <Button
           icon={isDropdownOpen ? 'expand_less' : 'expand_more'}
           iconPosition="right"
-          variant="link"
+          variant="text"
+          size="large"
           onClick={toggleOpen}
+          disabled={disabled}
           fullWidth>
-          <Text textAlign="left" fullWidth>
+          <Text textAlign="left" color={disabled ? 'inherit' : 'text'} fullWidth truncate>
             {getText()}
           </Text>
         </Button>

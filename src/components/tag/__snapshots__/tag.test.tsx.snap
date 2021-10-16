@@ -9,7 +9,7 @@ exports[`Tag component should match snapshot 1`] = `
       class="css-15nj5vr-Tag"
     >
       <div
-        class="css-1v9wm6q-Text css-vurnku"
+        class="css-1su31x7-Text css-vurnku"
       >
         tag
       </div>
@@ -36,7 +36,7 @@ exports[`Tag component should match snapshot when onClose is undefined 1`] = `
       class="css-15nj5vr-Tag"
     >
       <div
-        class="css-1v9wm6q-Text css-vurnku"
+        class="css-1su31x7-Text css-vurnku"
       >
         tag
       </div>

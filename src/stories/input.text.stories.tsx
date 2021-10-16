@@ -29,3 +29,13 @@ WithIcon.args = {
   type: 'email',
   required: true,
 };
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  label: 'Email',
+  inputId: 'email',
+  helpText: 'john@example.com',
+  icon: 'mail',
+  type: 'email',
+  disabled: true,
+};

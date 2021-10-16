@@ -1,6 +1,5 @@
 /** @jsxImportSource theme-ui */
 import React from 'react';
-import { useColorMode } from '@theme-ui/color-modes';
 import { InputLabel } from './input.label';
 import { StatusVariant } from '../../types/variants';
 import { useStatusColors } from '../../hooks/useStatusColors';
@@ -26,12 +25,16 @@ export const InputWrapper: React.FC<InputWrapperProps> = ({
   children,
   ...rest
 }) => {
-  const [colorMode] = useColorMode();
-  const { color } = useStatusColors(colorMode === 'dark', variant);
+  const { color, resetColors } = useStatusColors(variant);
 
   return (
-    <div sx={styles.inputWrapperCss(fullWidth)} {...rest}>
-      <InputLabel inputId={inputId} label={label} required={required} />
+    <div sx={styles.inputWrapperCss(fullWidth)} {...rest} onFocus={resetColors}>
+      <InputLabel
+        inputId={inputId}
+        label={label}
+        required={required}
+        color={color === 'b-300' ? 'text-muted' : color}
+      />
       {children}
       {helpText && <small sx={styles.helpTextCss(color)}>{helpText}</small>}
     </div>

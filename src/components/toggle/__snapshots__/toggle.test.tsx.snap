@@ -10,21 +10,24 @@ exports[`Toggle component should match snapshot 1`] = `
       type="checkbox"
     />
     <label
-      class="css-1pst1pz-Label"
       for="toggle"
     >
       <div
-        class="css-19odyxe"
+        class="css-14i3diu-Text css-vurnku"
       >
-        <span>
-          off
-        </span>
-        <button
-          class="css-faixig"
-        />
-        <span>
-          on
-        </span>
+        <div
+          class="css-19odyxe"
+        >
+          <span>
+            off
+          </span>
+          <button
+            class="css-faixig"
+          />
+          <span>
+            on
+          </span>
+        </div>
       </div>
     </label>
   </div>

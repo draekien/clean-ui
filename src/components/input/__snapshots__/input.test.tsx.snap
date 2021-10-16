@@ -37,10 +37,13 @@ exports[`Input Wrapper Component Should match snapshot 1`] = `
       class="css-1qm0f6g-InputLabel"
     >
       <label
-        class="css-1pst1pz-Label"
         for="test"
       >
-        test
+        <div
+          class="css-14i3diu-Text css-vurnku"
+        >
+          test
+        </div>
       </label>
     </div>
     <div

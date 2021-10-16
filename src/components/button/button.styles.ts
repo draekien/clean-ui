@@ -196,6 +196,8 @@ export const buttonCss = (props: ButtonCssProps): ThemeUIStyleObject => {
     css.border = 'none';
     css.boxShadow = 'none';
     css.px = 'xxs';
+    css.pl = 'xs';
+    css.pr = 'xs';
   }
 
   if (props.variant === 'link') {
