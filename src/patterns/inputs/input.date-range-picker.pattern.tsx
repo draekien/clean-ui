@@ -1,11 +1,11 @@
 /** @jsxImportSource theme-ui */
 import React, { useState, useEffect, createRef } from 'react';
-import { Button, Calendar, Card, StartOfWeek, TextInput } from '../..';
-import { Transition } from 'react-transition-group';
 import OutsideClickHandler from 'react-outside-click-handler';
-import { TextInputProps } from './input.text.pattern';
+import { Transition } from 'react-transition-group';
+import { ThemeUIStyleObject } from 'theme-ui';
+import { Button, Calendar, Card, StartOfWeek } from '../..';
 import { HorizontalAlignment } from '../../types/layouts';
-import { ThemeUIStyleObject } from '@theme-ui/css';
+import { TextInput, TextInputProps } from './input.text.pattern';
 
 const calendarTransitions: any = {
   entering: { opacity: 0 },
@@ -41,13 +41,9 @@ const getHorizontalPosition = (alignment: HorizontalAlignment) => {
 };
 
 const getMaskedDateString = (date?: Date) => {
-  if (!date || typeof date.getTime !== 'function') return '';
+  if (!date || typeof date.getTime !== 'function') return '__/__/____';
 
   return date.toLocaleDateString();
-};
-
-const isValidDateInstance = (date?: Date) => {
-  return date instanceof Date && !isNaN(date.getTime());
 };
 
 const getCleanString = (value: string) => {
@@ -98,114 +94,124 @@ const fireInputChange = (element: HTMLInputElement, value: string) => {
   element.dispatchEvent(new Event('input', { bubbles: true }));
 };
 
-export interface DatePickerInputProps extends Omit<TextInputProps, 'onChange'> {
+export interface DateRangePickerInputProps extends Omit<TextInputProps, 'onChange'> {
   startOfWeek?: StartOfWeek;
   initialMonth?: Date;
-  selectedDate?: Date;
+  dateFrom?: Date;
+  dateTo?: Date;
   calendarPosition?: HorizontalAlignment;
   onChange?: (
     e?: React.ChangeEvent<HTMLInputElement>,
     strVal?: string,
-    dateVal?: Date
+    dateVal?: Date[]
   ) => void;
 }
 
-export const DatePickerInput: React.FC<DatePickerInputProps> = ({
-  label,
-  inputId,
-  helpText,
-  onChange,
-  onFocus,
-  onBlur,
-  value = '',
+export const DateRangePickerInput: React.FC<DateRangePickerInputProps> = ({
+  startOfWeek,
   initialMonth,
-  startOfWeek = 'Sunday',
-  selectedDate,
+  dateFrom,
+  dateTo,
   calendarPosition = 'left',
+  onChange,
   ...rest
 }) => {
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
-  const [inputValue, setInputValue] = useState(
-    selectedDate
-      ? getMaskedDateString(selectedDate)
-      : getDateFromString(value)?.toLocaleDateString() || value
-  );
-  const [chosenDate, setChosenDate] = useState<Date | null>(getDateFromString(value));
+  const [inputValue, setInputValue] = useState('');
+  const [chosenDates, setChosenDates] = useState<Date[]>([]);
 
   useEffect(() => {
-    setInputValue(getDateFromString(value)?.toLocaleDateString() || value);
-    setChosenDate(getDateFromString(value));
-  }, [value]);
+    const dates: Date[] = [];
+    const dateFromStr = getMaskedDateString(dateFrom);
+    const dateToStr = getMaskedDateString(dateTo);
 
-  useEffect(() => {
-    setChosenDate(selectedDate || null);
-    if (selectedDate && isValidDateInstance(selectedDate)) {
-      setInputValue(selectedDate.toLocaleDateString());
+    if (dateFrom) {
+      dates[0] = dateFrom;
     }
-  }, [selectedDate]);
 
-  let textInputRef = createRef<HTMLInputElement>();
+    if (dateTo) {
+      dates.push(dateTo);
+    }
 
-  const handleFocused = (e: React.FocusEvent<HTMLInputElement>) => {
-    setIsCalendarOpen(false);
-    onFocus && onFocus(e);
-  };
+    setChosenDates(dates);
+    setInputValue(`${dateFromStr} - ${dateToStr}`);
+  }, [dateFrom, dateTo]);
 
-  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    setIsCalendarOpen(false);
-    onBlur && onBlur(e);
+  const handleCalendarClicked = () => {
+    setIsCalendarOpen(!isCalendarOpen);
   };
 
   const handleOutsideClicked = () => {
     setIsCalendarOpen(false);
   };
 
-  const handleCalendarClicked = () => {
-    setIsCalendarOpen(!isCalendarOpen);
-  };
+  let textInputRef = createRef<HTMLInputElement>();
 
-  const handleCalendarDateChange = (_selectedDates: Date[], newDate: Date) => {
-    const date = newDate;
-    const maskedDate = getMaskedDateString(date);
-    const validDate = getDateFromString(maskedDate)?.toLocaleDateString();
+  const handleCalendarDateChange = (selectedDates: Date[]) => {
+    let strValue = '';
 
-    setInputValue(getDateFromString(validDate)?.toLocaleDateString() || maskedDate);
-    setChosenDate(date);
-    setIsCalendarOpen(false);
+    if (selectedDates.length === 2) {
+      strValue = `${getMaskedDateString(selectedDates[0])} - ${getMaskedDateString(
+        selectedDates[1]
+      )}`;
+    } else if (selectedDates.length === 1) {
+      strValue = getMaskedDateString(selectedDates[0]);
+    } else {
+      strValue = '';
+    }
 
-    textInputRef = createRef<HTMLInputElement>();
-    if (textInputRef.current) {
-      fireInputChange(textInputRef.current, maskedDate);
-      textInputRef.current.focus();
+    setChosenDates(selectedDates);
+    setInputValue(strValue);
+
+    if (!textInputRef) {
+      textInputRef = createRef<HTMLInputElement>();
+    }
+
+    if (textInputRef.current && selectedDates.length === 2) {
+      fireInputChange(textInputRef.current, strValue);
     }
   };
 
   const handleInputDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = (e.target as HTMLInputElement).value;
-    const dateValue = getDateFromString(value);
+    const dateStrs = value.split(' - ');
 
-    const validDate = getDateFromString(value)?.toLocaleDateString();
+    const dateFrom = getDateFromString(dateStrs[0]);
+    const dateTo = getDateFromString(dateStrs[1]);
 
-    setChosenDate(dateValue);
-    setInputValue(validDate || value);
+    const validDateFrom = dateFrom?.toLocaleDateString();
+    const validDateTo = dateTo?.toLocaleDateString();
 
-    onChange && onChange(e, validDate || getCleanString(value), dateValue || undefined);
+    const strValue = `${validDateFrom || dateStrs[0] || ''} - ${
+      validDateTo || dateStrs[1] || ''
+    }`;
+
+    const dates: Date[] = [];
+
+    if (dateFrom) {
+      dates[0] = dateFrom;
+    }
+
+    if (dateTo) {
+      dates.push(dateTo);
+    }
+
+    setChosenDates(dates);
+    setInputValue(strValue);
+
+    onChange && onChange(e, getCleanString(strValue), dates || undefined);
   };
 
   return (
     <OutsideClickHandler onOutsideClick={handleOutsideClicked}>
-      <div
-        sx={{
-          position: 'relative',
-        }}>
+      <div sx={{ position: 'relative' }}>
         <TextInput
           {...rest}
-          label={label}
-          inputId={inputId}
-          helpText={helpText}
           ref={textInputRef}
-          mask="99/99/9999"
+          mask="99/99/9999 - 99/99/9999"
           maskPlaceholder="_"
+          value={inputValue}
+          onChange={handleInputDateChange}
           addon={
             <Button
               icon="calendar_today"
@@ -216,10 +222,6 @@ export const DatePickerInput: React.FC<DatePickerInputProps> = ({
               onClick={handleCalendarClicked}
             />
           }
-          value={inputValue}
-          onFocus={handleFocused}
-          onBlur={handleBlur}
-          onChange={handleInputDateChange}
         />
         <Transition appear in={isCalendarOpen} timeout={0} unmountOnExit>
           {(state) => (
@@ -242,11 +244,11 @@ export const DatePickerInput: React.FC<DatePickerInputProps> = ({
                     marginBottom: 'sm',
                   }}>
                   <Calendar
-                    value={chosenDate ? [chosenDate] : undefined}
+                    value={chosenDates}
                     initialMonth={initialMonth}
                     onDateChange={handleCalendarDateChange}
                     startOfWeek={startOfWeek}
-                    variant="Single"
+                    variant="Range"
                   />
                 </div>
               </Card>
