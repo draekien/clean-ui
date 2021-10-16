@@ -168,8 +168,9 @@ export const DropdownButton: React.FC<DropdownButtonProps> = ({
           {(state) => (
             <div
               sx={{
-                left: 0,
-                right: 0,
+                left: -2,
+                right: -2,
+                top: '115%',
                 position: 'absolute',
                 transition: 'all 100ms',
                 zIndex: 'dropdown',
