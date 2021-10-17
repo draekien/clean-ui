@@ -1,3 +1,4 @@
+// eslint-disable-next-line tsdoc/syntax
 /** @jsxImportSource theme-ui */
 import React from 'react';
 import { Scrollbars } from 'react-custom-scrollbars-2';
@@ -11,7 +12,7 @@ export interface ScrollableProps {
 
 /**
  * A pre-styled wrapper for react-custom-scrollbars-2
- * @param props the props required by the Scrollable component
+ * @param props - the props required by the Scrollable component
  * @see Scrollbars from react-custom-scrollbars-2
  * @returns the scrollable component
  */

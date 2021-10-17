@@ -1,3 +1,4 @@
+// eslint-disable-next-line tsdoc/syntax
 /** @jsxImportSource theme-ui */
 import React from 'react';
 import { Size } from '../../types/layouts';
@@ -8,15 +9,15 @@ export type SpinnerVariant = 'donut' | 'dots' | 'bars' | 'spiral';
 
 export interface SpinnerProps {
   /** the type of spinner to render
-   * @default 'donut'
+   * @defaultValue 'donut'
    */
   variant?: SpinnerVariant;
   /** the size of the spinner to render
-   * @default 'medium'
+   * @defaultValue 'medium'
    */
   size?: Size;
   /** should the spinner take up the whole page?
-   * @default false
+   * @defaultValue false
    */
   fullPage?: boolean;
 }

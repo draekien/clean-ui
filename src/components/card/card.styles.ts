@@ -6,29 +6,29 @@ import { colors } from '../theme/theme.colors';
 
 export interface CardContainerCssProps {
   /** should the card take up the full width of the parent container?
-   *  @default false
+   *  @defaultValue false
    */
   fullWidth?: boolean;
   /** the width of the card. This is overriden if fullWidth is true
-   *  @default '20em'
+   *  @defaultValue '20em'
    */
   width?: string | number | string[] | number[];
   maxHeight?: string | number;
   /** the background color of the card
-   *  @default 'background-lighter'
+   *  @defaultValue 'background-lighter'
    */
   backgroundColor?: keyof typeof colors;
   /** the border color of the card
-   *  @default 'border'
+   *  @defaultValue 'border'
    */
   borderColor?: keyof typeof colors;
   /** the layout variants of the card. This determins the amount of
    *  padding, box shadow, and border radius on the card
-   *  @default 'medium'
+   *  @defaultValue 'medium'
    */
   variant?: Size;
   /** should the card be rendered with a gradient background?
-   *  @default false
+   *  @defaultValue false
    */
   feature?: boolean;
   /** should the card render without a dropshadow? */

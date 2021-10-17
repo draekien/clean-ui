@@ -1,3 +1,4 @@
+// eslint-disable-next-line tsdoc/syntax
 /** @jsxImportSource theme-ui */
 import React from 'react';
 import * as styles from './button.styles';
@@ -17,11 +18,11 @@ export type ButtonSize = 'small' | 'medium' | 'large';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /** the type of button to render
-   * @default 'primary'
+   * @defaultValue 'primary'
    */
   variant?: ButtonVariant;
   /** the size of the rendered button
-   * @default 'medium'
+   * @defaultValue 'medium'
    */
   size?: ButtonSize;
   /** the name of the material icon to render */
@@ -30,36 +31,36 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   /** the position of the icon in the button */
   iconPosition?: 'left' | 'right';
   /** should the button render as disabled?
-   * @default false
+   * @defaultValue false
    */
   disabled?: boolean;
   /** should the button take up the full width of the parent container?
-   * @default false
+   * @defaultValue false
    */
   fullWidth?: boolean;
   /** should the button render as loading?
-   * @default false
+   * @defaultValue false
    */
   loading?: boolean;
   /** should the button render content while in the loading state?
-   * @default false
+   * @defaultValue false
    */
   showContentWhileLoading?: boolean;
   /** should the button render in the active state?
-   * @default false
+   * @defaultValue false
    */
   active?: boolean;
   /** should the button render in the featured state?
-   * @default false
+   * @defaultValue false
    */
   feature?: boolean;
   /** the spinner variant to use when loading
-   * @default 'spiral'
+   * @defaultValue 'spiral'
    */
   spinnerVariant?: SpinnerVariant;
   /** should the button be rendered as a circle?
    *  this only works when there is no button text.
-   *  @default 'false'
+   *  @defaultValue 'false'
    */
   circle?: boolean;
   onClick?: (e: React.SyntheticEvent<HTMLButtonElement, MouseEvent>) => any;

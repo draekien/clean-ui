@@ -1,3 +1,4 @@
+// eslint-disable-next-line tsdoc/syntax
 /** @jsxImportSource theme-ui */
 import { Flex } from '@theme-ui/components';
 import React from 'react';
@@ -72,15 +73,15 @@ export interface CalendarProps {
    * Range: a start and end date can be selected, with all dates in between highlighted
    * Multiple: a number of dates can be individually selected
    * Single: only one date can be selected
-   * @default 'Single'
+   * @defaultValue 'Single'
    */
   variant?: CalendarSelectMode;
   /** the maximum number of dates that can be selected
-   *  @default 10
+   *  @defaultValue 10
    */
   selectLimit?: number;
   /** the first day of the week
-   *  @default 'Sunday'
+   *  @defaultValue 'Sunday'
    */
   startOfWeek?: StartOfWeek;
   onDateChange?: (values: Date[], value: Date) => void;

@@ -1,3 +1,4 @@
+// eslint-disable-next-line tsdoc/syntax
 /** @jsxImportSource theme-ui */
 import React from 'react';
 import { Direction } from '../../types/layouts';
@@ -17,7 +18,7 @@ export interface DirectionProps {
 
 export interface ListProps extends DirectionProps {
   /** the type of list to render
-   *  @default 'unordered'
+   *  @defaultValue 'unordered'
    */
   variant?: ListVariant;
   data: ListData | ListData[];

@@ -5,7 +5,7 @@ export type Position = 'top' | 'right' | 'bottom' | 'left' | null;
 
 export interface useAutoPositionProps {
   /** the direction to position the element
-   * @default 'auto'
+   * @defaultValue 'auto'
    */
   direction: Direction;
   /** the element to position around */
@@ -15,7 +15,7 @@ export interface useAutoPositionProps {
   /** is the directional element visible */
   visible: boolean;
   /** size of the directional element
-   * @default 12
+   * @defaultValue 12
    */
   margin?: number;
 }

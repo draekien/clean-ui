@@ -1,3 +1,4 @@
+// eslint-disable-next-line tsdoc/syntax
 /** @jsxImportSource theme-ui */
 import React, { forwardRef } from 'react';
 import { InputWrapper } from '../../components/input/input.wrapper';

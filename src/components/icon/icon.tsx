@@ -1,3 +1,4 @@
+// eslint-disable-next-line tsdoc/syntax
 /** @jsxImportSource theme-ui */
 import React from 'react';
 import { Size } from '../../types/layouts';
@@ -11,11 +12,11 @@ export interface IconProps extends React.HTMLAttributes<HTMLElement> {
   /** the name of the material-icon */
   name: string;
   /** the material icon variant
-   * @default 'filled'
+   * @defaultValue 'filled'
    */
   variant?: IconVariant;
   /** the icon size
-   * @default 'medium'
+   * @defaultValue 'medium'
    */
   size?: Size;
   /** the color of the icon */

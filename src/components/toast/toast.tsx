@@ -1,3 +1,4 @@
+// eslint-disable-next-line tsdoc/syntax
 /** @jsxImportSource theme-ui */
 import React, { useState, useEffect, SyntheticEvent, MouseEventHandler } from 'react';
 import { ToastPosition } from './toast.container';

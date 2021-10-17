@@ -1,3 +1,4 @@
+// eslint-disable-next-line tsdoc/syntax
 /** @jsxImportSource theme-ui */
 import React, { forwardRef, useState, useEffect } from 'react';
 import { Label } from '../label/label';

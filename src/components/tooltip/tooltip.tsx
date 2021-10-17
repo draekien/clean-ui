@@ -1,3 +1,4 @@
+// eslint-disable-next-line tsdoc/syntax
 /** @jsxImportSource theme-ui */
 import React, { createRef, useEffect, useState } from 'react';
 import { Direction, Position, useAutoPosition } from '../../hooks/useAutoPosition';

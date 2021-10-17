@@ -1,3 +1,4 @@
+// eslint-disable-next-line tsdoc/syntax
 /** @jsxImportSource theme-ui */
 import React, { useState, useEffect, createRef } from 'react';
 import OutsideClickHandler from 'react-outside-click-handler';

@@ -14,8 +14,9 @@
     }
   },
   "ignorePatterns": ["dist/**"],
-  "plugins": ["@typescript-eslint", "react"],
+  "plugins": ["@typescript-eslint", "react", "eslint-plugin-tsdoc"],
   "rules": {
+    "tsdoc/syntax": "warn",
     "constructor-super": "error",
     "for-direction": "error",
     "getter-return": "error",

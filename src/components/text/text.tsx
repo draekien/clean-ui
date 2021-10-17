@@ -1,3 +1,4 @@
+// eslint-disable-next-line tsdoc/syntax
 /** @jsxImportSource theme-ui */
 import React from 'react';
 import { Text as ThemeUiText } from 'theme-ui';
@@ -8,21 +9,21 @@ import * as styles from './text.styles';
 
 export interface TextProps {
   /** The type of DOM element to render
-   * @default 'div'
+   * @defaultValue 'div'
    */
   as?: React.ElementType<any>;
   /** The text variant
-   * @default 'body'
+   * @defaultValue 'body'
    */
   variant?: keyof typeof textVariants;
   /** The color of the text
-   * @default 'text'
+   * @defaultValue 'text'
    */
   color?: keyof typeof colors | 'inherit' | 'initial';
   /** The text to render */
   children: React.ReactNode;
   /** horizontal alignment of the text
-   * @default 'left'
+   * @defaultValue 'left'
    */
   textAlign?: HorizontalAlignment;
   /** should text take up the full width of the parent container */
