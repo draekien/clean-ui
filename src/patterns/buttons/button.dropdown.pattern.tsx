@@ -1,4 +1,3 @@
-// eslint-disable-next-line tsdoc/syntax
 /** @jsxImportSource theme-ui */
 import React, { useState } from 'react';
 import OutsideClickHandler from 'react-outside-click-handler';

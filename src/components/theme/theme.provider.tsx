@@ -1,4 +1,3 @@
-// eslint-disable-next-line tsdoc/syntax
 /** @jsxImportSource theme-ui */
 import React, { useEffect } from 'react';
 import { ThemeProvider as ThemeUiProvider } from 'theme-ui';

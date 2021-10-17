@@ -1,4 +1,3 @@
-// eslint-disable-next-line tsdoc/syntax
 /** @jsxImportSource theme-ui */
 import React, { Fragment } from 'react';
 import { DirectionProps, ListData } from './list';

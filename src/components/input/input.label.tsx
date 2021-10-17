@@ -1,4 +1,3 @@
-// eslint-disable-next-line tsdoc/syntax
 /** @jsxImportSource theme-ui */
 import React from 'react';
 import { Text } from '../text/text';

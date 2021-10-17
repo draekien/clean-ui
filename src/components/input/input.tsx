@@ -1,4 +1,3 @@
-// eslint-disable-next-line tsdoc/syntax
 /** @jsxImportSource theme-ui */
 import { useColorMode } from '@theme-ui/color-modes';
 import React, { InputHTMLAttributes, forwardRef } from 'react';

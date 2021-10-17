@@ -1,4 +1,3 @@
-// eslint-disable-next-line tsdoc/syntax
 /** @jsxImportSource theme-ui */
 import React, { useState, useEffect, createRef } from 'react';
 import { Button, Calendar, Card, StartOfWeek, TextInput } from '../..';
