@@ -1,10 +1,12 @@
-import { ButtonSize, ButtonVariant } from './button';
+import { ButtonVariant } from './button.types';
+import { getButtonColors } from './button.utils';
 import { alpha } from '@theme-ui/color';
 import { Theme, ThemeUIStyleObject } from '@theme-ui/css';
+import { Size } from '../../types/layouts';
 
 export interface ButtonCssProps {
   variant: ButtonVariant;
-  size: ButtonSize;
+  size: Size;
   disabled: boolean;
   loading: boolean;
   fullWidth: boolean;
@@ -16,67 +18,6 @@ export interface ButtonCssProps {
   hasText?: boolean;
   circle?: boolean;
 }
-
-const getColors = (variant: ButtonVariant) => {
-  if (variant === 'secondary') {
-    return {
-      backgroundColor: 's-400',
-      borderColor: 's-400',
-      color: 'b-000',
-      hoverBackground: 's-300',
-      hoverBorder: 's-300',
-      activeBackground: 's-200',
-      activeBorder: 's-200',
-    };
-  } else if (variant === 'text') {
-    return {
-      color: 'p-400',
-      hoverColor: 'p-300',
-      activeColor: 'p-200',
-      hoverBackground: (t: Theme) => `${alpha('b-200', 0.25)(t)}`,
-      activeBackground: (t: Theme) => `${alpha('b-300', 0.25)(t)}`,
-    };
-  } else if (variant === 'link') {
-    return {
-      color: 'p-400',
-      hoverColor: 'p-300',
-      activeColor: 'p-200',
-      hoverBackground: (t: Theme) => `${alpha('b-200', 0.25)(t)}`,
-      activeBackground: (t: Theme) => `${alpha('b-300', 0.25)(t)}`,
-    };
-  } else if (variant === 'outline') {
-    return {
-      backgroundColor: 'transparent',
-      borderColor: 'p-400',
-      color: 'p-400',
-      hoverBackground: 'transparent',
-      hoverBorder: 'p-300',
-      activeBackground: 'transparent',
-      activeBorder: 'p-200',
-    };
-  } else if (variant === 'gradient') {
-    return {
-      backgroundColor: (t: Theme) =>
-        `linear-gradient(to right, ${alpha('p-400', 1)(t)} 0%, ${alpha(
-          's-400',
-          1
-        )(t)} 51%, ${alpha('p-400', 1)(t)} 100%)`,
-      borderColor: 'transparent',
-      color: 'b-000',
-    };
-  }
-
-  // default to primary
-  return {
-    backgroundColor: 'p-400',
-    borderColor: 'p-400',
-    color: 'b-000',
-    hoverBackground: 'p-300',
-    hoverBorder: 'p-300',
-    activeBackground: 'p-200',
-    activeBorder: 'p-200',
-  };
-};
 
 export const buttonCss = (props: ButtonCssProps): ThemeUIStyleObject => {
   const css: ThemeUIStyleObject = {
@@ -111,8 +52,6 @@ export const buttonCss = (props: ButtonCssProps): ThemeUIStyleObject => {
     css.textTransform = 'uppercase';
     css.letterSpacing = '0.5rem';
   }
-
-  const colors = getColors(props.variant);
 
   if (props.hasText) {
     if (props.size === 'small') {
@@ -173,6 +112,8 @@ export const buttonCss = (props: ButtonCssProps): ThemeUIStyleObject => {
     }
   }
 
+  const { normal, hover, active } = getButtonColors(props.variant);
+
   if (props.variant === 'gradient') {
     css.backgroundSize = '200% auto';
     css.border = '1px solid transparent';
@@ -187,7 +128,7 @@ export const buttonCss = (props: ButtonCssProps): ThemeUIStyleObject => {
       zIndex: -1,
       margin: -1,
       borderRadius: 'inherit',
-      backgroundImage: colors.backgroundColor,
+      backgroundImage: normal.background,
     };
   }
 
@@ -221,28 +162,28 @@ export const buttonCss = (props: ButtonCssProps): ThemeUIStyleObject => {
 
   if (!props.disabled) {
     if (props.variant === 'outline') {
-      css.backgroundColor = colors.backgroundColor;
-      css.color = colors.borderColor;
+      css.backgroundColor = normal.background;
+      css.color = normal.border;
       css.span = {
-        color: colors.borderColor,
+        color: normal.border,
         textShadow: 'text',
         transition: 'all 300ms',
       };
       css[':hover, :focus'] = {
-        color: colors.hoverBorder,
+        color: hover?.border,
         span: {
-          color: colors.hoverBorder,
+          color: hover?.border,
         },
       };
       css[':active'] = {
-        color: colors.activeBorder,
+        color: active?.border,
         span: {
-          color: colors.activeBorder,
+          color: active?.border,
         },
       };
     } else if (props.variant === 'gradient') {
-      css.backgroundImage = colors.backgroundColor;
-      css.color = colors.color;
+      css.backgroundImage = normal.background;
+      css.color = normal.content;
       css[':hover, :focus'] = {
         backgroundPosition: 'right center',
       };
@@ -250,49 +191,49 @@ export const buttonCss = (props: ButtonCssProps): ThemeUIStyleObject => {
         backgroundPosition: 'center',
       };
     } else if (props.variant === 'text') {
-      css.color = colors.color;
+      css.color = normal.content;
       css[':hover, :focus'] = {
-        backgroundColor: colors.hoverBackground,
-        color: colors.hoverColor,
+        backgroundColor: hover?.background,
+        color: hover?.content,
       };
       css[':active'] = {
-        backgroundColor: colors.activeBackground,
-        color: colors.activeColor,
+        backgroundColor: active?.background,
+        color: active?.content,
       };
     } else if (props.variant === 'link') {
-      css.color = colors.color;
+      css.color = normal.content;
       css[':hover, :focus'] = {
-        backgroundColor: colors.hoverBackground,
+        backgroundColor: hover?.background,
         [':before']: {
-          backgroundColor: colors.hoverColor,
+          backgroundColor: hover?.content,
         },
       };
       css[':active'] = {
-        backgroundColor: colors.activeBackground,
+        backgroundColor: active?.background,
         [':before']: {
-          backgroundColor: colors.activeColor,
+          backgroundColor: active?.content,
         },
       };
     } else {
-      css.backgroundColor = colors.backgroundColor;
-      css.borderColor = colors.borderColor;
-      css.color = colors.color;
+      css.backgroundColor = normal.background;
+      css.borderColor = normal.border;
+      css.color = normal.content;
       css.span = {
-        color: colors.color,
+        color: normal.content,
       };
       css[':hover, :focus'] = {
-        backgroundColor: colors.hoverBackground,
-        borderColor: colors.hoverBorder,
+        backgroundColor: hover?.background,
+        borderColor: hover?.border,
       };
       css[':active'] = {
-        backgroundColor: colors.activeBackground,
-        borderColor: colors.activeBorder,
+        backgroundColor: active?.background,
+        borderColor: active?.border,
       };
     }
 
     if (props.active && props.variant !== 'gradient') {
-      css.backgroundColor = colors.activeBackground;
-      css.borderColor = colors.activeBackground;
+      css.backgroundColor = active?.background;
+      css.borderColor = active?.background;
     } else if (props.active && props.variant === 'gradient') {
       css.backgroundPosition = 'center';
     }

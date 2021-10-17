@@ -35,7 +35,7 @@ exports[`The select input pattern Should match snapshot when mode is multiple 1`
               1 item
             </div>
             <span
-              class="css-adssye"
+              class="css-lh6qdg-ButtonIcon"
             >
               <i
                 class="material-icons  css-y0j37o-Icon"
@@ -112,7 +112,7 @@ exports[`The select input pattern Should match snapshot when mode is single 1`] 
               Travis Willingham
             </div>
             <span
-              class="css-adssye"
+              class="css-lh6qdg-ButtonIcon"
             >
               <i
                 class="material-icons  css-y0j37o-Icon"

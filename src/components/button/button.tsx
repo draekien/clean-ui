@@ -1,21 +1,15 @@
 /** @jsxImportSource theme-ui */
-import React from 'react';
+import { ButtonHTMLAttributes, FC, SyntheticEvent } from 'react';
 import * as styles from './button.styles';
 import { useDynamicIcon } from './button.fx';
-import { Spinner, SpinnerVariant } from '../spinner/spinner';
-import { Icon } from '../icon/icon';
+import { ButtonIcon } from './button.icon';
+import { ButtonSpinner } from './button.spinner';
+import { ButtonVariant } from './button.types';
+import { SpinnerVariant } from '../spinner/spinner';
 import { Size } from '../../types/layouts';
 
-export type ButtonVariant =
-  | 'primary'
-  | 'secondary'
-  | 'outline'
-  | 'gradient'
-  | 'text'
-  | 'link';
-export type ButtonSize = 'small' | 'medium' | 'large';
-
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+/** The props required to render a button component. */
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** the type of button to render
    * @defaultValue 'primary'
    */
@@ -23,7 +17,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   /** the size of the rendered button
    * @defaultValue 'medium'
    */
-  size?: ButtonSize;
+  size?: Size;
   /** the name of the material icon to render */
   icon?: string;
   iconSize?: Size;
@@ -62,10 +56,10 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
    *  @defaultValue 'false'
    */
   circle?: boolean;
-  onClick?: (e: React.SyntheticEvent<HTMLButtonElement, MouseEvent>) => any;
+  onClick?: (e: SyntheticEvent<HTMLButtonElement, MouseEvent>) => any;
 }
 
-export const Button: React.FC<ButtonProps> = ({
+export const Button: FC<ButtonProps> = ({
   variant = 'primary',
   size = 'medium',
   disabled = false,
@@ -82,30 +76,6 @@ export const Button: React.FC<ButtonProps> = ({
   ...rest
 }: ButtonProps) => {
   const { icon } = useDynamicIcon(rest.icon);
-
-  const renderSpacedIcon = (renderPosition: 'left' | 'right') => {
-    if (!icon) return null;
-    if (loading) return null;
-    if (renderPosition !== iconPosition) return null;
-
-    return (
-      <span sx={styles.iconWrapperCss(renderPosition, !!children)}>
-        <Icon name={icon} size={iconSize} />
-      </span>
-    );
-  };
-
-  const renderSpacedSpinner = (renderPosition: 'left' | 'right') => {
-    if (!loading) return null;
-    if (renderPosition !== iconPosition && iconPosition) return null;
-    if (!iconPosition && renderPosition === 'left') return null;
-
-    return (
-      <span sx={styles.iconWrapperCss(renderPosition, !!showContentWhileLoading)}>
-        <Spinner variant={spinnerVariant} size={iconSize} />
-      </span>
-    );
-  };
 
   const isDisabledOrLoading = disabled || loading;
 
@@ -127,11 +97,39 @@ export const Button: React.FC<ButtonProps> = ({
       })}
       disabled={isDisabledOrLoading}
       {...rest}>
-      {renderSpacedSpinner('left')}
-      {renderSpacedIcon('left')}
+      <ButtonSpinner
+        variant={spinnerVariant}
+        size={iconSize}
+        loading={loading}
+        position="left"
+        renderPosition={iconPosition}
+        showContentWhileLoading={showContentWhileLoading}
+      />
+      <ButtonIcon
+        name={icon}
+        size={iconSize}
+        position="left"
+        renderPosition={iconPosition}
+        loading={loading}
+        buttonHasChildren={!!children}
+      />
       {(!loading || showContentWhileLoading) && children}
-      {renderSpacedIcon('right')}
-      {renderSpacedSpinner('right')}
+      <ButtonIcon
+        name={icon}
+        size={iconSize}
+        position="right"
+        renderPosition={iconPosition}
+        loading={loading}
+        buttonHasChildren={!!children}
+      />
+      <ButtonSpinner
+        variant={spinnerVariant}
+        size={iconSize}
+        loading={loading}
+        position="right"
+        renderPosition={iconPosition}
+        showContentWhileLoading={showContentWhileLoading}
+      />
     </button>
   );
 };

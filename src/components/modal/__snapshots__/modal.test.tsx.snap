@@ -218,7 +218,7 @@ exports[`Modal component should match snapshot when showCloseButton is true 1`] 
                   icon="close"
                 >
                   <span
-                    class="css-1geq0g0"
+                    class="css-zohjwb-ButtonIcon"
                   >
                     <i
                       class="material-icons  css-y0j37o-Icon"

@@ -39,7 +39,7 @@ exports[`Datepicker pattern should match snapshot 1`] = `
               icon="calendar_today"
             >
               <span
-                class="css-1geq0g0"
+                class="css-zohjwb-ButtonIcon"
               >
                 <i
                   class="material-icons  css-zif8ik-Icon"
