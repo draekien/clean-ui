@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox component should match snapshot 1`] = `
+<div>
+  <button
+    class="css-1ca21km-Checkbox"
+  />
+</div>
+`;
+
+exports[`Checkbox component should match snapshot when checked 1`] = `
+<div>
+  <button
+    class="css-zy4xe3-Checkbox"
+  />
+</div>
+`;
+
+exports[`Checkbox component should match snapshot when disabled 1`] = `
+<div>
+  <button
+    class="css-jqmbgc-Checkbox"
+    disabled=""
+  />
+</div>
+`;
