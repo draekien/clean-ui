@@ -168,7 +168,7 @@ describe('Button Component', () => {
         const styles = window.getComputedStyle(
           container.querySelector('button') as Element
         );
-        expect(styles.padding).toBe('0.25rem');
+        expect(styles.padding).toBe('0.25rem 0.25rem 0.25rem 0.25rem');
       });
 
       it('Should render with correct styles with size is medium', () => {
@@ -177,7 +177,7 @@ describe('Button Component', () => {
         const styles = window.getComputedStyle(
           container.querySelector('button') as Element
         );
-        expect(styles.padding).toBe('0.5rem');
+        expect(styles.padding).toBe('0.5rem 0.5rem 0.5rem 0.5rem');
       });
 
       it('Should render with correct styles with size is large', () => {
@@ -186,7 +186,7 @@ describe('Button Component', () => {
         const styles = window.getComputedStyle(
           container.querySelector('button') as Element
         );
-        expect(styles.padding).toBe('0.75rem');
+        expect(styles.padding).toBe('0.75rem 0.75rem 0.75rem 0.75rem');
       });
     });
 

@@ -1,5 +1,9 @@
 import { ButtonVariant } from './button.types';
-import { getButtonColors } from './button.utils';
+import {
+  getButtonColors,
+  getButtonPadding,
+  getButtonWithIconPadding,
+} from './button.utils';
 import { alpha } from '@theme-ui/color';
 import { Theme, ThemeUIStyleObject } from '@theme-ui/css';
 import { Size } from '../../types/layouts';
@@ -53,63 +57,23 @@ export const buttonCss = (props: ButtonCssProps): ThemeUIStyleObject => {
     css.letterSpacing = '0.5rem';
   }
 
-  if (props.hasText) {
-    if (props.size === 'small') {
-      css.px = 'md';
-      css.py = 'xxs';
-    } else if (props.size === 'large') {
-      css.py = 'xs';
-      css.px = 'xxl';
-    } else {
-      css.py = 'xxs';
-      css.px = 'xl';
-    }
-  } else {
-    if (props.size === 'small') {
-      css.p = 'xxs';
-    } else if (props.size === 'large') {
-      css.p = 'sm';
-    } else {
-      css.p = 'xs';
-    }
+  const { px, py } = getButtonPadding(props.size, !!props.hasText);
 
-    if (props.circle) {
-      css.borderRadius = 'max';
-    }
+  css.px = px;
+  css.py = py;
+
+  if (!props.hasText && props.circle) {
+    css.borderRadius = 'max';
   }
 
-  if ((!props.loading || props.showContentWhileLoading) && props.hasText) {
-    if (props.iconPosition === 'left') {
-      switch (props.size) {
-        case 'small':
-          css.pl = 'xs';
-          css.pr = 'sm';
-          break;
-        case 'medium':
-          css.pl = 'sm';
-          css.pr = 'md';
-          break;
-        default:
-          css.pl = 'md';
-          css.pr = 'lg';
-          break;
-      }
-    } else if (props.iconPosition === 'right') {
-      switch (props.size) {
-        case 'small':
-          css.pl = 'sm';
-          css.pr = 'xs';
-          break;
-        case 'medium':
-          css.pl = 'md';
-          css.pr = 'sm';
-          break;
-        default:
-          css.pl = 'lg';
-          css.pr = 'md';
-          break;
-      }
-    }
+  if (
+    (!props.loading || props.showContentWhileLoading) &&
+    props.hasText &&
+    props.iconPosition
+  ) {
+    const { pl, pr } = getButtonWithIconPadding(props.size, props.iconPosition);
+    css.pl = pl;
+    css.pr = pr;
   }
 
   const { normal, hover, active } = getButtonColors(props.variant);

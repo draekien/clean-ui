@@ -26,7 +26,7 @@ exports[`The select input pattern Should match snapshot when mode is multiple 1`
           class="css-1qnoh1k-DropdownButton"
         >
           <button
-            class="css-115rw74-Button"
+            class="css-3iue9s-Button"
             icon="expand_more"
           >
             <div
@@ -103,7 +103,7 @@ exports[`The select input pattern Should match snapshot when mode is single 1`] 
           class="css-1qnoh1k-DropdownButton"
         >
           <button
-            class="css-115rw74-Button"
+            class="css-3iue9s-Button"
             icon="expand_more"
           >
             <div

@@ -35,7 +35,7 @@ exports[`Date range picker pattern should match snapshot 1`] = `
             class="css-e7011r"
           >
             <button
-              class="css-1pznfqy-Button"
+              class="css-1ipglsu-Button"
               icon="calendar_today"
             >
               <span

@@ -214,7 +214,7 @@ exports[`Modal component should match snapshot when showCloseButton is true 1`] 
                 class="css-accpgg-Modal"
               >
                 <button
-                  class="css-1pznfqy-Button"
+                  class="css-1ipglsu-Button"
                   icon="close"
                 >
                   <span
